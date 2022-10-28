@@ -24,7 +24,7 @@
             <Image
                 Margin="17,4,4,4"
                 HorizontalAlignment="Left"
-                Source="/Images/" />
+                Source="/Images/User_Vector.png" />
             <TextBox
                 x:Name="TxtUser"
                 Width="295"

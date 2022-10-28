@@ -4,14 +4,63 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrestamosWPF.Views"
+        xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
         xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
-        mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800"
-        ShowInTaskbar="True">
+        mc:Ignorable="d" Height="648" Width="1152"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    <Border>
+    <Border
+        Background="White"
+        CornerRadius="50">
+        <DockPanel>
+            <DockPanel
+            HorizontalAlignment="Left">
+                <Border
+                    Margin="-1,-1,0,-1"
+                    Background="#1e355e"
+                    CornerRadius="50">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="1"/>
+                    </Border.Effect>
+                    <StackPanel
+                    Orientation="Vertical"
+                    Width="150"/>
+                </Border>
+            </DockPanel>
+            <DockPanel Width="auto">
+                <DockPanel DockPanel.Dock="Top">
+                    <StackPanel
+                        Margin="35,0,0,0"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            x:Name="txtNombreApartado"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"
+                            Foreground="#31579d"      
+                            Text="NOMBRE DEL APARTADO" FontFamily="Roboto Mono" FontSize="20" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                        <customControls:btnClose
+                            Margin="0,10,5,10"/>
+                        <customControls:btnMinimize 
+                            Margin="0,10,30,10"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel
+                    Margin="10,0,10,10"
+                    x:Name="dockChilds"
+                    Background="LightCyan">
 
+
+                </DockPanel>
+            </DockPanel>
+        </DockPanel>
     </Border>
 </Window>
