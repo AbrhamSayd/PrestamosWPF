@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace PrestamosWPF.ViewModel
+namespace PrestamosWPF.ViewModels
 {
     public class ViewModelCommand : ICommand
     {

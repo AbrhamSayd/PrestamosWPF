@@ -7,7 +7,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Windows.Input;
 
-namespace PrestamosWPF.ViewModel
+namespace PrestamosWPF.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
@@ -16,7 +16,7 @@ namespace PrestamosWPF.ViewModel
         private SecureString _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
-        //ada
+
         private IUserRepository userRepository; // interface de usuario
 
         //Properties

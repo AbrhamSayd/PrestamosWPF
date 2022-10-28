@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;//Permite de la base da dtos con c#
 using PrestamosWPF.Models;
+using System;
+using System.Collections.Generic;
+using System.Net;
 
 namespace PrestamosWPF.Repositories;
 
@@ -16,7 +13,7 @@ public class UserRepository : RepositoryBase, IUserRepository
         throw new NotImplementedException();
     }
 
-
+    
     public bool AuthenticateUser(NetworkCredential credential)
     {
         bool validUser;
@@ -56,7 +53,7 @@ public class UserRepository : RepositoryBase, IUserRepository
         using var command = new MySqlCommand();
         connection.Open();
         command.Connection = connection;
-        command.CommandText = "select * from user where username=@username";
+        command.CommandText = "select * from users where username=@username";
         command.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
         using (var reader = command.ExecuteReader())
         {

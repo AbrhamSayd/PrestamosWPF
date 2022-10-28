@@ -11,20 +11,17 @@ namespace PrestamosWPF.Repositories
     {
         private readonly string _connectionString;
 
-
         public RepositoryBase()
         {
             string server, database, uid, password;
             server = "localhost";//ip
             database = "itsppprestamosdb";
             uid = "root";
-            password = "Papasito29.";
+            password = "password";
             _connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-            
-
         }
 
-        protected MySqlConnection GetConnection()
+        public MySqlConnection GetConnection()
         {
             return new MySqlConnection(_connectionString);
         }

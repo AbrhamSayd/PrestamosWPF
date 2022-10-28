@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace PrestamosWPF.Models
 {
-    public class UserModel
+    public class UserAccountModel
     {
-        public string? Id { get; set; }
         public string? Username { get; set; }
-        public string? Password { get; set; }
-        public string? Name { get; set; }
-        public string? LastName { get; set; }
+        public string? DisplayName { get; set; }
+        public byte[] ProfilePicture { get; set; }
     }
 }

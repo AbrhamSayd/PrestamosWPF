@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrestamosWPF.ViewModel
+namespace PrestamosWPF.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
@@ -14,8 +14,6 @@ namespace PrestamosWPF.ViewModel
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            //cal
-            //cadwa
         }
     }
 }
