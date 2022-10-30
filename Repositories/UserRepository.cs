@@ -26,7 +26,7 @@ public class UserRepository : RepositoryBase, IUserRepository
             command.Parameters.Add("@carrera", MySqlDbType.VarChar).Value = userModel.Carrera;
             command.Parameters.Add("@tipo_de_empleado", MySqlDbType.VarChar).Value = userModel.TipoEmpleado;
             command.Parameters.Add("@area", MySqlDbType.VarChar).Value = userModel.Area;
-            
+            command.ExecuteScalar();
         }
     }
 
@@ -50,7 +50,25 @@ public class UserRepository : RepositoryBase, IUserRepository
 
     public void Edit(UserModel userModel)
     {
-        throw new NotImplementedException();
+        bool isExist = false;
+        using var connection = GetConnection();
+        using (var command = new MySqlCommand())
+        {
+            //(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (@id, @first_name, @last_name, @username, @password,@carrera, @tipo_de_empleado, @area)
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "UPDATE users SET id_user=@id, first_name=@first_name, last_name=@last_name, username=@username, password=@password, carrera=@carrera, tipo_de_empleado=@tipo_de_empleado,area=@area WHERE id_user=@id";
+            command.Parameters.Add("@id", MySqlDbType.Int64).Value = userModel.Id;
+            command.Parameters.Add("@first_name", MySqlDbType.VarChar).Value = userModel.FirstName;
+            command.Parameters.Add("@last_name", MySqlDbType.VarChar).Value = userModel.LastName;
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = userModel.Username;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = userModel.Password;
+            command.Parameters.Add("@carrera", MySqlDbType.VarChar).Value = userModel.Carrera;
+            command.Parameters.Add("@tipo_de_empleado", MySqlDbType.VarChar).Value = userModel.TipoEmpleado;
+            command.Parameters.Add("@area", MySqlDbType.VarChar).Value = userModel.Area;
+            
+            command.ExecuteScalar();
+        }
     }
 
     public IEnumerable<UserModel> GetByAll()

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PrestamosWPF.Models;
 
 namespace PrestamosWPF.Views
 {
@@ -32,6 +33,12 @@ namespace PrestamosWPF.Views
         private void DataTemplateSelector_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+            
         }
     }
 }

@@ -1,146 +1,129 @@
-﻿<Window x:Class="PrestamosWPF.Views.MainView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        xmlns:local="clr-namespace:PrestamosWPF.Views"
-        xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
-        xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
-        mc:Ignorable="d" Height="648" Width="1152"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        AllowsTransparency="True"
-        Background="Transparent">
+﻿<Window
+    x:Class="PrestamosWPF.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+    xmlns:local="clr-namespace:PrestamosWPF.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
+    Width="1152"
+    Height="648"
+    AllowsTransparency="True"
+    Background="Transparent"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
     <Window.DataContext>
-        <viewModel:MainViewModel/>
+        <viewModel:MainViewModel />
     </Window.DataContext>
-    <Border
-        Background="White"
-        CornerRadius="50">
+    <Border Background="White" CornerRadius="50">
         <DockPanel>
-            <DockPanel
-            HorizontalAlignment="Left">
+            <DockPanel HorizontalAlignment="Left">
                 <Border
                     Margin="-1,-1,0,-1"
                     Background="#1e355e"
                     CornerRadius="50">
                     <Border.Effect>
-                        <DropShadowEffect BlurRadius="20" ShadowDepth="1"/>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="1" />
                     </Border.Effect>
                     <Grid>
-                        <StackPanel
-                    Orientation="Vertical"
-                    Width="150">
+                        <StackPanel Width="150" Orientation="Vertical">
 
-                            <Image
-                           Margin="20"
-                           Source="/Images/logo-tecnm-2018_white.png" />
+                            <Image Margin="20" Source="/Images/logo-tecnm-2018_white.png" />
 
-                            <!--BOTON PRESTAMOS-->
-                            <customControls:btnLateralTemplate
-                                Margin="0,20,0,0">
-                                <DockPanel
-                                Margin="15,0,0,0">
+                            <!--  BOTON PRESTAMOS  -->
+                            <customControls:btnLateralTemplate Margin="0,20,0,0">
+                                <DockPanel Margin="15,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
-                                    Foreground="White"
-                                    Icon="StickyNote"/>
+                                        Foreground="White"
+                                        Icon="StickyNote" />
                                     <TextBlock
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right"
-                                Text="Prestamos"
-                                Foreground="White"
-                                Margin="0,0,35,0"/>
+                                        Margin="0,0,35,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="Prestamos" />
                                 </DockPanel>
                             </customControls:btnLateralTemplate>
 
-                            <!--BOTON HERRAMIENTAS-->
-                            <customControls:btnLateralTemplate
-                                Margin="0,20,0,0">
-                                <DockPanel
-                                Margin="15,0,0,0">
+                            <!--  BOTON HERRAMIENTAS  -->
+                            <customControls:btnLateralTemplate Margin="0,20,0,0">
+                                <DockPanel Margin="15,0,0,0">
                                     <fa:IconImage
-                                    DockPanel.Dock="Left"
-                                    Foreground="White"
-                                    Icon="Toolbox"/>
+                                        DockPanel.Dock="Left"
+                                        Foreground="White"
+                                        Icon="Toolbox" />
                                     <TextBlock
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right"
-                                Text="Herramientas"
-                                Foreground="White"
-                                Margin="0,0,20,0"/>
+                                        Margin="0,0,20,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="Herramientas" />
                                 </DockPanel>
                             </customControls:btnLateralTemplate>
 
-                            <!--BOTON LABORATORIOS-->
-                            <customControls:btnLateralTemplate
-                                Margin="0,20,0,0">
-                                <DockPanel
-                                Margin="20,0,0,0">
+                            <!--  BOTON LABORATORIOS  -->
+                            <customControls:btnLateralTemplate Margin="0,20,0,0">
+                                <DockPanel Margin="20,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
-                                    Foreground="White"
-                                    Icon="Building"/>
+                                        Foreground="White"
+                                        Icon="Building" />
                                     <TextBlock
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right"
-                                Text="Laboratorios"
-                                Foreground="White"
-                                Margin="0,0,22,0"/>
+                                        Margin="0,0,22,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="Laboratorios" />
                                 </DockPanel>
                             </customControls:btnLateralTemplate>
 
-                            <!--BOTON LABORATORISTAS-->
-                            <customControls:btnLateralTemplate
-                                Margin="0,20,0,0">
-                                <DockPanel
-                                Margin="15,0,0,0">
+                            <!--  BOTON LABORATORISTAS  -->
+                            <customControls:btnLateralTemplate Margin="0,20,0,0">
+                                <DockPanel Margin="15,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
-                                    Foreground="White"
-                                    Icon="Users"/>
+                                        Foreground="White"
+                                        Icon="Users" />
                                     <TextBlock
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right"
-                                Text="Laboratoristas"
-                                Foreground="White"
-                                Margin="0,0,12,0"/>
+                                        Margin="0,0,12,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="Laboratoristas" />
                                 </DockPanel>
                             </customControls:btnLateralTemplate>
                         </StackPanel>
-                        
-                        <StackPanel
-                            VerticalAlignment="Bottom">
-                            <!--BOTON CUENTAS-->
-                            <customControls:btnLateralTemplate
-                                Margin="0,0,0,20">
-                                <DockPanel
-                                Margin="15,0,0,0">
-                                    <fa:IconImage 
+
+                        <StackPanel VerticalAlignment="Bottom">
+                            <!--  BOTON CUENTAS  -->
+                            <customControls:btnLateralTemplate Margin="0,0,0,20">
+                                <DockPanel Margin="15,0,0,0">
+                                    <fa:IconImage
                                         DockPanel.Dock="Left"
-                                    Foreground="White"
-                                    Icon="UserCircle"/>
+                                        Foreground="White"
+                                        Icon="UserCircle" />
                                     <TextBlock
-                                VerticalAlignment="Center"
-                                Text="Cuentas"
-                                Foreground="White"
-                                Margin="10,0,0,0"/>
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="Cuentas" />
                                 </DockPanel>
                             </customControls:btnLateralTemplate>
 
-                            <!--BOTON Salir-->
+                            <!--  BOTON Salir  -->
                             <customControls:btnLateralTemplate
-                                Margin="0,0,0,25"
                                 MaxHeight="30"
-                                HorizontalContentAlignment="Center"
-                                >
-                                <DockPanel
-                                Margin="0,0,0,0">
+                                Margin="0,0,0,25"
+                                HorizontalContentAlignment="Center">
+                                <DockPanel Margin="0,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
-                                    Foreground="White"
-                                    Icon="ArrowRightToBracket"/>
+                                        Foreground="White"
+                                        Icon="ArrowRightToBracket" />
                                 </DockPanel>
                             </customControls:btnLateralTemplate>
                         </StackPanel>
@@ -148,39 +131,89 @@
                 </Border>
             </DockPanel>
             <DockPanel Width="auto">
-                <!--TOP PANEL-->
+                <!--  TOP PANEL  -->
                 <DockPanel DockPanel.Dock="Top">
-                    <StackPanel
-                        Margin="35,0,0,0"
-                        VerticalAlignment="Center">
+                    <StackPanel Margin="35,0,0,0" VerticalAlignment="Center">
                         <TextBlock
                             x:Name="txtNombreApartado"
+                            FontFamily="Roboto Mono"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Foreground="#31579d"
+                            Text="NOMBRE DEL APARTADO"
                             TextAlignment="Center"
-                            TextWrapping="Wrap"
-                            Foreground="#31579d"      
-                            Text="NOMBRE DEL APARTADO" FontFamily="Roboto Mono" FontSize="20" FontWeight="SemiBold"/>
+                            TextWrapping="Wrap" />
                     </StackPanel>
-                    <StackPanel
-                        HorizontalAlignment="Right"
-                        Orientation="Horizontal">
-                        <customControls:btnClose
-                            Margin="0,10,5,10"/>
-                        <customControls:btnMinimize 
-                            Margin="0,10,30,10"/>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <customControls:btnClose Margin="0,10,5,10" />
+                        <customControls:btnMinimize Margin="0,10,30,10" />
                     </StackPanel>
                 </DockPanel>
-                
-                <!--DOCKPANEL CONTENT-->
-                <DockPanel
+
+                <!--  DOCKPANEL CONTENT  -->
+                <StackPanel
+                    x:Name="DockChilds"
                     Margin="10,0,10,10"
-                    x:Name="dockChilds"
                     Background="LightCyan">
-                </DockPanel>
-                
-                
-                
-                
-                
+
+                    <TextBox Text="{Binding Id, Mode=TwoWay}" />
+                    <TextBox Text="{Binding FirstName, Mode=TwoWay}" />
+                    <TextBox Text="{Binding LastName, Mode=TwoWay}" />
+                    <TextBox Text="{Binding Username, Mode=TwoWay}" />
+                    <TextBox Text="{Binding Password, Mode=TwoWay}" />
+                    <TextBox Text="{Binding Carrera, Mode=TwoWay}" />
+                    <TextBox Text="{Binding TipoEmpleado, Mode=TwoWay}" />
+                    <TextBox Text="{Binding Area, Mode=TwoWay}" />
+                    <TextBox Margin="0,30,0,0" Text="{Binding IdSelector, Mode=TwoWay}" />
+
+                    <Button
+                        x:Name="btnLogin"
+                        Width="156"
+                        Margin="0,0,0,20"
+                        BorderThickness="0"
+                        Command="{Binding updateCommand}"
+                        Content="Siguiente"
+                        Cursor="Hand"
+                        FontFamily="{StaticResource SFUIDisplay}"
+                        FontSize="24"
+                        Foreground="Gray" />
+
+                    <Button
+                        x:Name="btnLogin2"
+                        Width="156"
+                        Margin="0,0,0,20"
+                        BorderThickness="0"
+                        Command="{Binding GetUsersByUsernameCommand}"
+                        Content="popular"
+                        Cursor="Hand"
+                        FontFamily="{StaticResource SFUIDisplay}"
+                        FontSize="24"
+                        Foreground="Gray" />
+
+                    <Button
+                        x:Name="btnUpdate"
+                        Width="156"
+                        Margin="0,0,0,0"
+                        BorderThickness="0"
+                        Command="{Binding updateCommand}"
+                        Content="update"
+                        Cursor="Hand"
+                        FontFamily="{StaticResource SFUIDisplay}"
+                        FontSize="24"
+                        Foreground="Gray" />
+
+
+
+
+
+
+                </StackPanel>
+
+
+
+
+
+
             </DockPanel>
         </DockPanel>
     </Border>
