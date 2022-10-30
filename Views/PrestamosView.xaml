@@ -15,19 +15,15 @@
         MaxWidth="983"
         MaxHeight="600">
     <Window.DataContext>
-        <viewModel:PrestamosViewModel/>
+        <viewModel:PrestamosViewModel />
     </Window.DataContext>
 
     <Grid
         Background="Transparent"
         Height="{Binding ElementName=DockChilds, Path=ActualHeight}">
         <StackPanel Orientation="Vertical">
-            <StackPanel
-            Orientation="Horizontal">
-                <customControls:btnCardViewTemplate
-                    x:Name="btnAgregarRegistro"
-                    Margin="20">
-                </customControls:btnCardViewTemplate>
+            <StackPanel Orientation="Horizontal">
+                <customControls:btnCardViewTemplate x:Name="btnAgregarRegistro" Margin="20" />
             </StackPanel>
             <Border Margin="0,0,10,0">
                 <ScrollViewer
