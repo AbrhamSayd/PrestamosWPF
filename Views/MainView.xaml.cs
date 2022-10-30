@@ -28,5 +28,10 @@ namespace PrestamosWPF.Views
         {
 
         }
+
+        private void DataTemplateSelector_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

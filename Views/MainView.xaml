@@ -38,115 +38,111 @@
                            Source="/Images/logo-tecnm-2018_white.png" />
 
                             <!--BOTON PRESTAMOS-->
-                            <Button
-                            Background="Transparent"
-                            Margin="0,20,0,0"
-                            MaxHeight="30"
-                            HorizontalContentAlignment="Left">
-                                <StackPanel
-                                Orientation="Horizontal"
+                            <customControls:btnLateralTemplate
+                                Margin="0,20,0,0">
+                                <DockPanel
                                 Margin="15,0,0,0">
-                                    <fa:IconImage 
+                                    <fa:IconImage
+                                        DockPanel.Dock="Left"
                                     Foreground="White"
-                                    Icon="List"/>
+                                    Icon="StickyNote"/>
                                     <TextBlock
                                 VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
                                 Text="Prestamos"
                                 Foreground="White"
-                                Margin="10,0,0,0"/>
-                                </StackPanel>
-                            </Button>
+                                Margin="0,0,35,0"/>
+                                </DockPanel>
+                            </customControls:btnLateralTemplate>
 
-                            <!--BOTON Herramientas-->
-                            <Button
-                            Background="Transparent"
-                            Margin="0,20,0,0"
-                            MaxHeight="30"
-                            HorizontalContentAlignment="Left">
-                                <StackPanel
-                                Orientation="Horizontal"
+                            <!--BOTON HERRAMIENTAS-->
+                            <customControls:btnLateralTemplate
+                                Margin="0,20,0,0">
+                                <DockPanel
                                 Margin="15,0,0,0">
-                                    <fa:IconImage 
+                                    <fa:IconImage
+                                    DockPanel.Dock="Left"
                                     Foreground="White"
-                                    Icon="List"/>
+                                    Icon="Toolbox"/>
                                     <TextBlock
                                 VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
                                 Text="Herramientas"
                                 Foreground="White"
-                                Margin="10,0,0,0"/>
-                                </StackPanel>
-                            </Button>
+                                Margin="0,0,20,0"/>
+                                </DockPanel>
+                            </customControls:btnLateralTemplate>
 
                             <!--BOTON LABORATORIOS-->
-                            <Button
-                            Background="Transparent"
-                            Margin="0,20,0,0"
-                            MaxHeight="30"
-                           HorizontalContentAlignment="Left">
-                                <StackPanel
-                                Orientation="Horizontal"
-                                Margin="15,0,0,0">
-                                    <fa:IconImage 
+                            <customControls:btnLateralTemplate
+                                Margin="0,20,0,0">
+                                <DockPanel
+                                Margin="20,0,0,0">
+                                    <fa:IconImage
+                                        DockPanel.Dock="Left"
                                     Foreground="White"
-                                    Icon="List"/>
+                                    Icon="Building"/>
                                     <TextBlock
                                 VerticalAlignment="Center"
-                                Text="Herramientas"
+                                HorizontalAlignment="Right"
+                                Text="Laboratorios"
                                 Foreground="White"
-                                Margin="10,0,0,0"/>
-                                </StackPanel>
-                            </Button>
+                                Margin="0,0,22,0"/>
+                                </DockPanel>
+                            </customControls:btnLateralTemplate>
 
                             <!--BOTON LABORATORISTAS-->
-                            <Button
-                            Background="Transparent"
-                            Margin="0,20,0,0"
-                            MaxHeight="30"
-                           HorizontalContentAlignment="Left">
-                                <StackPanel
-                                Orientation="Horizontal"
+                            <customControls:btnLateralTemplate
+                                Margin="0,20,0,0">
+                                <DockPanel
                                 Margin="15,0,0,0">
-                                    <fa:IconImage 
+                                    <fa:IconImage
+                                        DockPanel.Dock="Left"
                                     Foreground="White"
-                                    Icon="List"/>
+                                    Icon="Users"/>
                                     <TextBlock
                                 VerticalAlignment="Center"
-                                Text="Herramientas"
+                                HorizontalAlignment="Right"
+                                Text="Laboratoristas"
                                 Foreground="White"
-                                Margin="10,0,0,0"/>
-                                </StackPanel>
-                            </Button>
+                                Margin="0,0,12,0"/>
+                                </DockPanel>
+                            </customControls:btnLateralTemplate>
                         </StackPanel>
                         
                         <StackPanel
-                            VerticalAlignment="Bottom"
-                            Margin="0,0,0,70">
-                            <!--BOTON PRESTAMOS-->
-                            <Button
-                            Background="Transparent"
-                            Margin="0,20,0,0"
-                            MaxHeight="30"
-                            HorizontalContentAlignment="Left">
-                                <StackPanel
-                                Orientation="Horizontal"
+                            VerticalAlignment="Bottom">
+                            <!--BOTON CUENTAS-->
+                            <customControls:btnLateralTemplate
+                                Margin="0,0,0,20">
+                                <DockPanel
                                 Margin="15,0,0,0">
                                     <fa:IconImage 
+                                        DockPanel.Dock="Left"
                                     Foreground="White"
-                                    Icon="List"/>
+                                    Icon="UserCircle"/>
                                     <TextBlock
                                 VerticalAlignment="Center"
                                 Text="Cuentas"
                                 Foreground="White"
                                 Margin="10,0,0,0"/>
-                                </StackPanel>
-                            </Button>
+                                </DockPanel>
+                            </customControls:btnLateralTemplate>
 
+                            <!--BOTON Salir-->
                             <customControls:btnLateralTemplate
-                                Margin="0,20,0,0"
+                                Margin="0,0,0,25"
                                 MaxHeight="30"
-                                HorizontalContentAlignment="Left"
-                                />
-
+                                HorizontalContentAlignment="Center"
+                                >
+                                <DockPanel
+                                Margin="0,0,0,0">
+                                    <fa:IconImage
+                                        DockPanel.Dock="Left"
+                                    Foreground="White"
+                                    Icon="ArrowRightToBracket"/>
+                                </DockPanel>
+                            </customControls:btnLateralTemplate>
                         </StackPanel>
                     </Grid>
                 </Border>
