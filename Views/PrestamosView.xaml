@@ -15,7 +15,7 @@
         MaxWidth="983"
         MaxHeight="600">
     <Window.DataContext>
-        <viewModel:PrestamosViewModel/>
+        <viewModel:PrestamosViewModel />
     </Window.DataContext>
 
     <Border 

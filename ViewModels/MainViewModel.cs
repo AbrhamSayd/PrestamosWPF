@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Microsoft.VisualBasic.ApplicationServices;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
+using PrestamosWPF.Views;
 
 namespace PrestamosWPF.ViewModels
 {
@@ -135,14 +136,14 @@ namespace PrestamosWPF.ViewModels
             }
         }
 
+        public UserModel User { get; private set; }
+
        
-        public ICommand PrestamosViewCommand { get; }
-
-
 
         public ICommand AddCommand { get; }
         public ICommand updateCommand { get; }
         public ICommand GetUsersByUsernameCommand { get; }
+        public ICommand AddPrestamosCommand { get; }
 
         public MainViewModel()
         {
@@ -152,8 +153,13 @@ namespace PrestamosWPF.ViewModels
             CurrentUserAccount = new UserAccountModel();
             GetUsersByUsernameCommand = new ViewModelCommand(ExecuteGetUsersByUsername);
             LoadCurrentUserdata();
+            AddPrestamosCommand = new ViewModelCommand(ExecuteAddPrestamosCommand);
+        }
 
-            PrestamosViewCommand = new ViewModelCommand(Show);
+        private void ExecuteAddPrestamosCommand(object obj)
+        {
+            var vistaPrestamos = new PrestamosView();
+
         }
 
         private void ExecuteGetUsersByUsername(object obj)
