@@ -22,6 +22,9 @@ namespace PrestamosWPF.Views
         public PrestamosView()
         {
             InitializeComponent();
+
+
+
         }
 
 

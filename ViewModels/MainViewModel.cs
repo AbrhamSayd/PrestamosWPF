@@ -136,6 +136,9 @@ namespace PrestamosWPF.ViewModels
         }
 
        
+        public ICommand PrestamosViewCommand { get; }
+
+
 
         public ICommand AddCommand { get; }
         public ICommand updateCommand { get; }
@@ -149,6 +152,8 @@ namespace PrestamosWPF.ViewModels
             CurrentUserAccount = new UserAccountModel();
             GetUsersByUsernameCommand = new ViewModelCommand(ExecuteGetUsersByUsername);
             LoadCurrentUserdata();
+
+            PrestamosViewCommand = new ViewModelCommand(Show);
         }
 
         private void ExecuteGetUsersByUsername(object obj)

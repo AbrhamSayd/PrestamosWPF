@@ -18,100 +18,32 @@
         <viewModel:PrestamosViewModel/>
     </Window.DataContext>
 
-    <Grid
-        Background="Transparent"
-        Height="{Binding ElementName=DockChilds, Path=ActualHeight}">
+    <Border 
+        Background="Transparent" 
+                        Margin="0">
         <StackPanel Orientation="Vertical">
-            <StackPanel
-            Orientation="Horizontal">
+            <Grid
+                Height="485"
+                Margin="0,0,4,0">
+                <ScrollViewer
+                    Background="Transparent"
+                    Margin="0">
+
+                    <DataGrid
+                        x:Name="dtgPrestamos">
+                        
+                    </DataGrid>
+
+                </ScrollViewer>
+            </Grid>
+            <StackPanel 
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal">
                 <customControls:btnCardViewTemplate
-                    x:Name="btnAgregarRegistro"
-                    Margin="20">
+                                    x:Name="btnAgregarRegistro"
+                                    Margin="0,30,40,0">
                 </customControls:btnCardViewTemplate>
             </StackPanel>
-            <Border Margin="0,0,10,0">
-                <ScrollViewer
-                Background="Transparent">
-
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                        <TextBlock
-                    TextWrapping="Wrap"
-                    Foreground="Beige"
-                    FontSize="50"
-                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-                    </StackPanel>
-                </ScrollViewer>
-            </Border>
         </StackPanel>
-    </Grid>
+    </Border>
 </Window>
