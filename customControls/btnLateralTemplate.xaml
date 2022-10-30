@@ -8,7 +8,6 @@
              mc:Ignorable="d"
              MaxHeight="30">
     <Button
-            x:Name="btnLogin1"
             BorderThickness="0"
             Cursor="Hand"
             FontFamily="{StaticResource SFUIDisplay}"
@@ -37,19 +36,5 @@
                 </Border>
             </ControlTemplate>
         </Button.Template>
-
-        <StackPanel
-                                Orientation="Horizontal"
-                                Margin="15,0,0,0">
-            <fa:IconImage 
-                                    Foreground="White"
-                                    Icon="List"/>
-            <TextBlock
-                                VerticalAlignment="Center"
-                                
-                                Foreground="White"
-                                Margin="10,0,0,0"/>
-        </StackPanel>
-
     </Button>
 </UserControl>

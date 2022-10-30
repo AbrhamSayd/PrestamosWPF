@@ -25,20 +25,10 @@ namespace PrestamosWPF.Views
             InitializeComponent();
         }
 
-        private void Button_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            this.DragMove();
         }
 
-        private void DataTemplateSelector_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-            
-        }
     }
 }

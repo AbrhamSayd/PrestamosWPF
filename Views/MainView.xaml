@@ -14,7 +14,7 @@
     Background="Transparent"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d">
+    mc:Ignorable="d" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Window.DataContext>
         <viewModel:MainViewModel />
     </Window.DataContext>
@@ -34,23 +34,71 @@
                             <Image Margin="20" Source="/Images/logo-tecnm-2018_white.png" />
 
                             <!--  BOTON PRESTAMOS  -->
-                            <customControls:btnLateralTemplate Margin="0,20,0,0">
-                                <DockPanel Margin="15,0,0,0">
-                                    <fa:IconImage
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                Margin="0,30,0,0"
+                                MaxHeight="30"
+                                Height="30">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#3660aa" />
+                                                <Setter Property="Foreground" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <DockPanel >
+                                        <fa:IconImage
                                         DockPanel.Dock="Left"
                                         Foreground="White"
                                         Icon="StickyNote" />
                                     <TextBlock
-                                        Margin="0,0,35,0"
+                                        Margin="0,0,20,0"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         Foreground="White"
                                         Text="Prestamos" />
-                                </DockPanel>
-                            </customControls:btnLateralTemplate>
+                                        </DockPanel>
+                            </Button>
 
                             <!--  BOTON HERRAMIENTAS  -->
-                            <customControls:btnLateralTemplate Margin="0,20,0,0">
+                            <Button
+                                Margin="0,30,0,0"
+                                MaxHeight="30"
+                                HorizontalContentAlignment="Center">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#3660aa" />
+                                                <Setter Property="Foreground" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
                                 <DockPanel Margin="15,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
@@ -63,11 +111,35 @@
                                         Foreground="White"
                                         Text="Herramientas" />
                                 </DockPanel>
-                            </customControls:btnLateralTemplate>
+                            </Button>
 
                             <!--  BOTON LABORATORIOS  -->
-                            <customControls:btnLateralTemplate Margin="0,20,0,0">
-                                <DockPanel Margin="20,0,0,0">
+                            <Button
+                                Margin="0,30,0,0"
+                                MaxHeight="30"
+                                HorizontalContentAlignment="Center">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#3660aa" />
+                                                <Setter Property="Foreground" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
+                                <DockPanel Margin="30,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
                                         Foreground="White"
@@ -79,53 +151,124 @@
                                         Foreground="White"
                                         Text="Laboratorios" />
                                 </DockPanel>
-                            </customControls:btnLateralTemplate>
+                            </Button>
 
                             <!--  BOTON LABORATORISTAS  -->
-                            <customControls:btnLateralTemplate Margin="0,20,0,0">
+                            <Button
+                                Margin="0,30,0,0"
+                                MaxHeight="30"
+                                HorizontalContentAlignment="Center">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#3660aa" />
+                                                <Setter Property="Foreground" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+
                                 <DockPanel Margin="15,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
                                         Foreground="White"
                                         Icon="Users" />
                                     <TextBlock
+                                        DockPanel.Dock="Right"
                                         Margin="0,0,12,0"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         Foreground="White"
                                         Text="Laboratoristas" />
                                 </DockPanel>
-                            </customControls:btnLateralTemplate>
+                            </Button>
+                            
                         </StackPanel>
 
                         <StackPanel VerticalAlignment="Bottom">
                             <!--  BOTON CUENTAS  -->
-                            <customControls:btnLateralTemplate Margin="0,0,0,20">
+                            <Button
+                                MaxHeight="30"
+                                Margin="0,0,0,25"
+                                HorizontalContentAlignment="Center">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#3660aa" />
+                                                <Setter Property="Foreground" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                
                                 <DockPanel Margin="15,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
                                         Foreground="White"
                                         Icon="UserCircle" />
                                     <TextBlock
-                                        Margin="10,0,0,0"
+                                        Margin="0,0,12,0"
                                         VerticalAlignment="Center"
                                         Foreground="White"
                                         Text="Cuentas" />
                                 </DockPanel>
-                            </customControls:btnLateralTemplate>
+                            </Button>
 
-                            <!--  BOTON Salir  -->
-                            <customControls:btnLateralTemplate
+                            <!--  BOTON Cerrar Sesion  -->
+                            <Button
                                 MaxHeight="30"
                                 Margin="0,0,0,25"
                                 HorizontalContentAlignment="Center">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#3660aa" />
+                                                <Setter Property="Foreground" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                
                                 <DockPanel Margin="0,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
                                         Foreground="White"
                                         Icon="ArrowRightToBracket" />
                                 </DockPanel>
-                            </customControls:btnLateralTemplate>
+                            </Button>
                         </StackPanel>
                     </Grid>
                 </Border>
@@ -133,11 +276,14 @@
             <DockPanel Width="auto">
                 <!--  TOP PANEL  -->
                 <DockPanel DockPanel.Dock="Top">
-                    <StackPanel Margin="35,0,0,0" VerticalAlignment="Center">
+                    <StackPanel
+                        Margin="35,10,0,20" 
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Left">
                         <TextBlock
                             x:Name="txtNombreApartado"
                             FontFamily="Roboto Mono"
-                            FontSize="20"
+                            FontSize="30"
                             FontWeight="SemiBold"
                             Foreground="#31579d"
                             Text="NOMBRE DEL APARTADO"
@@ -145,62 +291,118 @@
                             TextWrapping="Wrap" />
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                        <customControls:btnClose Margin="0,10,5,10" />
-                        <customControls:btnMinimize Margin="0,10,30,10" />
+                        <customControls:btnMinimize Margin="0,10,5,10"/>
+                        <customControls:btnClose Margin="0,10,30,10"/>
                     </StackPanel>
                 </DockPanel>
 
-                <!--  DOCKPANEL CONTENT  -->
+                <!--  SATCKPANEL CONTENT  -->
                 <StackPanel
                     x:Name="DockChilds"
-                    Margin="10,0,10,10"
-                    Background="LightCyan">
+                    Margin="20,0,0,0"
+                    Background="Transparent">
 
-                    <TextBox Text="{Binding Id, Mode=TwoWay}" />
-                    <TextBox Text="{Binding FirstName, Mode=TwoWay}" />
-                    <TextBox Text="{Binding LastName, Mode=TwoWay}" />
-                    <TextBox Text="{Binding Username, Mode=TwoWay}" />
-                    <TextBox Text="{Binding Password, Mode=TwoWay}" />
-                    <TextBox Text="{Binding Carrera, Mode=TwoWay}" />
-                    <TextBox Text="{Binding TipoEmpleado, Mode=TwoWay}" />
-                    <TextBox Text="{Binding Area, Mode=TwoWay}" />
-                    <TextBox Margin="0,30,0,0" Text="{Binding IdSelector, Mode=TwoWay}" />
+                    <Border 
+        Background="Transparent" 
+                        Margin="0">
+                        <StackPanel Orientation="Vertical">
+                            <Grid
+                                Height="485"
+                                Margin="0,0,4,0">
+                                <ScrollViewer
+                                    Background="Transparent"
+                                    Margin="0">
 
-                    <Button
-                        x:Name="btnLogin"
-                        Width="156"
-                        Margin="0,0,0,20"
-                        BorderThickness="0"
-                        Command="{Binding updateCommand}"
-                        Content="Siguiente"
-                        Cursor="Hand"
-                        FontFamily="{StaticResource SFUIDisplay}"
-                        FontSize="24"
-                        Foreground="Gray" />
-
-                    <Button
-                        x:Name="btnLogin2"
-                        Width="156"
-                        Margin="0,0,0,20"
-                        BorderThickness="0"
-                        Command="{Binding GetUsersByUsernameCommand}"
-                        Content="popular"
-                        Cursor="Hand"
-                        FontFamily="{StaticResource SFUIDisplay}"
-                        FontSize="24"
-                        Foreground="Gray" />
-
-                    <Button
-                        x:Name="btnUpdate"
-                        Width="156"
-                        Margin="0,0,0,0"
-                        BorderThickness="0"
-                        Command="{Binding updateCommand}"
-                        Content="update"
-                        Cursor="Hand"
-                        FontFamily="{StaticResource SFUIDisplay}"
-                        FontSize="24"
-                        Foreground="Gray" />
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                                    </StackPanel>
+                                    
+                                </ScrollViewer>
+                            </Grid>
+                            <StackPanel 
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal">
+                                <customControls:btnCardViewTemplate
+                                    x:Name="btnAgregarRegistro"
+                                    Margin="0,30,40,0">
+                                </customControls:btnCardViewTemplate>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
 
 
 

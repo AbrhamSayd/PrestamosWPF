@@ -12,14 +12,15 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        MaxWidth="983">
+        MaxWidth="983"
+        MaxHeight="600">
     <Window.DataContext>
         <viewModel:PrestamosViewModel/>
     </Window.DataContext>
 
-    <Border
+    <Grid
         Background="Transparent"
-        CornerRadius="50">
+        Height="{Binding ElementName=DockChilds, Path=ActualHeight}">
         <StackPanel Orientation="Vertical">
             <StackPanel
             Orientation="Horizontal">
@@ -28,16 +29,89 @@
                     Margin="20">
                 </customControls:btnCardViewTemplate>
             </StackPanel>
+            <Border Margin="0,0,10,0">
+                <ScrollViewer
+                Background="Transparent">
 
-            <ScrollViewer>
-                <TextBlock
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock
                     TextWrapping="Wrap"
                     Foreground="Beige"
-                    FontSize="500"
+                    FontSize="50"
                     Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
-
-            </ScrollViewer>
-            
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                        <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="50"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
         </StackPanel>
-    </Border>
+    </Grid>
 </Window>
