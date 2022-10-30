@@ -10,7 +10,6 @@
     <Button
             x:Name="btnLogin1"
             BorderThickness="0"
-            Command="{Binding LoginCommand}"
             Cursor="Hand"
             FontFamily="{StaticResource SFUIDisplay}"
             FontSize="24"

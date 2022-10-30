@@ -1,0 +1,43 @@
+﻿<Window x:Class="PrestamosWPF.Views.PrestamosView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:local="clr-namespace:PrestamosWPF.Views"
+        xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
+        xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
+        mc:Ignorable="d" MinHeight="600" MinWidth="983"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MaxWidth="983">
+    <Window.DataContext>
+        <viewModel:PrestamosViewModel/>
+    </Window.DataContext>
+
+    <Border
+        Background="Transparent"
+        CornerRadius="50">
+        <StackPanel Orientation="Vertical">
+            <StackPanel
+            Orientation="Horizontal">
+                <customControls:btnCardViewTemplate
+                    x:Name="btnAgregarRegistro"
+                    Margin="20">
+                </customControls:btnCardViewTemplate>
+            </StackPanel>
+
+            <ScrollViewer>
+                <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="Beige"
+                    FontSize="500"
+                    Text="skfhjfshjshfjshfsjfjshfjsfhsjfjhs"/>
+
+            </ScrollViewer>
+            
+        </StackPanel>
+    </Border>
+</Window>

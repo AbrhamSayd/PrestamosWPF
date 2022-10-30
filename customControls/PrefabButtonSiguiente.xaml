@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:PrestamosWPF.customControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Border Margin="0,0,0,5">
+    <Border Margin="0,0,0,0">
         <Border.Effect>
             <DropShadowEffect
                 BlurRadius="10"
@@ -15,10 +15,8 @@
                 Color="#FFB6C2CB" />
         </Border.Effect>
         <Button
-            x:Name="btnLogin1"
-            Width="156"
+            x:Name="btnChildCardview"
             BorderThickness="0"
-            Command="{Binding LoginCommand}"
             Content="Siguiente"
             Cursor="Hand"
             FontFamily="{StaticResource SFUIDisplay}"
@@ -29,7 +27,7 @@
                     <Setter Property="Background" Value="White" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FF9EA79F" />
+                            <Setter Property="Background" Value="#1e355e" />
                             <Setter Property="Foreground" Value="White" />
                         </Trigger>
                     </Style.Triggers>

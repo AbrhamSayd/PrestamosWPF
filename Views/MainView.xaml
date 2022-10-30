@@ -176,11 +176,11 @@
                     x:Name="dockChilds"
                     Background="LightCyan">
                 </DockPanel>
+
                 
-                
-                
-                
-                
+
+
+
             </DockPanel>
         </DockPanel>
     </Border>
