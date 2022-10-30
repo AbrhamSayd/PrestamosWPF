@@ -143,7 +143,7 @@ namespace PrestamosWPF.ViewModels
         public ICommand AddCommand { get; }
         public ICommand updateCommand { get; }
         public ICommand GetUsersByUsernameCommand { get; }
-        public ICommand AddPrestamosCommand { get; }
+        public ICommand AddChildsCommand { get; }
 
         public MainViewModel()
         {
@@ -153,10 +153,10 @@ namespace PrestamosWPF.ViewModels
             CurrentUserAccount = new UserAccountModel();
             GetUsersByUsernameCommand = new ViewModelCommand(ExecuteGetUsersByUsername);
             LoadCurrentUserdata();
-            AddPrestamosCommand = new ViewModelCommand(ExecuteAddPrestamosCommand);
+            AddChildsCommand = new ViewModelCommand(ExecuteAddChildsCommand);
         }
 
-        private void ExecuteAddPrestamosCommand(object obj)
+        private void ExecuteAddChildsCommand(object obj)
         {
             var vistaPrestamos = new PrestamosView();
 
