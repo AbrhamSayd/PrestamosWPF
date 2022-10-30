@@ -23,5 +23,10 @@ namespace PrestamosWPF.Views
         {
             InitializeComponent();
         }
+
+        private void Button_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
