@@ -10,7 +10,24 @@ public class UserRepository : RepositoryBase, IUserRepository
 {
     public void Add(UserModel userModel)
     {
-        throw new NotImplementedException();
+        //insert into users(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (02, 'Abrham', 'Martinez', 'admin', 'admin','isc', 'admin', 'redes')
+        bool isExist = false;
+        using var connection = GetConnection();
+        using (var command = new MySqlCommand())
+        {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "insert into users(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (@id, @first_name, @last_name, @username, @password,@carrera, @tipo_de_empleado, @area)";
+            command.Parameters.Add("@id", MySqlDbType.Int64).Value = userModel.Id;
+            command.Parameters.Add("@first_name", MySqlDbType.VarChar).Value = userModel.FirstName;
+            command.Parameters.Add("@last_name", MySqlDbType.VarChar).Value = userModel.LastName;
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = userModel.Username;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = userModel.Password;
+            command.Parameters.Add("@carrera", MySqlDbType.VarChar).Value = userModel.Carrera;
+            command.Parameters.Add("@tipo_de_empleado", MySqlDbType.VarChar).Value = userModel.TipoEmpleado;
+            command.Parameters.Add("@area", MySqlDbType.VarChar).Value = userModel.Area;
+            command.ExecuteScalar();
+        }
     }
 
     
@@ -33,7 +50,25 @@ public class UserRepository : RepositoryBase, IUserRepository
 
     public void Edit(UserModel userModel)
     {
-        throw new NotImplementedException();
+        bool isExist = false;
+        using var connection = GetConnection();
+        using (var command = new MySqlCommand())
+        {
+            //(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (@id, @first_name, @last_name, @username, @password,@carrera, @tipo_de_empleado, @area)
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "UPDATE users SET id_user=@id, first_name=@first_name, last_name=@last_name, username=@username, password=@password, carrera=@carrera, tipo_de_empleado=@tipo_de_empleado,area=@area WHERE id_user=@id";
+            command.Parameters.Add("@id", MySqlDbType.Int64).Value = userModel.Id;
+            command.Parameters.Add("@first_name", MySqlDbType.VarChar).Value = userModel.FirstName;
+            command.Parameters.Add("@last_name", MySqlDbType.VarChar).Value = userModel.LastName;
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = userModel.Username;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = userModel.Password;
+            command.Parameters.Add("@carrera", MySqlDbType.VarChar).Value = userModel.Carrera;
+            command.Parameters.Add("@tipo_de_empleado", MySqlDbType.VarChar).Value = userModel.TipoEmpleado;
+            command.Parameters.Add("@area", MySqlDbType.VarChar).Value = userModel.Area;
+            
+            command.ExecuteScalar();
+        }
     }
 
     public IEnumerable<UserModel> GetByAll()
@@ -62,10 +97,13 @@ public class UserRepository : RepositoryBase, IUserRepository
                 user = new UserModel()
                 {
                     Id = reader[0].ToString(),
-                    Username = reader[1].ToString(),
+                    FirstName = reader[1].ToString(),
+                    LastName = reader[2].ToString(),
+                    Username = reader[3].ToString(),
                     Password = string.Empty,
-                    Name = reader[3].ToString(),
-                    LastName = reader[4].ToString()
+                    Carrera = reader[4].ToString(),
+                    TipoEmpleado = reader[5].ToString(),
+                    Area = reader[6].ToString(),
                 };
 
 

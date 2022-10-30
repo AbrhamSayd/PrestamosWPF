@@ -78,9 +78,9 @@
                                         <Trigger Property="IsKeyboardFocused" Value="true">
                                             <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
                                         </Trigger>
-                                        <Trigger Property="Text" Value="">
+                                        <DataTrigger Binding="{Binding Path=Username}" Value="{x:Null}">
                                             <Setter TargetName="placeHolderTextBlock" Property="Visibility" Value="Visible" />
-                                        </Trigger>
+                                        </DataTrigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </Setter.Value>
