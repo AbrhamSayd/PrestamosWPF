@@ -25,6 +25,12 @@ namespace PrestamosWPF.Views
             InitializeComponent();
         }
 
+        public TextBlock TxtNombreApartado
+        {
+            get => txtNombreApartado;
+            set => txtNombreApartado = value;
+        }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();

@@ -25,37 +25,97 @@
         </StackPanel>
 
         <DockPanel DockPanel.Dock="Bottom">
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Top">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                        
-                            <StackPanel>
+                        <StackPanel Margin="20,50,0,20">
                                 <TextBlock
+                                    Padding="20,0,0,0"
                                     Text="Nombre de la Herramienta"
-                                    Background="Transparent"
-                                    Foreground="#31579d"/>
+                                    Style="{StaticResource FieldsHeaders}"/>
                                 <TextBox
-                                    x:Name="txtNombreHerramienta"
+                                    Margin="0,5,0,5"
+                                    x:Name="TxtNombreHerramienta"
+                                    Width="300"
                                     Style="{StaticResource CustomCardTextBox}"/>
                             </StackPanel>
+                        <StackPanel Margin="20,50,0,20">
+                            <TextBlock
+                                Padding="20,0,0,0"
+                                Text="Nombre del Solicitante"
+                                Style="{StaticResource FieldsHeaders}"/>
+                            <TextBox
+                                Margin="0,5,0,5"
+                                x:Name="TxtNombreSolicitante"
+                                Width="300"
+                                Style="{StaticResource CustomCardTextBox}"/>
+                        </StackPanel>
+                        <StackPanel Margin="20,50,0,20">
+                            <TextBlock
+                                Padding="20,0,0,0"
+                                Text="Fecha"
+                                Style="{StaticResource FieldsHeaders}"/>
+                            <DatePicker
+                                Background="#d9d9d9"
+                                Foreground="#3f3f3f"
+                                FontFamily="{StaticResource SFUIDisplay}"
+                                Margin="0,5,0,5"
+                                x:Name="DtpFechaPrestamo"
+                                Width="300"/>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-
-
-
+                        <StackPanel Margin="50,50,0,20">
+                            <TextBlock
+                                    Padding="20,0,0,0"
+                                    Text="Cantidad"
+                                    Style="{StaticResource FieldsHeaders}"/>
+                            <TextBox
+                                    Margin="0,5,0,5"
+                                    x:Name="TxtCantidad"
+                                    Width="300"
+                                    Style="{StaticResource CustomCardTextBox}"/>
+                        </StackPanel>
+                        <StackPanel Margin="50,50,0,20">
+                            <TextBlock
+                                Padding="20,0,0,0"
+                                Text="Puesto"
+                                Style="{StaticResource FieldsHeaders}"/>
+                            <TextBox
+                                Margin="0,5,0,5"
+                                x:Name="TxtPuesto"
+                                Width="300"
+                                Style="{StaticResource CustomCardTextBox}"/>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-
-
-
+                        <StackPanel Margin="50,189,0,20">
+                            <TextBlock
+                                Padding="20,0,0,0"
+                                Text="No. control/Emp"
+                                Style="{StaticResource FieldsHeaders}"/>
+                            <TextBox
+                                Margin="0,5,0,5"
+                                x:Name="TxtNoControl"
+                                Width="200"
+                                HorizontalAlignment="Left"
+                                Style="{StaticResource CustomCardTextBox}"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-
-
-
-                </StackPanel>
-            </StackPanel>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Button
+                        Margin="20"
+                        Style="{StaticResource CardButton}">
+                        <TextBlock Text="Cancelar" FontSize="20" Margin="20,6,20,6"/>
+                    </Button>
+                    <Button
+                        Margin="20"
+                        Style="{StaticResource CardButton}">
+                        <TextBlock Text="Aceptar" FontSize="20" Margin="20,6,20,6"/>
+                    </Button>
+                </DockPanel>
+            </DockPanel>
         </DockPanel>
     </DockPanel>
 </Window>

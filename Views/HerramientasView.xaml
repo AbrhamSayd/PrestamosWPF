@@ -19,7 +19,8 @@
     </UserControl.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <customControls:btnCardViewTemplate x:Name="btnAgregarRegistro" Margin="20" />
+            <Button Style="{StaticResource iconButton}"/>
+                <customControls:btnCardViewTemplate x:Name="btnAgregarHerramienta" Margin="20"/>
         </StackPanel>
         <ScrollViewer />
     </DockPanel>
