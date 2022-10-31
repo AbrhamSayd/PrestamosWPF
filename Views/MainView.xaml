@@ -29,13 +29,13 @@
         <DataTemplate DataType="{x:Type viewModel:HerramientasViewModel}">
             <local:HerramientasView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:LaboratiosViewModel}">
+        <DataTemplate DataType="{x:Type viewModel:LaboratoriosViewModel}">
             <local:LaboratiosView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:LaboratoristasViewModel}">
             <local:LaboratoristasView />
         </DataTemplate>
-        
+
 
 
     </Window.Resources>
@@ -99,7 +99,8 @@
                             <Button
                                 MaxHeight="30"
                                 Margin="0,30,0,0"
-                                HorizontalContentAlignment="Center">
+                                HorizontalContentAlignment="Center"
+                                Command="{Binding ShowHerramientasCommand}">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Background" Value="Transparent" />
@@ -137,7 +138,8 @@
                             <Button
                                 MaxHeight="30"
                                 Margin="0,30,0,0"
-                                HorizontalContentAlignment="Center">
+                                HorizontalContentAlignment="Center"
+                                Command="{Binding ShowLaboratoriosCommand}">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Background" Value="Transparent" />

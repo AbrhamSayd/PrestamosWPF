@@ -6,6 +6,8 @@ using System.Security;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Input;
+using IUserRepository = PrestamosWPF.Repositories.IUserRepository;
+
 
 namespace PrestamosWPF.ViewModels
 {

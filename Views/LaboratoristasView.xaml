@@ -106,7 +106,7 @@
             CornerRadius="20">
                 <DataGrid
                 AutoGenerateColumns="True"
-                ItemsSource="{Binding dtUsers, Mode=OneWayToSource}" />
+                ItemsSource="{Binding dtUsers, Mode=TwoWay, NotifyOnSourceUpdated=True}" />
             </Border>
         </Grid>
     </DockPanel>
