@@ -25,7 +25,7 @@
                 FontWeight="SemiBold"
                 Foreground="#31579d"
                 TextAlignment="Left"
-                TextWrapping="Wrap" ><Run Language="es-mx" Text="REGISTRO DE HERRAMIENTA"/></TextBlock>
+                TextWrapping="Wrap" ><Run Language="es-mx" Text="Herramienta"/></TextBlock>
         </StackPanel>
 
         <DockPanel DockPanel.Dock="Bottom">
