@@ -6,7 +6,7 @@
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
     xmlns:local="clr-namespace:PrestamosWPF.customControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Height="35"
+    Height="30"
     MinWidth="100"
     mc:Ignorable="d">
 

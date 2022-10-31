@@ -71,6 +71,10 @@
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
+
+                            <ComboBox Style="{StaticResource CustomCardComboBox}"
+                                      Width="100" Height="50"/>
+
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top">

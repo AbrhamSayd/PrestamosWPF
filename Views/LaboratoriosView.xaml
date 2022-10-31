@@ -73,10 +73,13 @@
                 Cursor="Hand"
                 Style="{StaticResource CardButton}">
                 </Button>
-                <customControls:btnCardViewTemplate
+                <!--<customControls:btnCardViewTemplate
                 Margin="0,0,10,0"
                 HorizontalAlignment="Right"
-                Grid.Column="2"/>
+                Grid.Column="2"/>-->
+
+                <Button Grid.Column="2" Style="{StaticResource BtnAgregarStyle}" Margin="205,10,10,10"/>
+
             </Grid>
             <Border
             Grid.Row="1"

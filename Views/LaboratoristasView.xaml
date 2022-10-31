@@ -21,7 +21,7 @@
             HorizontalAlignment="left"
             DockPanel.Dock="top">
             <TextBlock
-                Text="Prestamos"
+                Text="Laboratoristas"
                 FontFamily="Roboto Mono"
                 FontSize="30"
                 FontWeight="SemiBold"

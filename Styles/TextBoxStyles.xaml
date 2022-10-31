@@ -16,4 +16,27 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
+    <Style BasedOn="{StaticResource {x:Type ComboBox}}"
+           TargetType="ComboBox"
+           x:Key="CustomCardComboBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="15">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Background" Value="#d9d9d9"/>
+        <Setter Property="Foreground" Value="#3f3f3f"/>
+        <Setter Property="Padding" Value="15,2,15,2"/>
+        
+    </Style>
+
+
+
 </ResourceDictionary>
