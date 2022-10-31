@@ -12,12 +12,36 @@
     Height="648"
     AllowsTransparency="True"
     Background="Transparent"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    mc:Ignorable="d">
+
     <Window.DataContext>
         <viewModel:MainViewModel />
     </Window.DataContext>
+
+    <Window.Resources>
+
+        <DataTemplate DataType="{x:Type viewModel:PrestamosViewModel}">
+            <local:PrestamosView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:HerramientasViewModel}">
+            <local:HerramientasView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:LaboratiosViewModel}">
+            <local:LaboratiosView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:LaboratoritasViewModel}">
+            <local:LaboratistasView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:UserAccountViewModel}">
+            <local:UserAccountView />
+        </DataTemplate>
+
+
+    </Window.Resources>
+
     <Border Background="White" CornerRadius="50">
         <DockPanel>
             <DockPanel HorizontalAlignment="Left">
@@ -35,11 +59,12 @@
 
                             <!--  BOTON PRESTAMOS  -->
                             <Button
-                                Command="{Binding PrestamosViewCommand}"
-                                HorizontalContentAlignment="Left"
-                                Margin="0,30,0,0"
+                                Height="30"
                                 MaxHeight="30"
-                                Height="30" Click="Button_Click">
+                                Margin="0,30,0,0"
+                                HorizontalContentAlignment="Left"
+                                Click="Button_Click"
+                                Command="{Binding ShowPrestamosCommand}">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Background" Value="Transparent" />
@@ -53,15 +78,13 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="20">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Button.Template>
-                                <DockPanel >
-                                        <fa:IconImage
+                                <DockPanel>
+                                    <fa:IconImage
                                         DockPanel.Dock="Left"
                                         Foreground="White"
                                         Icon="StickyNote" />
@@ -71,13 +94,13 @@
                                         VerticalAlignment="Center"
                                         Foreground="White"
                                         Text="Prestamos" />
-                                        </DockPanel>
+                                </DockPanel>
                             </Button>
 
                             <!--  BOTON HERRAMIENTAS  -->
                             <Button
-                                Margin="0,30,0,0"
                                 MaxHeight="30"
+                                Margin="0,30,0,0"
                                 HorizontalContentAlignment="Center">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
@@ -92,9 +115,7 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="20">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
@@ -116,8 +137,8 @@
 
                             <!--  BOTON LABORATORIOS  -->
                             <Button
-                                Margin="0,30,0,0"
                                 MaxHeight="30"
+                                Margin="0,30,0,0"
                                 HorizontalContentAlignment="Center">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
@@ -132,9 +153,7 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="20">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
@@ -156,8 +175,8 @@
 
                             <!--  BOTON LABORATORISTAS  -->
                             <Button
-                                Margin="0,30,0,0"
                                 MaxHeight="30"
+                                Margin="0,30,0,0"
                                 HorizontalContentAlignment="Center">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
@@ -172,9 +191,7 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="20">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
@@ -186,15 +203,15 @@
                                         Foreground="White"
                                         Icon="Users" />
                                     <TextBlock
-                                        DockPanel.Dock="Right"
                                         Margin="0,0,12,0"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
+                                        DockPanel.Dock="Right"
                                         Foreground="White"
                                         Text="Laboratoristas" />
                                 </DockPanel>
                             </Button>
-                            
+
                         </StackPanel>
 
                         <StackPanel VerticalAlignment="Bottom">
@@ -216,14 +233,12 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="20">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Button.Template>
-                                
+
                                 <DockPanel Margin="15,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
@@ -255,14 +270,12 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="20">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Button.Template>
-                                
+
                                 <DockPanel Margin="0,0,0,0">
                                     <fa:IconImage
                                         DockPanel.Dock="Left"
@@ -278,7 +291,7 @@
                 <!--  TOP PANEL  -->
                 <DockPanel DockPanel.Dock="Top">
                     <StackPanel
-                        Margin="35,10,0,20" 
+                        Margin="35,10,0,20"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Left">
                         <TextBlock
@@ -292,25 +305,23 @@
                             TextWrapping="Wrap" />
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                        <customControls:btnMinimize Margin="0,10,5,10"/>
-                        <customControls:btnClose Margin="0,10,30,10"/>
+                        <customControls:btnMinimize Margin="0,10,5,10" />
+                        <customControls:btnClose Margin="0,10,30,10" />
                     </StackPanel>
                 </DockPanel>
 
-                <!--  SATCKPANEL CONTENT  -->
-                <StackPanel
-                    x:Name="DockChilds"
-                    Margin="20,0,0,0"
-                    Background="Transparent">
+                <!--  Grid CONTENT  -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
 
+                    </Grid.RowDefinitions>
+                    <ContentControl
+                        Grid.Row="0"
+                        Margin="25,25,0,25"
+                        Content="{Binding CurrentChidlView}" />
+                </Grid>
 
-
-
-
-
-
-
-                </StackPanel>
 
             </DockPanel>
         </DockPanel>

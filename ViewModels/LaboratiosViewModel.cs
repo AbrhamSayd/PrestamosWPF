@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrestamosWPF.ViewModels
 {
-    public class PrestamosViewModel : ViewModelBase
+    internal class LaboratiosViewModel : ViewModelBase
     {
-        
     }
 }

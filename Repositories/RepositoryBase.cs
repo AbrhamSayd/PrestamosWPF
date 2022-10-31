@@ -16,8 +16,8 @@ namespace PrestamosWPF.Repositories
             string server, database, uid, password;
             server = "localhost";//ip
             database = "itsppprestamosdb";
-            uid = "prestamosUser";
-            password = "password";
+            uid = "root";
+            password = "";
             _connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
         }
 

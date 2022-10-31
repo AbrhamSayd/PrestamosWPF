@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PrestamosWPF.Views
 {
     /// <summary>
-    /// Lógica de interacción para HerramientasView.xaml
+    /// Lógica de interacción para LaboratistasView.xaml
     /// </summary>
-    public partial class HerramientasView : UserControl
+    public partial class LaboratistasView : UserControl
     {
-        public HerramientasView()
+        public LaboratistasView()
         {
             InitializeComponent();
         }
