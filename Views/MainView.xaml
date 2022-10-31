@@ -289,20 +289,6 @@
             <DockPanel Width="auto">
                 <!--  TOP PANEL  -->
                 <DockPanel DockPanel.Dock="Top">
-                    <StackPanel
-                        Margin="35,10,0,20"
-                        VerticalAlignment="Center"
-                        DockPanel.Dock="Left">
-                        <TextBlock
-                            x:Name="txtNombreApartado"
-                            FontFamily="Roboto Mono"
-                            FontSize="30"
-                            FontWeight="SemiBold"
-                            Foreground="#31579d"
-                            Text="NOMBRE DEL APARTADO"
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                         <customControls:btnMinimize Margin="0,10,5,10" />
                         <customControls:btnClose Margin="0,10,30,10" />
@@ -317,7 +303,7 @@
                     </Grid.RowDefinitions>
                     <ContentControl
                         Grid.Row="0"
-                        Margin="25,25,0,25"
+                        Margin="25,0,5,25"
                         Content="{Binding CurrentChidlView}" />
                 </Grid>
 

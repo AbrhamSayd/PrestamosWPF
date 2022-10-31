@@ -47,7 +47,6 @@ public class UserRepository : RepositoryBase, IUserRepository
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = credential.Password;
             validUser = command.ExecuteScalar() != null;
         }
-
         return validUser;
     }
 

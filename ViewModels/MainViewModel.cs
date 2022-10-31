@@ -28,7 +28,6 @@ namespace PrestamosWPF.ViewModels
         private string? _tipoEmpleado;
         private string? _area;
         private string? _idSelector;
-        
 
         public string? IdSelector
         {
@@ -37,7 +36,6 @@ namespace PrestamosWPF.ViewModels
             {
                 _idSelector = value;
                 OnPropertyChanged(nameof(IdSelector));
-
             }
         }
 

@@ -11,7 +11,22 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid>
+
+    <DockPanel>
+        <StackPanel
+            Margin="20,10,0,20"
+            HorizontalAlignment="left"
+            DockPanel.Dock="top">
+            <TextBlock
+                Text="Prestamos"
+                FontFamily="Roboto Mono"
+                FontSize="30"
+                FontWeight="SemiBold"
+                Foreground="#31579d"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+        </StackPanel>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
@@ -47,6 +62,7 @@
                     Text="Search..." />
             </StackPanel>
             <Button
+                Margin="0,5,0,0"
                 Grid.Column="1"
                 VerticalAlignment="Top"
                 Command="{Binding LoginCommand}"
@@ -54,7 +70,8 @@
                 Cursor="Hand"
                 Style="{StaticResource CardButton}">
             </Button>
-            <customControls:btnCardViewTemplate 
+            <customControls:btnCardViewTemplate
+                Margin="0,0,10,0"
                 HorizontalAlignment="Right"
                 Grid.Column="2"/>
         </Grid>
@@ -106,4 +123,5 @@
             </DataGrid>
         </Border>
     </Grid>
+        </DockPanel>
 </UserControl>
