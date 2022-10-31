@@ -109,7 +109,7 @@
     <!--  Accept Button  -->
     <Style x:Key="CardButton" TargetType="Button">
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontFamily" Value="{StaticResource SFUIDisplay}" />
+        <Setter Property="FontFamily" Value="{DynamicResource SFUIDisplay}" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="#1e355e" />

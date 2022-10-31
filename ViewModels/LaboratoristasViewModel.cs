@@ -150,13 +150,11 @@ namespace PrestamosWPF.ViewModels
             }
         }
 
-
         //commands
         public ICommand AddCommand { get; }
         public ICommand updateCommand { get; }
         public ICommand GetUsersByUsernameCommand { get; }
         public ICommand GetUsersCommand { get; }
-
 
         //constructor
         public LaboratoristasViewModel()

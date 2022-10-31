@@ -26,6 +26,4 @@ namespace PrestamosWPF.Repositories
             return new MySqlConnection(_connectionString);
         }
     }
-
-    
 }
