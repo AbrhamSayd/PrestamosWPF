@@ -193,7 +193,7 @@ namespace PrestamosWPF.ViewModels
 
         private void ExecuteShowLaboratoriosCommand(object obj)
         {
-            CurrentChidlView = new LaboratiosViewModel();
+            CurrentChidlView = new LaboratoriosViewModel();
         }
 
         private void ExecuteShowHerramientasCommand(object obj)

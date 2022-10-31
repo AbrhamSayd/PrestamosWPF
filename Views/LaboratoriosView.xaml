@@ -21,7 +21,7 @@
             HorizontalAlignment="left"
             DockPanel.Dock="top">
             <TextBlock
-                Text="Prestamos"
+                Text="Laboratorios"
                 FontFamily="Roboto Mono"
                 FontSize="30"
                 FontWeight="SemiBold"
@@ -68,7 +68,7 @@
                 Margin="0,5,0,0"
                 Grid.Column="1"
                 VerticalAlignment="Top"
-                Command="{Binding LoginCommand}"
+                Command="{Binding GetByAllCommand}"
                 Content="Buscar"
                 Cursor="Hand"
                 Style="{StaticResource CardButton}">
@@ -84,6 +84,8 @@
             Background="White"
             CornerRadius="20">
                 <DataGrid
+                    AutoGenerateColumns="True"
+                    ItemsSource="{Binding LabsTable, Mode=TwoWay, NotifyOnSourceUpdated=True}"
                 Background="White"
                 BorderThickness="0"
                 ColumnWidth="*">
@@ -96,33 +98,6 @@
                             <Setter Property="FontSize" Value="15" />
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="ID"
-                        HeaderStringFormat="" />
-                        <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="First name" />
-                        <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Last name" />
-                        <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Phone" />
-                        <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Number" />
-                        <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Address" />
-                    </DataGrid.Columns>
                 </DataGrid>
             </Border>
         </Grid>

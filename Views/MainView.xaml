@@ -30,13 +30,11 @@
             <local:HerramientasView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:LaboratoriosViewModel}">
-            <local:LaboratiosView />
+            <local:LaboratoriosView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:LaboratoristasViewModel}">
             <local:LaboratoristasView />
         </DataTemplate>
-
-
 
     </Window.Resources>
 
