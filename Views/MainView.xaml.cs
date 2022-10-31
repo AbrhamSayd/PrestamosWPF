@@ -32,9 +32,7 @@ namespace PrestamosWPF.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var vistaPrestamos = new PrestamosView();
-            vistaPrestamos.dtgPrestamos
-            DockChilds.Children.Add(vistaPrestamos);
+            
         }
     }
 }

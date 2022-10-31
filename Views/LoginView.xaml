@@ -12,11 +12,11 @@
     Height="700"
     AllowsTransparency="True"
     Background="Transparent"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d" 
-    MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    mc:Ignorable="d">
     <Window.DataContext>
         <viewModel:LoginViewModel />
     </Window.DataContext>
@@ -152,9 +152,7 @@
                     Foreground="White"
                     Text="REGISTRAR" />
             </StackPanel>
-            <DockPanel
-            Background="Transparent"
-            VerticalAlignment="Bottom">
+            <DockPanel VerticalAlignment="Bottom" Background="Transparent">
                 <Border
                     Width="Auto"
                     Height="Auto"
@@ -162,12 +160,10 @@
                     CornerRadius="0,0,50,50">
 
                     <Border>
-                        <Image
-                            Margin="50,0,50,0"
-                            Source="/Images/EncabezadoLogosInstitucionales.jpg"/>
+                        <Image Margin="50,0,50,0" Source="/Images/EncabezadoLogosInstitucionales.jpg" />
                         <!--<Border.Background>
                         <ImageBrush
-                            
+
                             Stretch="Fill"
                             ImageSource="/Imagenes/EncabezadoLogosInstitucionales.jpg"/>
                     </Border.Background>-->

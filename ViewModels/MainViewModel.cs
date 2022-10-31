@@ -14,9 +14,10 @@ namespace PrestamosWPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private UserAccountModel _currentAccount;
+        private UserAccountViewModel _currentAccountView;
         private UserModel _userModel;
         private IUserRepository userRepository;
+        private ViewModelBase _currentChidlView;
         private string? _id;
         private string? _firstName;
         private string? _lastName;
@@ -26,6 +27,7 @@ namespace PrestamosWPF.ViewModels
         private string? _tipoEmpleado;
         private string? _area;
         private string? _idSelector;
+        
 
         public string? IdSelector
         {
@@ -126,41 +128,80 @@ namespace PrestamosWPF.ViewModels
             }
         }
 
-        public UserAccountModel CurrentUserAccount
+        public UserAccountViewModel CurrentUserAccountView
         {
-            get => _currentAccount;
+            get => _currentAccountView;
             set
             {
-                _currentAccount = value;
-                OnPropertyChanged(nameof(CurrentUserAccount));
+                _currentAccountView = value;
+                OnPropertyChanged(nameof(CurrentUserAccountView));
             }
         }
 
         public UserModel User { get; private set; }
 
-       
+        public ViewModelBase CurrentChidlView
+        {
+            get => _currentChidlView;
+            set
+            {
+                _currentChidlView = value;
+                OnPropertyChanged(nameof(CurrentChidlView));
+            }
+           
+        }
+
 
         public ICommand AddCommand { get; }
         public ICommand updateCommand { get; }
         public ICommand GetUsersByUsernameCommand { get; }
         public ICommand AddChildsCommand { get; }
+        public ICommand ShowPrestamosCommand { get; }
+        public ICommand ShowHerramientasCommand { get; }
+        public ICommand ShowLaboratoriosCommand { get; }
+        public ICommand ShowLaboratoristasCommand { get; }
+
+
 
         public MainViewModel()
         {
             userRepository = new UserRepository();
             updateCommand = new ViewModelCommand(ExecuteUpdateCommand);
             AddCommand = new ViewModelCommand(ExecuteAddCommand);
-            CurrentUserAccount = new UserAccountModel();
+            CurrentUserAccountView = new UserAccountViewModel();
             GetUsersByUsernameCommand = new ViewModelCommand(ExecuteGetUsersByUsername);
+
+            //Command for childrends
+            ShowPrestamosCommand = new ViewModelCommand(ExecuteShowPrestamosCommand);
+            ShowHerramientasCommand = new ViewModelCommand(ExecuteShowHerramientasCommand);
+            ShowLaboratoriosCommand = new ViewModelCommand(ExecuteShowLaboratoriosCommand);
+            ShowLaboratoristasCommand = new ViewModelCommand(ExecuteShowLaboratistasCommand);
+
+            
             LoadCurrentUserdata();
-            AddChildsCommand = new ViewModelCommand(ExecuteAddChildsCommand);
         }
 
-        private void ExecuteAddChildsCommand(object obj)
+        private void ExecuteShowLaboratistasCommand(object obj)
         {
-            var vistaPrestamos = new PrestamosView();
-
+            CurrentChidlView = new LaboratoritasViewModel();
         }
+
+        private void ExecuteShowLaboratoriosCommand(object obj)
+        {
+            CurrentChidlView = new LaboratiosViewModel();
+        }
+
+        private void ExecuteShowHerramientasCommand(object obj)
+        {
+            CurrentChidlView = new HerramientasViewModel();
+        }
+
+        private void ExecuteShowPrestamosCommand(object obj)
+        {
+            CurrentChidlView = new PrestamosViewModel();
+        }
+
+        
 
         private void ExecuteGetUsersByUsername(object obj)
         {
@@ -216,13 +257,13 @@ namespace PrestamosWPF.ViewModels
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if (user != null)
             {
-                CurrentUserAccount.Username = user.Username;
-                CurrentUserAccount.DisplayName = $"Bienvenido {user.FirstName} {user.LastName} ;)";
-                CurrentUserAccount.ProfilePicture = null;
+                CurrentUserAccountView.Username = user.Username;
+                CurrentUserAccountView.DisplayName = $"Bienvenido {user.FirstName} {user.LastName} ;)";
+                CurrentUserAccountView.ProfilePicture = null;
             }
             else
             {
-                CurrentUserAccount.DisplayName = "Usuario invalido, not logged";
+                CurrentUserAccountView.DisplayName = "Usuario invalido, not logged";
             }
         }
     }
