@@ -14,7 +14,7 @@ namespace PrestamosWPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private UserAccountViewModel _currentAccountView;
+        private UserAccountModel _currentAccountView;
         private UserModel _userModel;
         private IUserRepository userRepository;
         private ViewModelBase _currentChidlView;
@@ -128,7 +128,7 @@ namespace PrestamosWPF.ViewModels
             }
         }
 
-        public UserAccountViewModel CurrentUserAccountView
+        public UserAccountModel CurrentUserAccountView
         {
             get => _currentAccountView;
             set
@@ -168,7 +168,7 @@ namespace PrestamosWPF.ViewModels
             userRepository = new UserRepository();
             updateCommand = new ViewModelCommand(ExecuteUpdateCommand);
             AddCommand = new ViewModelCommand(ExecuteAddCommand);
-            CurrentUserAccountView = new UserAccountViewModel();
+            CurrentUserAccountView = new UserAccountModel();
             GetUsersByUsernameCommand = new ViewModelCommand(ExecuteGetUsersByUsername);
 
             //Command for childrends
