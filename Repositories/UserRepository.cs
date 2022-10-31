@@ -1,8 +1,10 @@
-﻿using MySql.Data.MySqlClient;//Permite de la base da dtos con c#
+﻿using MySql.Data.MySqlClient; //Permite de la base da dtos con c#
 using PrestamosWPF.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Net;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace PrestamosWPF.Repositories;
 
@@ -17,7 +19,8 @@ public class UserRepository : RepositoryBase, IUserRepository
         {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "insert into users(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (@id, @first_name, @last_name, @username, @password,@carrera, @tipo_de_empleado, @area)";
+            command.CommandText =
+                "insert into users(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (@id, @first_name, @last_name, @username, @password,@carrera, @tipo_de_empleado, @area)";
             command.Parameters.Add("@id", MySqlDbType.Int64).Value = userModel.Id;
             command.Parameters.Add("@first_name", MySqlDbType.VarChar).Value = userModel.FirstName;
             command.Parameters.Add("@last_name", MySqlDbType.VarChar).Value = userModel.LastName;
@@ -30,7 +33,7 @@ public class UserRepository : RepositoryBase, IUserRepository
         }
     }
 
-    
+
     public bool AuthenticateUser(NetworkCredential credential)
     {
         bool validUser;
@@ -57,7 +60,8 @@ public class UserRepository : RepositoryBase, IUserRepository
             //(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (@id, @first_name, @last_name, @username, @password,@carrera, @tipo_de_empleado, @area)
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "UPDATE users SET id_user=@id, first_name=@first_name, last_name=@last_name, username=@username, password=@password, carrera=@carrera, tipo_de_empleado=@tipo_de_empleado,area=@area WHERE id_user=@id";
+            command.CommandText =
+                "UPDATE users SET id_user=@id, first_name=@first_name, last_name=@last_name, username=@username, password=@password, carrera=@carrera, tipo_de_empleado=@tipo_de_empleado,area=@area WHERE id_user=@id";
             command.Parameters.Add("@id", MySqlDbType.Int64).Value = userModel.Id;
             command.Parameters.Add("@first_name", MySqlDbType.VarChar).Value = userModel.FirstName;
             command.Parameters.Add("@last_name", MySqlDbType.VarChar).Value = userModel.LastName;
@@ -66,14 +70,56 @@ public class UserRepository : RepositoryBase, IUserRepository
             command.Parameters.Add("@carrera", MySqlDbType.VarChar).Value = userModel.Carrera;
             command.Parameters.Add("@tipo_de_empleado", MySqlDbType.VarChar).Value = userModel.TipoEmpleado;
             command.Parameters.Add("@area", MySqlDbType.VarChar).Value = userModel.Area;
-            
+
             command.ExecuteScalar();
         }
     }
 
     public IEnumerable<UserModel> GetByAll()
     {
-        throw new NotImplementedException();
+        var userList = new List<UserModel>();
+        using var connection = GetConnection();
+        using (var command = new MySqlCommand())
+        {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT * from users order by first_name asc";
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var userModel = new UserModel()
+                    {
+                        Id = reader[0].ToString(),
+                        FirstName = reader[1].ToString(),
+                        LastName = reader[2].ToString(),
+                        Username = reader[3].ToString(),
+                        Password = string.Empty,
+                        Carrera = reader[4].ToString(),
+                        TipoEmpleado = reader[5].ToString(),
+                        Area = reader[6].ToString(),
+                    };
+                    userList.Add(userModel);
+                }
+            }
+        }
+
+        return userList;
+    }
+    public DataTable GetByAllDataTable()
+    {
+        DataTable dt = new DataTable();
+        using var connection = GetConnection();
+        using (var command = new MySqlCommand())
+        {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT * from users order by first_name asc";
+            var reader = command.ExecuteReader();
+            dt.Load(reader);
+        }
+
+        return dt;
     }
 
     public UserModel GetById(int id)
@@ -105,8 +151,6 @@ public class UserRepository : RepositoryBase, IUserRepository
                     TipoEmpleado = reader[5].ToString(),
                     Area = reader[6].ToString(),
                 };
-
-
             }
         }
 
