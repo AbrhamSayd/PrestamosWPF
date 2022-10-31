@@ -24,15 +24,23 @@
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <TextBlock Text="Registro de herramienta" />
-            <TextBlock Text="Nombre" />
-            <TextBox Text="" />
-            <TextBlock Text="Descripcion" />
-            <TextBox Text="" />
-            <TextBlock Text="Cantidad" />
-            <TextBox Text="" />
-            <TextBlock Text="Estado" />
-            <TextBox Text="" />
+            <TextBlock Text="Registro de herramienta" Margin="10,10,500,10" FontSize="40"/>
+            <TextBlock Text="Nombre" Margin="10,20,700,10" FontSize="25"/>
+            <TextBox Text="" Name="txtName" Margin="10,0,400,10" FontSize="25"/>
+            <TextBlock Text="Descripcion" Margin="10,50,700,10" FontSize="25"/>
+            <TextBox Text="" Name="txtDes" Margin="10,0,400,10" FontSize="25"/>
+            <TextBlock Text="Cantidad" Margin="10,50,700,10" FontSize="25"/>
+            <TextBox Text="" Name="txtCant" Margin="10,0,400,10" FontSize="25"/>
+            <TextBlock Text="Estado" Margin="10,50,700,10" FontSize="25"/>
+            <ComboBox Name="lwcboEst" Margin="10,0,800,10">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Estado}" FontSize="25"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,17 @@ namespace PrestamosWPF.Views
         public HerramientasFieldsView()
         {
             InitializeComponent();
+            List <lwcboEst> ListaEstado = new List<lwcboEst>();
+            ListaEstado.Add(new lwcboEst { Estado = "Excelente" });
+            ListaEstado.Add(new lwcboEst { Estado = "Bueno" });
+            ListaEstado.Add(new lwcboEst { Estado = "Regular" });
+            ListaEstado.Add(new lwcboEst { Estado = "Malo" });
+            lwcboEst.ItemsSource = ListaEstado;
+
         }
+    }
+    public class lwcboEst
+    {
+        public String Estado { get; set; }
     }
 }
