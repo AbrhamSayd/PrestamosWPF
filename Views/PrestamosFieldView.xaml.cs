@@ -11,27 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using PrestamosWPF.Models;
 
 namespace PrestamosWPF.Views
 {
     /// <summary>
-    /// Lógica de interacción para MainView.xaml
+    /// Lógica de interacción para PrestamosFieldView.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class PrestamosFieldView : Window
     {
-        public MainView()
+        public PrestamosFieldView()
         {
             InitializeComponent();
-        }
-
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }
