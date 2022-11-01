@@ -106,7 +106,7 @@
         <Setter Property="Width" Value="16" />
         <Setter Property="Height" Value="16" />
     </Style>
-    <!--  Accept Button  -->
+    <!--  Card Button  -->
     <Style x:Key="CardButton" TargetType="Button">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontFamily" Value="{DynamicResource SFUIDisplay}" />
@@ -136,14 +136,21 @@
     <Style x:Key="BtnAgregarStyle" TargetType="Button">
         <Setter Property="Height" Value="30" />
         <Setter Property="Width" Value="auto" />
-        
-            <Setter Property="Template">
+
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="10" Background="White">
+                    <Border CornerRadius="20" Background="White">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="10"
+                                Direction="255"
+                                ShadowDepth="1"
+                                Color="#FFB6C2CB" />
+                        </Border.Effect>
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage
-                                Margin="10,3,0,3"
+                                Margin="15,3,0,3"
                                 Foreground="#1e355e"
                                 Icon="PenToSquare" >
                                 <fa:IconImage.Style>
@@ -156,7 +163,7 @@
                                     </Style>
                                 </fa:IconImage.Style>
                             </fa:IconImage>
-                            <TextBlock TextWrapping="Wrap" Text="Agregar" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" FontSize="18" Foreground="#1e355e" FontWeight="Normal" FontFamily="{DynamicResource SFUIDisplay}">
+                            <TextBlock Text="Agregar" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,15,0" FontSize="18" Foreground="#1e355e" FontWeight="Normal" FontFamily="{DynamicResource SFUIDisplay}">
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -189,33 +196,7 @@
         </Style.Triggers>
     </Style>
 
-    <!--Modern TextBox-->
-    <Style TargetType="{x:Type TextBox}" x:Key="ModernTextbox">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border CornerRadius="10" Background="#353340" Width="200" Height="30">
-                        <Grid>
-                            <Rectangle StrokeThickness="1"/>
-                            <TextBox Margin="1" BorderThickness="0" Background="Transparent" VerticalContentAlignment="Center" Padding="5" Foreground="#CFCFCF" x:Name="SearchBox"/>
-                            <TextBlock IsHitTestVisible="False" Text="{TemplateBinding ToolTip}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" FontSize="11" Foreground="DarkGray">
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                        <Setter Property="Visibility" Value="Hidden"/>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </Grid>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    
 
 
 </ResourceDictionary>

@@ -25,14 +25,40 @@ namespace PrestamosWPF.Views
             InitializeComponent();
         }
 
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private bool IsMaximazed = false;
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                if (IsMaximazed)
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Height = 648;
+                    this.Width = 1152;
+
+                    IsMaximazed = false;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Maximized;
+                    IsMaximazed = true;
+                }
+            }
+        }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+
     }
 }

@@ -70,16 +70,12 @@
                 VerticalAlignment="Top"
                 Command="{Binding GetByAllCommand}"
                 Content="Buscar"
-                Cursor="Hand"
                 Style="{StaticResource CardButton}">
                 </Button>
-                <!--<customControls:btnCardViewTemplate
-                Margin="0,0,10,0"
-                HorizontalAlignment="Right"
-                Grid.Column="2"/>-->
-
-                <Button Grid.Column="2" Style="{StaticResource BtnAgregarStyle}" Margin="205,10,10,10"/>
-
+                <StackPanel Grid.Column="2">
+                    <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
+                    <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10"/>
+                </StackPanel>
             </Grid>
             <Border
             Grid.Row="1"

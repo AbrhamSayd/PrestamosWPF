@@ -51,16 +51,15 @@
                     <Grid>
                         <StackPanel Width="150" Orientation="Vertical">
 
-                            <Image Margin="20" Source="/Images/logo-tecnm-2018_white.png" />
+                            <Image Margin="15" Source="/Images/logo-tecnm-2018_white.png" />
 
-                            <!--  BOTON PRESTAMOS  -->
+                                <!--  BOTON PRESTAMOS  -->
                             <Button
                                 Height="30"
                                 MaxHeight="30"
                                 Margin="0,30,0,0"
                                 HorizontalContentAlignment="Left"
-                                Click="Button_Click"
-                                Command="{Binding ShowLaboratoristasCommand}">
+                                Command="{Binding ShowPrestamosCommand}">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Background" Value="Transparent" />
@@ -306,8 +305,6 @@
                         Margin="25,0,5,25"
                         Content="{Binding CurrentChidlView}" />
                 </Grid>
-
-
             </DockPanel>
         </DockPanel>
     </Border>

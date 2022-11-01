@@ -65,39 +65,19 @@
                     Text="Search..." />
                 </StackPanel>
                 <Button
-                Grid.Column="1"
-                VerticalAlignment="Top"
-                BorderThickness="0"
-                Command="{Binding GetUsersCommand}"
-                Content="Buscar"
-                Cursor="Hand"
-                FontFamily="{StaticResource SFUIDisplay}"
-                FontSize="14"
-                Foreground="White">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#1e355e" />
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border
-                                        Height="30"
-                                        Background="{TemplateBinding Background}"
-                                        CornerRadius="15">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#836EFB" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                    Margin="0,5,0,0"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource CardButton}"
+                    Command="{Binding GetUsersCommand}"
+                    Content="Buscar"
+                >
+                    
                 </Button>
-                <customControls:btnCardViewTemplate Grid.Column="2" HorizontalAlignment="Right" />
+                <StackPanel Grid.Column="2">
+                    <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
+                    <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10"/>
+                </StackPanel>
             </Grid>
             <Border
             Grid.Row="1"
