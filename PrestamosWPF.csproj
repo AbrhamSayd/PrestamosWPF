@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\EncabezadoLogosInstitucionales.jpg" />
+    <None Remove="Images\logo-tecnm-2018_orig.png" />
+    <None Remove="Images\logo-tecnm-2018_White.png" />
+    <None Remove="Images\Pass_Vector.png" />
+    <None Remove="Images\User_Vector.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.1.1" />
+    <PackageReference Include="jQuery-datetimepicker" Version="2.4.5" />
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\EncabezadoLogosInstitucionales.jpg" />
+    <Resource Include="Images\logo-tecnm-2018_orig.png" />
+    <Resource Include="Images\logo-tecnm-2018_White.png" />
+    <Resource Include="Images\Pass_Vector.png" />
+    <Resource Include="Images\User_Vector.png" />
+  </ItemGroup>
+
+</Project>
