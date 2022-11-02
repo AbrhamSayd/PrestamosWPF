@@ -214,7 +214,6 @@
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
-               
             </Setter.Value>
         </Setter>
         <Style.Triggers>
@@ -225,29 +224,7 @@
         </Style.Triggers>
     </Style>
 
-    <!--  grid Edit Icon  -->
-    <Style x:Key="GridEditIcon" TargetType="fa:IconImage">
-        <Setter Property="Foreground" Value="#1e355e" />
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="5" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#1e355e" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <!--  grid Delete Icon  -->
+    <!--  grid Delete Button  -->
     <Style x:Key="GridDeleteButton" TargetType="Button" BasedOn="{StaticResource GridEditButton}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -257,7 +234,7 @@
         </Style.Triggers>
     </Style>
 
-    <!--  grid Icon Style -->
+<!--  grid Icon Style -->
     <Style x:Key="gridButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Width" Value="12" />
         <Setter Property="Height" Value="12" />
