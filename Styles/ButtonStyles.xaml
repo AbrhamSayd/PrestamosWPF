@@ -70,6 +70,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
     <!--  Menu button icon  -->
     <Style x:Key="ControlButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
@@ -77,6 +78,7 @@
         <Setter Property="Height" Value="15" />
 
     </Style>
+
     <!--  Icon button  -->
     <Style x:Key="IconButton" TargetType="Button">
         <!--  Normal button style  -->
@@ -100,12 +102,14 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
     <!--  Menu button icon  -->
     <Style x:Key="IconButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
         <Setter Property="Width" Value="16" />
         <Setter Property="Height" Value="16" />
     </Style>
+
     <!--  Card Button  -->
     <Style x:Key="CardButton" TargetType="Button">
         <Setter Property="BorderThickness" Value="0"/>
@@ -196,7 +200,70 @@
         </Style.Triggers>
     </Style>
 
-    
+    <!--  grid Edit Button  -->
+    <Style x:Key="GridEditButton" TargetType="Button">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="#1e355e" />
+        <Setter Property="Foreground" Value="#1e355e" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="5" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+               
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#1e355e" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  grid Edit Icon  -->
+    <Style x:Key="GridEditIcon" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="#1e355e" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="5" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#1e355e" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  grid Delete Icon  -->
+    <Style x:Key="GridDeleteButton" TargetType="Button" BasedOn="{StaticResource GridEditButton}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  grid Icon Style -->
+    <Style x:Key="gridButtonIcon" TargetType="fa:IconImage">
+        <Setter Property="Width" Value="12" />
+        <Setter Property="Height" Value="12" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
 
 
 </ResourceDictionary>

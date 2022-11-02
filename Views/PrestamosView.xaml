@@ -27,100 +27,127 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="120" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <StackPanel
-                Grid.Column="0"
-                VerticalAlignment="Top"
-                Orientation="Horizontal">
-                <fa:IconImage
-                    Width="20"
-                    Height="20"
-                    Foreground="#1e355e"
-                    Icon="Search" />
-                <TextBox
-                    Width="300"
-                    Height="24"
-                    Margin="5,5,0,0"
-                    VerticalContentAlignment="Center"
-                    Background="Transparent"
-                    BorderBrush="#1e355e"
-                    BorderThickness="0,0,0,1"
-                    CaretBrush="#1e355e"
-                    FontFamily="Montserrat"
-                    FontSize="13"
-                    FontWeight="Medium"
-                    Foreground="#1e355e"
-                    Text="Search..." />
-            </StackPanel>
-            <Button
-                Margin="0,5,0,0"
-                Grid.Column="1"
-                VerticalAlignment="Top"
-                Content="Buscar"
-                Cursor="Hand"
-                Style="{StaticResource CardButton}">
-            </Button>
-            <StackPanel Grid.Column="2">
-                <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
-                <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10"/>
-            </StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Column="0"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+                    <fa:IconImage
+                        Width="20"
+                        Height="20"
+                        Foreground="#1e355e"
+                        Icon="Search" />
+                    <TextBox
+                        Width="300"
+                        Height="24"
+                        Margin="5,5,0,0"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        BorderBrush="#1e355e"
+                        BorderThickness="0,0,0,1"
+                        CaretBrush="#1e355e"
+                        FontFamily="Montserrat"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        Foreground="#1e355e"
+                        Text="Search..." />
+                </StackPanel>
+                <Button
+                    Margin="0,5,0,0"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Content="Buscar"
+                    Cursor="Hand"
+                    Style="{StaticResource CardButton}">
+                </Button>
+                <StackPanel Grid.Column="2">
+                    <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
+                    <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10"/>
+                </StackPanel>
             </Grid>
-        <Border
-            Grid.Row="1"
-            Padding="10"
-            Background="White"
-            CornerRadius="20">
-            <DataGrid
+            <Border
+                Grid.Row="1"
+                Padding="10"
                 Background="White"
-                BorderThickness="0"
-                ColumnWidth="*">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="Foreground" Value="#1e355e" />
-                        <Setter Property="Padding" Value="10,0,0,10" />
-                        <Setter Property="FontFamily" Value="Montserrat" />
-                        <Setter Property="FontSize" Value="15" />
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="ID"
-                        HeaderStringFormat="" />
-                    <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="First name" />
-                    <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Last name" />
-                    <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Phone" />
-                    <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Number" />
-                    <DataGridTextColumn
-                        Binding="{x:Null}"
-                        ClipboardContentBinding="{x:Null}"
-                        Header="Address" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </Border>
-    </Grid>
-        </DockPanel>
+                CornerRadius="20">
+                <DataGrid 
+                    
+                    Style="{DynamicResource DataGridStyle1}" 
+                    CellStyle="{DynamicResource DataGridCellStyle1}"
+                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                    RowStyle="{DynamicResource DataGridRowStyle1}" >
+
+                    <DataGrid.Columns>
+
+                        <!--CheckBox Column-->
+                        <DataGridCheckBoxColumn CanUserResize="False" CanUserReorder="False" Width="auto">
+                            <DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox/>
+                                </DataTemplate>
+                            </DataGridCheckBoxColumn.HeaderTemplate>
+                        </DataGridCheckBoxColumn>
+
+                        <!--ID Column-->
+                        <DataGridTextColumn Header="ID" IsReadOnly="True" Width="Auto"/>
+                        
+                        <!--Nombre Column-->
+                        <DataGridTemplateColumn Header="Nombre" IsReadOnly="True" CanUserResize="False" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0,0,10,0" Background="Red">
+                                            <TextBlock Text="..." VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,1"/>
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!--Carrera Column-->
+                        <DataGridTextColumn Header="Carrera" IsReadOnly="True" Width="Auto"/>
+
+                        <!--Área Column-->
+                        <DataGridTextColumn Header="Área" IsReadOnly="True" Width="*"/>
+
+                        <!--Herramienta Column-->
+                        <DataGridTextColumn Header="Herramienta" IsReadOnly="True" Width="*"/>
+
+                        <!--Cantidad Column-->
+                        <DataGridTextColumn Header="Cantidad" IsReadOnly="True" Width="Auto"/>
+
+                        <!--Fecha del Prestamo Column-->
+                        <DataGridTextColumn Header="Fecha del Prestamo" IsReadOnly="True" Width="*"/>
+
+                        <!--Operations Column-->
+                        <DataGridTemplateColumn Header="Operaciones" IsReadOnly="True" CanUserResize="False" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource GridEditButton}">
+                                            <fa:IconImage Icon="Edit"/>
+                                        </Button>
+                                        <Button Style="{StaticResource GridDeleteButton}">
+                                            <fa:IconImage Icon="Trash"/>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </DockPanel>
 </UserControl>
