@@ -35,7 +35,7 @@
             <local:HerramientasView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModelsFields:HerramientasFieldsViewModel}">
-            <fields:LaboratoristasFieldsView />
+            <fields:HerramientasFieldsView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:LaboratoriosViewModel}">
             <local:LaboratoriosView />

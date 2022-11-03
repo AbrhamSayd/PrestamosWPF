@@ -23,8 +23,9 @@ public class LaboratoriosViewModel : ViewModelBase
 
     public LaboratoriosViewModel()
     {
+        _labsModel = new ObservableCollection<LabsModel>();
         _labsRepository = new LabsRepository();
-        RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand, CanExecuteRemoveCommand);
+        RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand);
         GetByIdCommand = new ViewModelCommand(ExecuteGetByIdCommand);
         ExecuteGetAllCommand(null);
 
@@ -79,7 +80,7 @@ public class LaboratoriosViewModel : ViewModelBase
     private void ExecuteGetAllCommand(object obj)
     {
         //LabsTable = labsRepository.GetByAll();
-        LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
+        _labsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
     }
 
     //REVISAR
@@ -91,7 +92,11 @@ public class LaboratoriosViewModel : ViewModelBase
 
     private bool CanExecuteRemoveCommand(object obj)
     {
-        return true;
+        
+        
+            return _labsModelRow.id_lab != null;
+        
+        
 
     }
 

@@ -94,7 +94,7 @@ public class MainViewModel : ViewModelBase
     }
     private void ExecuteShowAddLaboratoriosCommand(object obj)
     {
-        CurrentChidlView = new HerramientasViewModel();
+        CurrentChidlView = new LaboratoristasFieldsViewModel();
     }
 
     private void ExecuteShowHerramientasCommand(object obj)

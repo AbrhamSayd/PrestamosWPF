@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrestamosWPF.ViewModels.Fields
 {
-    public class PrestamosFieldsViewModel :ViewModelBase
+    public class PrestamosFieldsViewModel : ViewModelBase
     {
     }
 }

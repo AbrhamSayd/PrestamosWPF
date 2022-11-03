@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
+using PrestamosWPF.ViewModels;
+using PrestamosWPF.Views;
 
 namespace PrestamosWPF.ViewModels;
 
@@ -25,17 +27,19 @@ public class LaboratoristasViewModel : ViewModelBase
 
     private UserModel _usersModelRow;
     private int _selectIndex;
+    
 
     //constructor
     public LaboratoristasViewModel()
     {
+       
         userRepository = new UserRepository();
         UpdateCommand = new ViewModelCommand(ExecuteUpdateCommand, CanUpdateCommand);
         AddCommand = new ViewModelCommand(ExecuteAddCommand);
         ExecuteGetAllCommand(null);
     }
 
-
+    
     //props
     public string? IdSelector
     {
@@ -46,7 +50,7 @@ public class LaboratoristasViewModel : ViewModelBase
             OnPropertyChanged(nameof(IdSelector));
         }
     }
-
+    
     public string Id
     {
         get => _id;

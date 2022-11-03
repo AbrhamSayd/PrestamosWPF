@@ -1,17 +1,18 @@
-﻿<Window
+﻿<UserControl
     x:Class="PrestamosWPF.Views.Fields.HerramientasFieldsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PrestamosWPF.Views.Fields"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="HerramientasFieldsView"
+    xmlns:viewModels="clr-namespace:PrestamosWPF.ViewModels.Fields"
     Width="983"
     Height="600"
-    AllowsTransparency="True"
     Background="Transparent"
-    WindowStyle="None"
     mc:Ignorable="d">
-
+    <UserControl.DataContext>
+        <viewModels:HerramientasFieldsViewModel />
+    </UserControl.DataContext>
 
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
@@ -30,83 +31,98 @@
         <DockPanel DockPanel.Dock="Bottom">
             <DockPanel>
                 <DockPanel DockPanel.Dock="Top">
-                    <StackPanel Orientation="Vertical" Height="442">
+                    <StackPanel Height="442" Orientation="Vertical">
                         <StackPanel Margin="20,50,0,20">
                             <TextBlock
                                 Padding="20,0,0,0"
-                                Text="Nombre de la Herramienta"
-                                Style="{StaticResource FieldsHeaders}" />
+                                Style="{StaticResource FieldsHeaders}"
+                                Text="Nombre de la Herramienta" />
                             <TextBox
-                                Margin="0,5,0,5"
                                 x:Name="TxtNombreHerramienta"
                                 Width="300"
-                                Style="{StaticResource CustomCardTextBox}" />
+                                Margin="0,5,0,5"
+                                Style="{StaticResource CustomCardTextBox}"
+                                Text="{Binding nombre}" />
                         </StackPanel>
                         <StackPanel Margin="20,50,0,20">
                             <TextBlock
                                 Padding="20,0,0,0"
-                                Text="Observaciones"
-                                Style="{StaticResource FieldsHeaders}" />
+                                Style="{StaticResource FieldsHeaders}"
+                                Text="Descripcion" />
                             <TextBox
-                                Margin="0,5,0,5"
                                 x:Name="TxtNombreSolicitante"
                                 Width="300"
-                                Style="{StaticResource CustomCardTextBox}" />
+                                Margin="0,5,0,5"
+                                Style="{StaticResource CustomCardTextBox}"
+                                Text="{Binding descripcion}" />
                         </StackPanel>
                         <StackPanel Margin="20,50,0,20">
                             <TextBlock
                                 Padding="20,0,0,0"
-                                Text="Estado"
-                                Style="{StaticResource FieldsHeaders}" />
-                            <ComboBox
-                                Name="lwcboEst"
+                                Style="{StaticResource FieldsHeaders}"
+                                Text="Estado" />
+                            
+                            <TextBox
+                                Width="300"
                                 Margin="0,5,0,5"
-                                Width="300">
+                                Style="{StaticResource CustomCardTextBox}"
+                                Text="{Binding estado}" />
+                            <!--<ComboBox
+
+                                x:Name="lwcboEst"
+                                Width="300"
+                                Margin="0,5,0,5">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Estado}" Style="{StaticResource FieldsHeaders}" />
+                                            <TextBlock Style="{StaticResource FieldsHeaders}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
-                            </ComboBox>
-
-                            <ComboBox Style="{StaticResource CustomCardComboBox}"
-                                      Width="100" Height="50" />
+                                <ComboBox.DataContext>
+                                    <local:HerramientasFieldsView />
+                                </ComboBox.DataContext>
+                            </ComboBox>-->
 
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                    <StackPanel VerticalAlignment="Top" Orientation="Vertical">
                         <StackPanel Margin="50,50,0,20">
                             <TextBlock
                                 Padding="170,0,0,0"
-                                Text="Cantidad"
-                                Style="{StaticResource FieldsHeaders}" />
+                                Style="{StaticResource FieldsHeaders}"
+                                Text="Cantidad" />
                             <TextBox
-                                Margin="0,5,0,5"
                                 x:Name="TxtCantidad"
                                 Width="300"
-                                Style="{StaticResource CustomCardTextBox}" />
+                                Margin="0,5,0,5"
+                                Style="{StaticResource CustomCardTextBox}"
+                                Text="{Binding cantidad}" />
                         </StackPanel>
                     </StackPanel>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Button
-                        Margin="20"
-                        Style="{StaticResource CardButton}">
-                        <TextBlock Text="Cancelar" FontSize="20" Margin="20,6,20,6" />
+                    <Button Margin="20" Style="{StaticResource CardButton}">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="20"
+                            Text="Cancelar" />
                     </Button>
                     <Button
                         Margin="20"
+                        Command="{Binding AddCommand}"
                         Style="{StaticResource CardButton}">
-                        <TextBlock Text="Aceptar" FontSize="20" Margin="20,6,20,6" />
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="20"
+                            Text="Aceptar" />
                     </Button>
                 </DockPanel>
             </DockPanel>
         </DockPanel>
     </DockPanel>
-</Window>
-<!--<Window.Resources>
+
+    <!--<Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="22" />
         </Style>
@@ -114,7 +130,7 @@
             <Setter Property="FontSize" Value="22" />
         </Style>
     </Window.Resources>-->
-<!--<Grid>
+    <!--<Grid>
         <StackPanel>
             <TextBlock Text="Registro de herramienta" Margin="10,10,500,10" FontSize="40"/>
             <TextBlock Text="Nombre" Margin="10,20,700,10" FontSize="25"/>
@@ -135,3 +151,4 @@
             </ComboBox>
         </StackPanel>
     </Grid>-->
+</UserControl>

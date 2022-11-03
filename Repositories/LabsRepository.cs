@@ -31,7 +31,7 @@ public class LabsRepository : RepositoryBase, ILabsRepository
             connection.OpenAsync();
             command.Connection = connection;
             command.CommandText =
-                "UPDATE labs SET id_lab=@id_lab(id_lab,lab_name, ubicacion,id_user) values (@id_lab, @lab_name, @ubicacion, @id_user)";
+                "UPDATE labs SET id_lab=@id_lab (id_lab,lab_name, ubicacion,id_user) values (@id_lab, @lab_name, @ubicacion, @id_user)";
             command.Parameters.Add("@id_lab", MySqlDbType.VarChar).Value = labsModel.id_lab;
             command.Parameters.Add("@lab_name", MySqlDbType.VarChar).Value = labsModel.lab_name;
             command.Parameters.Add("@ubicacion", MySqlDbType.VarChar).Value = labsModel.ubicacion;
