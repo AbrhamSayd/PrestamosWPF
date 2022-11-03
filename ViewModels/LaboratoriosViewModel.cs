@@ -80,7 +80,7 @@ public class LaboratoriosViewModel : ViewModelBase
     
     private void ExecuteRemoveCommand(object obj)
     {
-        _labsRepository.Remove(int.Parse(_labChecked.id_user));
+        _labsRepository.Remove(int.Parse(_labsModelRow.id_user));
     }
     private bool CanExecuteRemoveCommand(object obj)
     {

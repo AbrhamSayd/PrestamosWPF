@@ -67,8 +67,12 @@
                     Cursor="Hand"
                     Style="{StaticResource CardButton}" />
                 <StackPanel Grid.Column="2">
-                    <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
-                    <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10" />
+
+                    <!--BOTON AGREGAR-->
+                    <Button Style="{StaticResource BtnAgregarStyle}" HorizontalAlignment="Right" Margin="10">
+                        <fa:IconImage Style="{StaticResource AddIconStyle}"/>
+                    </Button>
+
                 </StackPanel>
             </Grid>
             <Border

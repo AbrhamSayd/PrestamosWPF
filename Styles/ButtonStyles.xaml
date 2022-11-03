@@ -139,12 +139,15 @@
         </Style.Triggers>
     </Style>
 
+
+    <!--#region  Add Button  -->
+        
     <!--  Add Button  -->
     <Style x:Key="BtnAgregarStyle" TargetType="Button">
         <Setter Property="Height" Value="30" />
         <Setter Property="Width" Value="auto" />
 
-        <Setter Property="Template">
+        <!--<Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="20" Background="White">
@@ -196,7 +199,7 @@
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>
+        </Setter>-->
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#FF9EA79F" />
@@ -204,8 +207,19 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+        
+    <!--Icon add Style-->
+    <Style x:Key="AddIconStyle" TargetType="fa:IconImage">
+        <Setter Property="Icon" Value="PenToSquare"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="15,3,0,3"/>
 
-    <!--  grid Edit Button  -->
+    </Style>
+
+    <!--#endregion  Add Button  -->
+
+
+            <!--  grid Edit Button  -->
     <Style x:Key="GridEditButton" TargetType="Button">
         <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="#1e355e" />

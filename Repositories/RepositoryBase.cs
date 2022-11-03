@@ -12,7 +12,7 @@ public abstract class RepositoryBase
         server = "localhost"; //ip
         database = "itsppprestamosdb";
         uid = "root";
-        password = "root";
+        password = "itspp";
         _connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" +
                             password + ";";
     }
