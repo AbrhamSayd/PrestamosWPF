@@ -74,7 +74,7 @@ public class MainViewModel : ViewModelBase
 
     private void ExecuteShowFieldsCommand(object obj)
     {
-        CurrentChidlView = new HerramientasFieldsViewModel();
+        CurrentChidlView = new PrestamosFieldsViewModel();
     }
     private void ExecuteShowLaboratistasCommand(object obj)
     {

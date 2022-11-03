@@ -19,7 +19,8 @@ namespace PrestamosWPF.Repositories
                 connection.OpenAsync();
                 command.Connection = connection;
                 command.CommandText =
-                    "insert into lendings(id_user, id_tool, name, fecha_prestamo) values (@id_user, @id_tool, @name, @fecha_prestamo)";
+                    "insert into lendings(username,id_user,Id_tools,name,fecha_prestamo) values (@username, @id_user, @id_tool, @name, @fecha_prestamo)";
+                command.Parameters.Add("@username", MySqlDbType.VarChar).Value = lendingModel.username;
                 command.Parameters.Add("@id_user", MySqlDbType.VarChar).Value = lendingModel.id_user;
                 command.Parameters.Add("@id_tool", MySqlDbType.VarChar).Value = lendingModel.id_tool;
                 command.Parameters.Add("@name", MySqlDbType.VarChar).Value = lendingModel.name;
@@ -36,7 +37,9 @@ namespace PrestamosWPF.Repositories
                 connection.OpenAsync();
                 command.Connection = connection;
                 command.CommandText =
-                    "UPDATE lendings SET (id_user, id_tool, name, fecha_prestamo) values (@id_user, @id_tool, @name, @fecha_prestamo)";
+                    "UPDATE lendings SET (id_lending, username, id_tool, name, fecha_prestamo) values (@id_lending,@username, @id_tool, @id_tool, @name, @fecha_prestamo)";
+                command.Parameters.Add("@id_lending", MySqlDbType.VarChar).Value = lendingModel.id_lending;
+                command.Parameters.Add("@username", MySqlDbType.VarChar).Value = lendingModel.username;
                 command.Parameters.Add("@id_user", MySqlDbType.VarChar).Value = lendingModel.id_user;
                 command.Parameters.Add("@id_tool", MySqlDbType.VarChar).Value = lendingModel.id_tool;
                 command.Parameters.Add("@name", MySqlDbType.VarChar).Value = lendingModel.name;
@@ -80,10 +83,11 @@ namespace PrestamosWPF.Repositories
                         var lendingModel = new LendingModel()
                         {
                             id_lending = reader[0].ToString(),
-                            id_user = reader[1].ToString(),
-                            id_tool = reader[2].ToString(),
-                            name = reader[3].ToString(),
-                            fecha_prestamo = DateTime.Parse(reader[4].ToString())
+                            username = reader[1].ToString(),
+                            id_user = reader[2].ToString(),
+                            id_tool = reader[3].ToString(),
+                            name = reader[4].ToString(),
+                            fecha_prestamo = DateTime.Parse(reader[5].ToString())
                         };
                         lendingList.Add(lendingModel);
                     }

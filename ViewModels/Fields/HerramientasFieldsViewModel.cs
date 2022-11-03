@@ -80,7 +80,10 @@ public class HerramientasFieldsViewModel : ViewModelBase
     {
         _toolsModel = new ToolsModel()
         {
-            id_tool = 1.ToString(), cantidad = _cantidad, descripcion = _descripcion, estado = _estado, nombre = _nombre
+            id_tool = 1.ToString(),
+            cantidad = _cantidad,
+            descripcion = _descripcion,
+            estado = _estado, nombre = _nombre
         };
         toolsRepository.Add(_toolsModel);
         
