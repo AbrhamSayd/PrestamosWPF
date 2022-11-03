@@ -114,7 +114,7 @@ namespace PrestamosWPF.ViewModels.Fields
                 OnPropertyChanged(nameof(CurrentUserAccountView));
             }
         }
-
+        //
         public ICommand AddCommand { get; }
 
         public PrestamosFieldsViewModel()
