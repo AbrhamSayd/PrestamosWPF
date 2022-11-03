@@ -18,7 +18,7 @@ namespace PrestamosWPF.Repositories
                 connection.OpenAsync();
                 command.Connection = connection;
                 command.CommandText =
-                    "insert into tools(id_tool, nombre, descripcion, cantidad, estado) values (@id_tool, @nombre, @descripcion, @cantidad, @estado)";
+                    "insert into tools(nombre, descripcion, cantidad, estado) values (@nombre, @descripcion, @cantidad, @estado)";
                 command.Parameters.Add("@id_tool", MySqlDbType.VarChar).Value = toolsModel.id_tool;
                 command.Parameters.Add("@nombre", MySqlDbType.VarChar).Value = toolsModel.nombre;
                 command.Parameters.Add("@descripcion", MySqlDbType.VarChar).Value = toolsModel.descripcion;

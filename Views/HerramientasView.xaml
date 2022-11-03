@@ -72,14 +72,6 @@
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
-                    <!--  BOTON Editar  -->
-                    <Button
-                        Width="30"
-                        Height="30"
-                        Margin="0,0,15,0"
-                        Style="{StaticResource GridEditButton}">
-                        <fa:IconImage Icon="Edit" />
-                    </Button>
 
                     <!--BOTON Eliminar-->
                     <Button Command="{Binding RemoveCommand}" 
@@ -96,9 +88,10 @@
                         Command="{Binding ShowAddHerramientasCommand}"
                         Style="{StaticResource BtnAgregarStyle}">
                         <Button.DataContext>
-                            <viewModels:MainViewModel/>
+                            <viewModels:MainViewModel />
                         </Button.DataContext>
                         <fa:IconImage Style="{StaticResource AddIconStyle}" />
+
                     </Button>
 
                 </StackPanel>
@@ -108,11 +101,12 @@
                 Padding="5,0,5,5"
                 Background="White"
                 CornerRadius="20">
-                <DataGrid SelectedItem="{Binding ToolsModelRow}"
+                <DataGrid
                     CellStyle="{DynamicResource DataGridCellStyle1}"
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                     ItemsSource="{Binding CollectionToolsModels}"
                     RowStyle="{DynamicResource DataGridRowStyle1}"
+                    SelectedItem="{Binding ToolsModelRow}"
                     Style="{DynamicResource DataGridStyle1}">
 
                     <DataGrid.Columns>
