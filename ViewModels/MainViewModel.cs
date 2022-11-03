@@ -21,14 +21,12 @@ public class MainViewModel : ViewModelBase
 
 
         //Command for childrends
+        ShowFieldsCommand = new ViewModelCommand(ExecuteShowFieldsCommand);
         ShowPrestamosCommand = new ViewModelCommand(ExecuteShowPrestamosCommand);
         ShowHerramientasCommand = new ViewModelCommand(ExecuteShowHerramientasCommand);
         ShowLaboratoriosCommand = new ViewModelCommand(ExecuteShowLaboratoriosCommand);
         ShowLaboratoristasCommand = new ViewModelCommand(ExecuteShowLaboratistasCommand);
-        ShowAddPrestamosCommand = new ViewModelCommand(ExecuteShowAddPrestamosCommand);
-        ShowAddHerramientasCommand = new ViewModelCommand(ExecuteShowAddHerramientasCommand);
-        ShowAddLaboratoriosCommand = new ViewModelCommand(ExecuteShowAddLaboratoriosCommand);
-        ShowAddLaboratoristasCommand = new ViewModelCommand(ExecuteShowAddLaboratistasCommand);
+        
 
         LoadCurrentUserdata();
     }
@@ -64,55 +62,39 @@ public class MainViewModel : ViewModelBase
         }
     }
 
-
+    public ICommand ShowFieldsCommand { get; }
     public ICommand ShowPrestamosCommand { get; }
-    public ICommand ShowAddPrestamosCommand { get; }
     public ICommand ShowHerramientasCommand { get; }
-    public ICommand ShowAddHerramientasCommand { get; }
     public ICommand ShowLaboratoriosCommand { get; }
-    public ICommand ShowAddLaboratoriosCommand { get; }
     public ICommand ShowLaboratoristasCommand { get; }
-    public ICommand ShowAddLaboratoristasCommand { get; }
 
 
 
 
 
-
+    private void ExecuteShowFieldsCommand(object obj)
+    {
+        CurrentChidlView = new HerramientasFieldsViewModel();
+    }
     private void ExecuteShowLaboratistasCommand(object obj)
     {
         CurrentChidlView = new LaboratoristasViewModel();
-    }
-    private void ExecuteShowAddLaboratistasCommand(object obj)
-    {
-        CurrentChidlView = new LaboratoriosFieldsViewModel();
     }
 
     private void ExecuteShowLaboratoriosCommand(object obj)
     {
         CurrentChidlView = new LaboratoriosViewModel();
     }
-    private void ExecuteShowAddLaboratoriosCommand(object obj)
-    {
-        CurrentChidlView = new LaboratoriosFieldsViewModel();
-    }
 
     private void ExecuteShowHerramientasCommand(object obj)
     {
         CurrentChidlView = new HerramientasViewModel();
     }
-    private void ExecuteShowAddHerramientasCommand(object obj)
-    {
-        CurrentChidlView = new HerramientasFieldsViewModel();
-    }
     private void ExecuteShowPrestamosCommand(object obj)
     {
         CurrentChidlView = new PrestamosViewModel();
     }
-    private void ExecuteShowAddPrestamosCommand(object obj)
-    {
-        CurrentChidlView = new PrestamosFieldsViewModel();
-    }
+    
 
     private void LoadCurrentUserdata()
     {
