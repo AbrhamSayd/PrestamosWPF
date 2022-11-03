@@ -66,20 +66,20 @@
 
                     <!--  BOTON Editar  -->
                     <Button
-                        Width="30"
+                        Width="60"
                         Height="30"
                         Margin="0,0,15,0"
                         Style="{StaticResource GridEditButton}">
-                        <fa:IconImage Icon="Edit" />
+                        <fa:IconImage Icon="Edit" Style="{StaticResource gridDeleteIcon}" />
                     </Button>
 
                     <!--  BOTON Eliminar  -->
                     <Button
-                        Width="30"
+                        Width="60"
                         Height="30"
                         Margin="0,0,15,0"
                         Style="{StaticResource GridDeleteButton}">
-                        <fa:IconImage Icon="Trash" />
+                        <fa:IconImage Icon="Trash" Style="{StaticResource gridDeleteIcon}"/>
                     </Button>
 
                 </StackPanel>

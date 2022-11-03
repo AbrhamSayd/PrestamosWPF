@@ -347,7 +347,10 @@
                                 Margin="0,10,25,0"
                                 HorizontalAlignment="Right"
                                 Style="{StaticResource BtnAgregarStyle}">
-                            <fa:IconImage Style="{StaticResource AddIconStyle}" />
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Style="{StaticResource AddIconStyle}" />
+                                <TextBlock Style="{StaticResource TextBlockAddStyle}"/>
+                            </StackPanel>
                         </Button>
                     </Grid>
                 </DockPanel>
