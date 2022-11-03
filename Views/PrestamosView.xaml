@@ -16,7 +16,7 @@
     </UserControl.DataContext>
 
     <DockPanel>
-        
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
@@ -78,8 +78,9 @@
                         Width="60"
                         Height="30"
                         Margin="0,0,15,0"
+                        Command="{Binding RemoveCommand}"
                         Style="{StaticResource GridDeleteButton}">
-                        <fa:IconImage Icon="Trash" Style="{StaticResource gridDeleteIcon}"/>
+                        <fa:IconImage Icon="Trash" Style="{StaticResource gridDeleteIcon}" />
                     </Button>
 
                 </StackPanel>
@@ -94,6 +95,7 @@
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                     ItemsSource="{Binding CollectionLendingModels}"
                     RowStyle="{DynamicResource DataGridRowStyle1}"
+                    SelectedItem="{Binding LendingModelRow}"
                     Style="{DynamicResource DataGridStyle1}">
 
                     <DataGrid.Columns>

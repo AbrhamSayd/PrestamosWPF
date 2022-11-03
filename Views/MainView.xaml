@@ -321,19 +321,7 @@
                             HorizontalAlignment="Left"
                             Orientation="Horizontal">
 
-                            <TextBlock
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                Margin="30,20,0,0"
-                                HorizontalAlignment="Left"
-                                FontFamily="Roboto Mono"
-                                FontSize="30"
-                                FontWeight="SemiBold"
-                                Foreground="#31579d"
-                                Text="Tabla"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap" />
-
+                           
 
                         </StackPanel>
                         <StackPanel
