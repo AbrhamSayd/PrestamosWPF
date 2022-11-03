@@ -27,7 +27,6 @@
                 Text="Laboratorios"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
-            <TextBlock Text="{Binding SelectIndex}" />
         </StackPanel>
         <Grid>
             <Grid.RowDefinitions>
@@ -103,12 +102,11 @@
                 Padding="5,0,5,5"
                 Background="White"
                 CornerRadius="20">
-                <DataGrid
+                <DataGrid SelectedItem="{Binding LabsModelRow}"
                     CellStyle="{DynamicResource DataGridCellStyle1}"
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                     ItemsSource="{Binding LabsModel}"
                     RowStyle="{DynamicResource DataGridRowStyle1}"
-                    SelectedItem="{Binding LabsModelRow}"
                     Style="{DynamicResource DataGridStyle1}">
 
                     <DataGrid.Columns>

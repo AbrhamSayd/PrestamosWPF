@@ -15,7 +15,6 @@ public class LaboratoriosViewModel : ViewModelBase
     private readonly ILabsRepository _labsRepository;
     private ObservableCollection<LabsModel> _labsModel;
     private LabsModel _labsModelRow;
-    private bool _isChecked;
     private int _selectIndex;
 
 

@@ -72,8 +72,9 @@
                     </Button>
 
                     <!--BOTON Eliminar-->
-                    <Button Style="{StaticResource GridDeleteButton}"
-                            Height="30" Width="30" Margin="0,0,15,0">
+                    <Button Command="{Binding RemoveCommand}"
+                        Style="{StaticResource GridDeleteButton}"
+                        Height="30" Width="30" Margin="0,0,15,0">
                         <fa:IconImage Icon="Trash" />
                     </Button>
 
@@ -148,27 +149,6 @@
                             Binding="{Binding Area}"
                             Header="Area"
                             IsReadOnly="True" />
-
-                        <!--  Operations Column  -->
-                        <DataGridTemplateColumn
-                            Width="auto"
-                            CanUserResize="False"
-                            Header="Operaciones"
-                            IsReadOnly="True">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource GridEditButton}">
-                                            <fa:IconImage Icon="Edit" />
-                                        </Button>
-                                        <Button Style="{StaticResource GridDeleteButton}">
-                                            <fa:IconImage Icon="Trash" />
-                                        </Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
 
                     </DataGrid.Columns>
                 </DataGrid>

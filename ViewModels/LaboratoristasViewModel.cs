@@ -9,24 +9,28 @@ namespace PrestamosWPF.ViewModels;
 public class LaboratoristasViewModel : ViewModelBase
 
 {
+    private ObservableCollection<UserModel> _CollectionUserModel;
     private string? _area;
     private string? _carrera;
-    private ObservableCollection<UserModel> _CollectionUserModel;
     private string? _firstName;
     private string? _id;
     private string? _idSelector;
     private string? _lastName;
     private string? _password;
-    private string? _tipoEmpleado; //fields
+    private string? _tipoEmpleado; 
+    //fields
     private UserModel _userModel;
     private string? _username;
     private readonly IUserRepository userRepository;
+
+    private UserModel _usersModelRow;
+    private int _selectIndex;
 
     //constructor
     public LaboratoristasViewModel()
     {
         userRepository = new UserRepository();
-        updateCommand = new ViewModelCommand(ExecuteUpdateCommand, CanUpdateCommand);
+        UpdateCommand = new ViewModelCommand(ExecuteUpdateCommand, CanUpdateCommand);
         AddCommand = new ViewModelCommand(ExecuteAddCommand);
         ExecuteGetAllCommand(null);
     }
@@ -149,11 +153,31 @@ public class LaboratoristasViewModel : ViewModelBase
         }
     }
 
+    public int SelectIndex
+    {
+        get => _selectIndex;
+        set
+        {
+            _selectIndex = value;
+            OnPropertyChanged(nameof(SelectIndex));
+        }
+    }
+    public UserModel UsersModelRow
+    {
+        get => _usersModelRow;
+        set
+        {
+            _usersModelRow = value;
+            OnPropertyChanged(nameof(_usersModelRow));
+        }
+    }
+
 
     //commands
     public ICommand AddCommand { get; }
-    public ICommand updateCommand { get; }
-    public ICommand GetAllCommand { get; }
+    public ICommand UpdateCommand { get; }
+    public ICommand GetByAllCommand { get; }
+    public ICommand RemoveCommand { get; }
 
 
     private void ExecuteGetAllCommand(object obj)

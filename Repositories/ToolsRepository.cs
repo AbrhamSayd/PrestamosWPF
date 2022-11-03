@@ -49,7 +49,15 @@ namespace PrestamosWPF.Repositories
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            using var connection = GetConnection();
+            using (var command = new MySqlCommand())
+            {
+                connection.OpenAsync();
+                command.Connection = connection;
+                command.CommandText = "DELETE FROM tools WHERE id_tool=@id_tool";
+                command.Parameters.Add("@id_tool", MySqlDbType.VarChar).Value = id.ToString();
+                command.ExecuteScalar();
+            }
         }
 
         public IEnumerable<ToolsModel> GetByAll()

@@ -11,7 +11,8 @@ public class HerramientasViewModel : ViewModelBase
 {
     private ObservableCollection<ToolsModel> _collectionToolsModels;
     private readonly IToolsRepository toolsRepository;
-    private ToolsModel _toolsModel;
+    private ToolsModel _toolsModelRow;
+    private int _selectIndex;
 
     //Fields
     public ObservableCollection<ToolsModel> CollectionToolsModels
@@ -31,18 +32,37 @@ public class HerramientasViewModel : ViewModelBase
         ExecuteGetAllCommand(null);
     }
 
+    public int SelectIndex
+    {
+        get => _selectIndex;
+        set
+        {
+            _selectIndex = value;
+            OnPropertyChanged(nameof(SelectIndex));
+        }
+    }
+    public ToolsModel ToolsModelRow
+    {
+        get => _toolsModelRow;
+        set
+        {
+            _toolsModelRow = value;
+            OnPropertyChanged(nameof(ToolsModelRow));
+        }
+    }
+
     private void ExecuteRemoveCommand(object obj)
     {
-        toolsRepository.Remove(int.Parse(_toolsModel.id_tool));
+        toolsRepository.Remove(int.Parse(ToolsModelRow.id_tool));
+        CollectionToolsModels = new ObservableCollection<ToolsModel>(toolsRepository.GetByAll());
     }
 
     
-    private void ExecuteGetAllCommand(object o)
+    private void ExecuteGetAllCommand(object obj)
     {
         CollectionToolsModels = new ObservableCollection<ToolsModel>(toolsRepository.GetByAll());
     }
 
-
     //commands
-    public ICommand RemoveCommand;
+    public ICommand RemoveCommand { get; }
 }
