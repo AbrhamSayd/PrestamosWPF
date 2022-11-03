@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels.Fields"
              mc:Ignorable="d"
              d:DesignHeight="585"
              d:DesignWidth="973">
+    <UserControl.DataContext>
+<viewModel:LaboratoriosFieldsViewModel/>
+    </UserControl.DataContext>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
             <TextBlock
@@ -32,6 +36,7 @@
                             <TextBox
                                 Margin="0,5,0,5"
                                 x:Name="TxtUbicacionLab"
+                                Text="{Binding ubicacion}"
                                 Width="300"
                                 Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
@@ -44,6 +49,7 @@
                                 Margin="0,5,0,5"
                                 x:Name="TxtCarrera"
                                 Width="300"
+                                Text="{Binding id_user}"
                                 Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
 
@@ -52,12 +58,13 @@
                         <StackPanel Margin="50,50,0,20">
                             <TextBlock
                                 Padding="20,0,0,0"
-                                Text="Carrera"
+                                Text="Nombre lab"
                                 Style="{StaticResource FieldsHeaders}" />
                             <TextBox
                                 Margin="0,5,0,5"
                                 x:Name="TxtCarreraLab"
                                 Width="300"
+                                Text="{Binding lab_name}"
                                 Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
 
@@ -71,6 +78,7 @@
                         <TextBlock Text="Cancelar" FontSize="20" Margin="20,6,20,6" />
                     </Button>
                     <Button
+                        Command="{Binding AddCommand}"
                         Margin="20"
                         Style="{StaticResource CardButton}">
                         <TextBlock Text="Aceptar" FontSize="20" Margin="20,6,20,6" />

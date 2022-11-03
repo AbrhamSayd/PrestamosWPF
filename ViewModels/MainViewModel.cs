@@ -3,6 +3,7 @@ using System.Windows.Input;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
 using PrestamosWPF.ViewModels.Fields;
+using PrestamosWPF.Views;
 
 namespace PrestamosWPF.ViewModels;
 
@@ -12,7 +13,7 @@ public class MainViewModel : ViewModelBase
     private ViewModelBase _currentChidlView;
     private UserModel _userModel;
     private readonly IUserRepository userRepository;
-
+    private string _actualModel;
 
     public MainViewModel()
     {
@@ -31,6 +32,15 @@ public class MainViewModel : ViewModelBase
         LoadCurrentUserdata();
     }
 
+    public string actualModel
+    {
+        get => _actualModel;
+        set
+        {
+            _actualModel = value;
+            OnPropertyChanged(nameof(actualModel));
+        }
+    }
 
     public UserAccountModel CurrentUserAccountView
     {
@@ -74,25 +84,46 @@ public class MainViewModel : ViewModelBase
 
     private void ExecuteShowFieldsCommand(object obj)
     {
-        CurrentChidlView = new PrestamosFieldsViewModel();
+
+        switch (actualModel)
+        {
+            case "Laboratoristas":
+                CurrentChidlView = new LaboratoristasFieldsViewModel();
+                break;
+            case "Herramientas":
+                CurrentChidlView = new HerramientasFieldsViewModel();
+                break;
+            case "Laboratorios":
+                CurrentChidlView = new LaboratoriosFieldsViewModel();
+                break;
+            case "Prestamos":
+                CurrentChidlView = new PrestamosFieldsViewModel();
+                break;
+
+        }
+
     }
     private void ExecuteShowLaboratistasCommand(object obj)
     {
         CurrentChidlView = new LaboratoristasViewModel();
+        actualModel = "Laboratoristas";
     }
 
     private void ExecuteShowLaboratoriosCommand(object obj)
     {
         CurrentChidlView = new LaboratoriosViewModel();
+        actualModel = "Laboratorios";
     }
 
     private void ExecuteShowHerramientasCommand(object obj)
     {
         CurrentChidlView = new HerramientasViewModel();
+        actualModel = "Herramientas";
     }
     private void ExecuteShowPrestamosCommand(object obj)
     {
         CurrentChidlView = new PrestamosViewModel();
+        actualModel = "Prestamos";
     }
     
 

@@ -18,7 +18,7 @@ public class LabsRepository : RepositoryBase, ILabsRepository
             command.Parameters.Add("@id_lab", MySqlDbType.VarChar).Value = labsModel.id_lab;
             command.Parameters.Add("@lab_name", MySqlDbType.VarChar).Value = labsModel.lab_name;
             command.Parameters.Add("@ubicacion", MySqlDbType.VarChar).Value = labsModel.ubicacion;
-            command.Parameters.Add("@id_user", MySqlDbType.VarChar).Value = labsModel.id_user;
+            command.Parameters.Add("@id_user", MySqlDbType.Int32).Value = int.Parse(labsModel.id_user);
             command.ExecuteScalar();
         }
     }

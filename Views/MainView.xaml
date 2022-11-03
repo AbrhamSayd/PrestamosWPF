@@ -230,10 +230,10 @@
                         <StackPanel VerticalAlignment="Bottom">
                             <!--  BOTON CUENTAS  -->
                             <Button
-                                Command="{Binding ShowFieldsCommand}"
                                 MaxHeight="30"
                                 Margin="0,0,0,25"
-                                HorizontalContentAlignment="Center">
+                                HorizontalContentAlignment="Center"
+                                Command="{Binding ShowFieldsCommand}">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Background" Value="Transparent" />
@@ -307,23 +307,25 @@
                 <DockPanel DockPanel.Dock="Top">
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <StackPanel
-                            Margin="0"
                             Grid.Row="0"
-                            Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                            Grid.Column="0"
+                            Margin="0"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
 
-                            <TextBlock   
-                                Margin=" 30,20,0,0"
-                                HorizontalAlignment="Left"
+                            <TextBlock
                                 Grid.Row="0"
                                 Grid.Column="0"
+                                Margin="30,20,0,0"
+                                HorizontalAlignment="Left"
                                 FontFamily="Roboto Mono"
                                 FontSize="30"
                                 FontWeight="SemiBold"
@@ -332,25 +334,30 @@
                                 TextAlignment="Center"
                                 TextWrapping="Wrap" />
 
-                            
+
                         </StackPanel>
-                        <StackPanel Margin="0,0,20,0"
-                                    Grid.Row="0"
-                                    Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
-                            <customControls:btnMinimize Margin="5"/>
-                            <customControls:btnClose Margin="5"/>
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="0,0,20,0"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+                            <customControls:btnMinimize Margin="5" />
+                            <customControls:btnClose Margin="5" />
                         </StackPanel>
 
 
                         <!--  BOTON AGREGAR  -->
-                        <Button Grid.Row="1"
-                                Grid.Column="1"
-                                Margin="0,10,25,0"
-                                HorizontalAlignment="Right"
-                                Style="{StaticResource BtnAgregarStyle}">
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,10,25,0"
+                            HorizontalAlignment="Right"
+                            Command="{Binding ShowFieldsCommand}"
+                            Style="{StaticResource BtnAgregarStyle}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Style="{StaticResource AddIconStyle}" />
-                                <TextBlock Style="{StaticResource TextBlockAddStyle}"/>
+                                <TextBlock Style="{StaticResource TextBlockAddStyle}" />
                             </StackPanel>
                         </Button>
                     </Grid>
@@ -359,15 +366,16 @@
                 <!--  Grid CONTENT  -->
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <ContentControl
                         Grid.Row="0"
+                        Grid.ColumnSpan="2"
                         Margin="25,0,10,25"
-                        Content="{Binding CurrentChidlView}" Grid.ColumnSpan="2" />
+                        Content="{Binding CurrentChidlView}" />
                 </Grid>
             </DockPanel>
         </DockPanel>
