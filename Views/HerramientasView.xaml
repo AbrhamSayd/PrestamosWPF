@@ -16,19 +16,6 @@
     </UserControl.DataContext>
 
     <DockPanel>
-        <StackPanel
-            Margin="20,10,0,20"
-            HorizontalAlignment="left"
-            DockPanel.Dock="top">
-            <TextBlock
-                FontFamily="Roboto Mono"
-                FontSize="30"
-                FontWeight="SemiBold"
-                Foreground="#31579d"
-                Text="Herramientas"
-                TextAlignment="Center"
-                TextWrapping="Wrap" />
-        </StackPanel>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
@@ -67,31 +54,34 @@
                         Foreground="#1e355e"
                         Text="Search..." />
                 </StackPanel>
+                <Button
+                    Grid.Column="1"
+                    Margin="0,5,0,0"
+                    VerticalAlignment="Top"
+                    Content="Buscar"
+                    Cursor="Hand"
+                    Style="{StaticResource CardButton}" />
                 <StackPanel
                     Grid.Column="2"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
-
-                    <!--BOTON Eliminar-->
-                    <Button Command="{Binding RemoveCommand}" 
-                        Style="{StaticResource GridDeleteButton}"
-                        Height="30" Width="30" Margin="0,0,15,0">
-                        <fa:IconImage Icon="Trash" />
-                    </Button>
-                     
-
-                    <!--  BOTON AGREGAR  -->
+                    <!--  BOTON Editar  -->
                     <Button
-                        Margin="10"
-                        HorizontalAlignment="Right"
-                        Command="{Binding ShowAddHerramientasCommand}"
-                        Style="{StaticResource BtnAgregarStyle}">
-                        <Button.DataContext>
-                            <viewModels:MainViewModel />
-                        </Button.DataContext>
-                        <fa:IconImage Style="{StaticResource AddIconStyle}" />
+                        Width="60"
+                        Height="30"
+                        Margin="0,0,15,0"
+                        Style="{StaticResource GridEditButton}">
+                        <fa:IconImage Icon="Edit" Style="{StaticResource gridDeleteIcon}" />
+                    </Button>
 
+                    <!--  BOTON Eliminar  -->
+                    <Button
+                        Width="60"
+                        Height="30"
+                        Margin="0,0,15,0"
+                        Style="{StaticResource GridDeleteButton}">
+                        <fa:IconImage Icon="Trash" Style="{StaticResource gridDeleteIcon}"/>
                     </Button>
 
                 </StackPanel>
