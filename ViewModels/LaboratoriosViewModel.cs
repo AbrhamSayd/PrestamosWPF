@@ -16,6 +16,7 @@ public class LaboratoriosViewModel : ViewModelBase
     private ObservableCollection<LabsModel> _labsModel;
     private LabsModel _labsModelRow;
     private bool _isChecked;
+    private int _selectIndex;
 
 
     //constructor
@@ -23,9 +24,7 @@ public class LaboratoriosViewModel : ViewModelBase
     public LaboratoriosViewModel()
     {
         _labsRepository = new LabsRepository();
-
-        RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand, CanExecuteRemoveCommand
-            );
+        RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand, CanExecuteRemoveCommand);
         GetByIdCommand = new ViewModelCommand(ExecuteGetByIdCommand);
         ExecuteGetAllCommand(null);
     }
@@ -44,13 +43,13 @@ public class LaboratoriosViewModel : ViewModelBase
         }
     }
 
-    public bool isChecked
+    public int SelectIndex
     {
-        get => _isChecked;
+        get => _selectIndex;
         set
         {
-            _isChecked = value;
-            OnPropertyChanged(nameof(_isChecked));
+            _selectIndex = value;
+            OnPropertyChanged(nameof(SelectIndex));
         }
     }
     public LabsModel LabsModelRow
@@ -58,7 +57,7 @@ public class LaboratoriosViewModel : ViewModelBase
         get => _labsModelRow;
         set
         {
-            _labsModelRow = value;
+            _labsModelRow = value; 
             OnPropertyChanged(nameof(LabsModelRow));
         }
     }
@@ -77,7 +76,7 @@ public class LaboratoriosViewModel : ViewModelBase
         //LabsTable = labsRepository.GetByAll();
         LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
     }
-    
+    //REVISAR
     private void ExecuteRemoveCommand(object obj)
     {
         _labsRepository.Remove(int.Parse(_labsModelRow.id_user));

@@ -27,7 +27,7 @@
                 Text="Laboratorios"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
-            <TextBlock Text="{Binding LabsModelRow}" />
+            <TextBlock Text="{Binding SelectIndex}" />
         </StackPanel>
         <Grid>
             <Grid.RowDefinitions>
@@ -95,6 +95,7 @@
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                     ItemsSource="{Binding LabsModel}"
                     RowStyle="{DynamicResource DataGridRowStyle1}"
+                    SelectedIndex="{Binding SelectIndex}"
                     SelectedItem="{Binding LabsModelRow}"
                     Style="{DynamicResource DataGridStyle1}">
 
@@ -103,7 +104,6 @@
                         <!--  CheckBox Column  -->
                         <DataGridCheckBoxColumn
                             Width="45"
-                            
                             CanUserReorder="False"
                             CanUserResize="False">
                             <DataGridCheckBoxColumn.HeaderTemplate>

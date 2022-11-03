@@ -20,6 +20,7 @@
         <Button
             x:Name="btnChildCardview"
             BorderThickness="0"
+            Command=""
             Cursor="Hand"
             FontFamily="{StaticResource SFUIDisplay}"
             FontSize="18"
@@ -38,9 +39,11 @@
             </Button.Style>
 
             <Button.Template>
+                
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}" CornerRadius="20">
                         <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        
                     </Border>
                 </ControlTemplate>
             </Button.Template>

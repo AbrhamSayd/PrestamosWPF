@@ -16,4 +16,6 @@ public partial class LaboratoriosView : UserControl
     private void Button_Click(object sender, RoutedEventArgs e)
     {
     }
+
+    
 }
