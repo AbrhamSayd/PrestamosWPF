@@ -13,6 +13,7 @@ namespace PrestamosWPF.Repositories
         void Add(LabsModel labsModel);
         void Edit(LabsModel labsModel);
         void Remove(int id);
-        DataTable GetByAll();
+        //DataTable GetByAll();
+        IEnumerable<LabsModel> GetByAll();
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
+﻿using PrestamosWPF.Models;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using PrestamosWPF.Models;
 
 namespace PrestamosWPF.Repositories
 {

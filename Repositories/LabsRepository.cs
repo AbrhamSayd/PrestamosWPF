@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualBasic.ApplicationServices;
+﻿using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using PrestamosWPF.Models;
+using System.Data;
 
 namespace PrestamosWPF.Repositories
 {
     public class LabsRepository : RepositoryBase, ILabsRepository
     {
-
         public void Add(LabsModel labsModel)
         {
             using var connection = GetConnection();
@@ -20,7 +14,8 @@ namespace PrestamosWPF.Repositories
             {
                 connection.OpenAsync();
                 command.Connection = connection;
-                command.CommandText = "insert into labs(id_lab,ubicacion,id_user) values (@id_lab, @ubicacion, @id_user)";
+                command.CommandText =
+                    "insert into labs(id_lab,ubicacion,id_user) values (@id_lab, @ubicacion, @id_user)";
                 command.Parameters.Add("@id_lab", MySqlDbType.VarChar).Value = labsModel.id_lab;
                 command.Parameters.Add("@ubicacion", MySqlDbType.VarChar).Value = labsModel.ubicacion;
                 command.Parameters.Add("@id_user", MySqlDbType.VarChar).Value = labsModel.id_user;
@@ -35,7 +30,8 @@ namespace PrestamosWPF.Repositories
             {
                 connection.OpenAsync();
                 command.Connection = connection;
-                command.CommandText = "UPDATE labs SET id_lab=@id_lab(id_lab,ubicacion,id_user) values (@id_lab, @ubicacion, @id_user)";
+                command.CommandText =
+                    "UPDATE labs SET id_lab=@id_lab(id_lab,ubicacion,id_user) values (@id_lab, @ubicacion, @id_user)";
                 command.Parameters.Add("@id_lab", MySqlDbType.VarChar).Value = labsModel.id_lab;
                 command.Parameters.Add("@ubicacion", MySqlDbType.VarChar).Value = labsModel.ubicacion;
                 command.Parameters.Add("@id_user", MySqlDbType.VarChar).Value = labsModel.id_user;
@@ -56,21 +52,47 @@ namespace PrestamosWPF.Repositories
             }
         }
 
-        public DataTable GetByAll()
+        public IEnumerable<LabsModel> GetByAll()
         {
-            DataTable dt = new DataTable();
+            var labsList = new List<LabsModel>();
             using var connection = GetConnection();
             using (var command = new MySqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = "SELECT * from labs order by id_lab asc";
-                var reader = command.ExecuteReader();
-                dt.Load(reader);
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var labsModel = new LabsModel()
+                        {
+                            id_lab = reader[0].ToString(),
+                            ubicacion = reader[1].ToString(),
+                            id_user = reader[2].ToString()
+                        };
+                        labsList.Add(labsModel);
+                    }
+                }
             }
-
-            return dt;
+            return labsList;
         }
+
+        //public DataTable GetByAll()
+        //{
+        //    DataTable dt = new DataTable();
+        //    using var connection = GetConnection();
+        //    using (var command = new MySqlCommand())
+        //    {
+        //        connection.Open();
+        //        command.Connection = connection;
+        //        command.CommandText = "SELECT * from labs order by id_lab asc";
+        //        var reader = command.ExecuteReader();
+        //        dt.Load(reader);
+        //    }
+
+        //    return dt;
+        //}
 
         public LabsModel GetById(int id)
         {

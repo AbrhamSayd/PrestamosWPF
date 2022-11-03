@@ -1,40 +1,34 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Data;
 using System.Windows.Input;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
+using PrestamosWPF.Utilities;
 
 namespace PrestamosWPF.ViewModels
 {
     public class LaboratoriosViewModel : ViewModelBase
     {
         
-        private LabsModel _labsModel;
-        private ILabsRepository labsRepository;
-        private DataTable _labsTable;
+    
+        private readonly ILabsRepository _labsRepository;
+        private ObservableCollection<LabsModel> _labsModel;
+
 
 
         //fields
-        public LabsModel LabsModel
+        public ObservableCollection<LabsModel> LabsModel
         {
-           get { return _labsModel; }
-
+            get => _labsModel;
             set
             {
                 _labsModel = value;
                 OnPropertyChanged(nameof(LabsModel));
             }
         }
-        public DataTable LabsTable
-        {
-            get { return _labsTable; }
-
-            set
-            {
-                _labsTable = value;
-                OnPropertyChanged(nameof(LabsTable));
-            }
-        }
-
         //commands
         public ICommand AddCommand { get; }
         public ICommand RemoveCommand { get; }
@@ -44,19 +38,23 @@ namespace PrestamosWPF.ViewModels
         //constructor
         public LaboratoriosViewModel()
         {
-            labsRepository = new LabsRepository();
+            _labsRepository = new LabsRepository();
             AddCommand = new ViewModelCommand(ExecuteAddCommand);
             RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand);
             EditCommand = new ViewModelCommand(ExecuteEditCommand);
             GetByIdCommand = new ViewModelCommand(ExecuteGetByIdCommand);
             GetByAllCommand = new ViewModelCommand(ExecuteGetByAllCommand);
+            
         }
 
         //commands constructor
         private void ExecuteGetByAllCommand(object obj)
         {
-            LabsTable = labsRepository.GetByAll();
+            //LabsTable = labsRepository.GetByAll();
+            LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
         }
+
+        
 
         private void ExecuteEditCommand(object obj)
         {
