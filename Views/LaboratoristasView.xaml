@@ -76,8 +76,9 @@
                         Width="60"
                         Height="30"
                         Margin="0,0,15,0"
+                        Command="{Binding RemoveCommand}"
                         Style="{StaticResource GridDeleteButton}">
-                        <fa:IconImage Icon="Trash" Style="{StaticResource gridDeleteIcon}"/>
+                        <fa:IconImage Icon="Trash" Style="{StaticResource gridDeleteIcon}" />
                     </Button>
 
                 </StackPanel>
@@ -92,6 +93,7 @@
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                     ItemsSource="{Binding CollectionUserModel}"
                     RowStyle="{DynamicResource DataGridRowStyle1}"
+                    SelectedItem="{Binding UsersModelRow}"
                     Style="{DynamicResource DataGridStyle1}">
 
                     <DataGrid.Columns>

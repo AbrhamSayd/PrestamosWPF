@@ -32,14 +32,20 @@ public class LaboratoristasViewModel : ViewModelBase
     //constructor
     public LaboratoristasViewModel()
     {
-       
+        RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand);
         userRepository = new UserRepository();
         UpdateCommand = new ViewModelCommand(ExecuteUpdateCommand, CanUpdateCommand);
         AddCommand = new ViewModelCommand(ExecuteAddCommand);
         ExecuteGetAllCommand(null);
     }
 
-    
+    private void ExecuteRemoveCommand(object obj)
+    {
+        userRepository.Remove(int.Parse(UsersModelRow.Id));
+        CollectionUserModel = new ObservableCollection<UserModel>(userRepository.GetByAll());
+    }
+
+
     //props
     public string? IdSelector
     {
