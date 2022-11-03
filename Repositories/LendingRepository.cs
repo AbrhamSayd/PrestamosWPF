@@ -45,10 +45,19 @@ namespace PrestamosWPF.Repositories
             }
         }
 
-        public void Remove(LendingModel lendingModel)
+        public void Remove(int id)
         {
-            throw new NotImplementedException();
+            using var connection = GetConnection();
+            using (var command = new MySqlCommand())
+            {
+                connection.OpenAsync();
+                command.Connection = connection;
+                command.CommandText = "DELETE FROM lendings WHERE id_lending=@id_lending";
+                command.Parameters.Add("@id_lending", MySqlDbType.VarChar).Value = id.ToString();
+                command.ExecuteScalar();
+            }
         }
+
 
         public LendingModel GetById(int id)
         {
@@ -70,7 +79,7 @@ namespace PrestamosWPF.Repositories
                     {
                         var lendingModel = new LendingModel()
                         {
-                            id_lending = int.Parse(reader[0].ToString()),
+                            id_lending = reader[0].ToString(),
                             id_user = reader[1].ToString(),
                             id_tool = reader[2].ToString(),
                             name = reader[3].ToString(),

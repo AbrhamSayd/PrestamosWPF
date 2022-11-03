@@ -6,9 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewModel:PrestamosViewModel />
+    </UserControl.DataContext>
 
     <DockPanel>
         <StackPanel
@@ -16,11 +21,11 @@
             HorizontalAlignment="left"
             DockPanel.Dock="top">
             <TextBlock
-                Text="Prestamos"
                 FontFamily="Roboto Mono"
                 FontSize="30"
                 FontWeight="SemiBold"
                 Foreground="#31579d"
+                Text="Prestamos"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
         </StackPanel>
@@ -60,49 +65,64 @@
                         Text="Search..." />
                 </StackPanel>
                 <Button
-                    Margin="0,5,0,0"
                     Grid.Column="1"
+                    Margin="0,5,0,0"
                     VerticalAlignment="Top"
                     Content="Buscar"
                     Cursor="Hand"
                     Style="{StaticResource CardButton}" />
-                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Column="2">
+                <StackPanel
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
 
-                    <!--BOTON Editar-->
-                    <Button Style="{StaticResource GridEditButton}"
-                            Height="30" Width="30" Margin="0,0,15,0">
+                    <!--  BOTON Editar  -->
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,15,0"
+                        Style="{StaticResource GridEditButton}">
                         <fa:IconImage Icon="Edit" />
                     </Button>
 
-                    <!--BOTON Eliminar-->
-                    <Button Style="{StaticResource GridDeleteButton}"
-                            Height="30" Width="30" Margin="0,0,15,0">
+                    <!--  BOTON Eliminar  -->
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,15,0"
+                        Style="{StaticResource GridDeleteButton}">
                         <fa:IconImage Icon="Trash" />
                     </Button>
 
-                    <!--BOTON AGREGAR-->
-                    <Button Style="{StaticResource BtnAgregarStyle}" HorizontalAlignment="Right" Margin="10">
-                        <fa:IconImage Style="{StaticResource AddIconStyle}"/>
+                    <!--  BOTON AGREGAR  -->
+                    <Button
+                        Margin="10"
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource BtnAgregarStyle}">
+                        <fa:IconImage Style="{StaticResource AddIconStyle}" />
                     </Button>
 
                 </StackPanel>
             </Grid>
             <Border
                 Grid.Row="1"
-                Background="White"
                 Padding="5,0,5,5"
+                Background="White"
                 CornerRadius="20">
                 <DataGrid
-                    ItemsSource="{Binding }"
-                    Style="{DynamicResource DataGridStyle1}"
                     CellStyle="{DynamicResource DataGridCellStyle1}"
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-                    RowStyle="{DynamicResource DataGridRowStyle1}">
+                    ItemsSource="{Binding CollectionLendingModels}"
+                    RowStyle="{DynamicResource DataGridRowStyle1}"
+                    Style="{DynamicResource DataGridStyle1}">
 
                     <DataGrid.Columns>
 
-                        <!--CheckBox Column-->
-                        <DataGridCheckBoxColumn CanUserResize="False" CanUserReorder="False" Width="auto">
+                        <!--  CheckBox Column  -->
+                        <DataGridCheckBoxColumn
+                            Width="*"
+                            CanUserReorder="False"
+                            CanUserResize="False">
                             <DataGridCheckBoxColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <CheckBox />
@@ -110,47 +130,53 @@
                             </DataGridCheckBoxColumn.HeaderTemplate>
                         </DataGridCheckBoxColumn>
 
-                        <!--ID Column-->
-                        <DataGridTextColumn Header="ID" IsReadOnly="True" Width="Auto" />
+                        <!--  ID Column  -->
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding id_lending}"
+                            Header="ID"
+                            IsReadOnly="True" />
 
-                        <!--Nombre Column-->
-                        <DataGridTemplateColumn Header="Nombre" IsReadOnly="True" CanUserResize="False" Width="*">
+                        <!--  Nombre Column  -->
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding id_user}"
+                            Header="Nombre de usuario"
+                            IsReadOnly="True" />
+
+                        <!--  Carrera Column  -->
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding id_tool}"
+                            Header="Id Herramienta"
+                            IsReadOnly="True" />
+
+                        <!--  Área Column  -->
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding name}"
+                            Header="Nombre de herramienta"
+                            IsReadOnly="True" />
+
+                        <!--  Fehcas Column  -->
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding fecha_prestamo}"
+                            Header="Fecha de prestamo"
+                            IsReadOnly="True" />
+
+
+
+                        <!--  Operations Column  -->
+                        <!--<DataGridTemplateColumn
+                            Width="*"
+                            CanUserResize="False"
+                            Header="Operaciones"
+                            IsReadOnly="True">
                             <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0,0,10,0"
-                                                Background="Red">
-                                            <TextBlock Text="..." VerticalAlignment="Center"
-                                                       HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,1" />
-                                        </Border>
-                                    </StackPanel>
-                                </DataTemplate>
+                                <DataTemplate />
                             </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <!--Carrera Column-->
-                        <DataGridTextColumn Header="Carrera" IsReadOnly="True" Width="Auto" />
-
-                        <!--Área Column-->
-                        <DataGridTextColumn Header="Área" IsReadOnly="True" Width="*" />
-
-                        <!--Herramienta Column-->
-                        <DataGridTextColumn Header="Herramienta" IsReadOnly="True" Width="*" />
-
-                        <!--Cantidad Column-->
-                        <DataGridTextColumn Header="Cantidad" IsReadOnly="True" Width="Auto" />
-
-                        <!--Fecha del Prestamo Column-->
-                        <DataGridTextColumn Header="Fecha del Prestamo" IsReadOnly="True" Width="*" />
-
-                        <!--Operations Column-->
-                        <DataGridTemplateColumn Header="Operaciones" IsReadOnly="True" CanUserResize="False"
-                                                Width="auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        </DataGridTemplateColumn>-->
 
 
                     </DataGrid.Columns>

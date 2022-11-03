@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
 
@@ -7,12 +8,49 @@ namespace PrestamosWPF.ViewModels;
 public class PrestamosViewModel : ViewModelBase
 {
     private readonly ILendingRepository _lendingRepository;
-    private ObservableCollection<LendingModel> _lendingModels;
+    private ObservableCollection<LendingModel> _colectionLendingModels;
     private LendingModel _lendingModelRow;
 
     public PrestamosViewModel()
     {
-        _lendingModels = new ObservableCollection<LendingModel>();
-        _lendingRepository = new repo
+        _colectionLendingModels = new ObservableCollection<LendingModel>();
+        _lendingRepository = new LendingRepository();
+        ExecuteGetAllCommand(null);
     }
+
+    //fields
+    public ObservableCollection<LendingModel> CollectionLendingModels
+    {
+        get => _colectionLendingModels;
+        set
+        {
+            _colectionLendingModels = value;
+            OnPropertyChanged(nameof(CollectionLendingModels));
+        }
+    }
+
+    public LendingModel LendingModelRow
+    {
+        get => _lendingModelRow;
+        set
+        {
+            _lendingModelRow = value;
+            OnPropertyChanged(nameof(LendingModelRow));
+
+        }
+    }
+
+    private void ExecuteRemoveCommand(object obj)
+    {
+        _lendingRepository.Remove(int.Parse(LendingModelRow.id_lending));
+        _colectionLendingModels = new ObservableCollection<LendingModel>(_lendingRepository.GetByAll());
+    }
+    private void ExecuteGetAllCommand(object obj)
+    {
+        //LabsTable = labsRepository.GetByAll();
+        _colectionLendingModels = new ObservableCollection<LendingModel>(_lendingRepository.GetByAll());
+    }
+    //commands
+
+    public ICommand RemoveCommand { get; }
 }
