@@ -82,7 +82,7 @@
                     </Button>
 
                     <!--BOTON AGREGAR-->
-                    <Button Style="{StaticResource BtnAgregarStyle}" HorizontalAlignment="Right" Margin="10">
+                    <Button Command="{Binding }" Style="{StaticResource BtnAgregarStyle}" HorizontalAlignment="Right" Margin="10">
                         <fa:IconImage Style="{StaticResource AddIconStyle}"/>
                     </Button>
 

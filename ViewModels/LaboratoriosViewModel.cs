@@ -79,7 +79,8 @@ public class LaboratoriosViewModel : ViewModelBase
     //REVISAR
     private void ExecuteRemoveCommand(object obj)
     {
-        _labsRepository.Remove(int.Parse(_labsModelRow.id_user));
+        _labsRepository.Remove(int.Parse(_labsModelRow.id_lab));
+        LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
     }
     private bool CanExecuteRemoveCommand(object obj)
     {
