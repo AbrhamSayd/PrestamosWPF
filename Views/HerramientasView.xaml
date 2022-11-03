@@ -81,26 +81,13 @@
                         <fa:IconImage Icon="Edit" />
                     </Button>
 
-<<<<<<< HEAD
                     <!--BOTON Eliminar-->
                     <Button Command="{Binding RemoveCommand}" 
                         Style="{StaticResource GridDeleteButton}"
                         Height="30" Width="30" Margin="0,0,15,0">
                         <fa:IconImage Icon="Trash" />
                     </Button>
-
-                    <!--BOTON AGREGAR-->
-                    <Button Command="{Binding FieldsViewChild}" Style="{StaticResource BtnAgregarStyle}" HorizontalAlignment="Right" Margin="10">
-                        <fa:IconImage Style="{StaticResource AddIconStyle}"/>
-=======
-                    <!--  BOTON Eliminar  -->
-                    <Button
-                        Width="30"
-                        Height="30"
-                        Margin="0,0,15,0"
-                        Style="{StaticResource GridDeleteButton}">
-                        <fa:IconImage Icon="Trash" />
-                    </Button>
+                     
 
                     <!--  BOTON AGREGAR  -->
                     <Button
@@ -112,7 +99,6 @@
                             <viewModels:MainViewModel/>
                         </Button.DataContext>
                         <fa:IconImage Style="{StaticResource AddIconStyle}" />
->>>>>>> Act
                     </Button>
 
                 </StackPanel>

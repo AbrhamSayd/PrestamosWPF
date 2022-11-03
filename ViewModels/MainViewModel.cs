@@ -85,7 +85,7 @@ public class MainViewModel : ViewModelBase
     }
     private void ExecuteShowAddLaboratistasCommand(object obj)
     {
-        CurrentChidlView = new LaboratoristasFieldsViewModel();
+        CurrentChidlView = new LaboratoriosFieldsViewModel();
     }
 
     private void ExecuteShowLaboratoriosCommand(object obj)
@@ -94,7 +94,7 @@ public class MainViewModel : ViewModelBase
     }
     private void ExecuteShowAddLaboratoriosCommand(object obj)
     {
-        CurrentChidlView = new HerramientasViewModel();
+        CurrentChidlView = new LaboratoriosFieldsViewModel();
     }
 
     private void ExecuteShowHerramientasCommand(object obj)

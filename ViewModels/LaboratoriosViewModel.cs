@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media.Media3D;
-using PrestamosWPF.Models;
+﻿using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
 using PrestamosWPF.ViewModels.Fields;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using PrestamosWPF.Views;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace PrestamosWPF.ViewModels;
 
@@ -27,6 +25,7 @@ public class LaboratoriosViewModel : ViewModelBase
         RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand, CanExecuteRemoveCommand);
         GetByIdCommand = new ViewModelCommand(ExecuteGetByIdCommand);
         ExecuteGetAllCommand(null);
+
 
     }
 
@@ -67,8 +66,7 @@ public class LaboratoriosViewModel : ViewModelBase
     //commands
     public ICommand RemoveCommand { get; }
     public ICommand GetByIdCommand { get; }
-
-    public ICommand ShowHerramientasAddCommand { get; }
+    //public ICommand ShowAddLaboratoriosCommand { get; }
 
     //Out of use
     public ICommand GetAllCommand { get; }
