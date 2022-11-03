@@ -1,10 +1,9 @@
 ﻿<UserControl x:Class="PrestamosWPF.Views.LaboratoristasFieldsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PrestamosWPF.Views"
-             mc:Ignorable="d" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
              d:DesignHeight="585"
              d:DesignWidth="973">
     <DockPanel>
@@ -16,7 +15,9 @@
                 FontWeight="SemiBold"
                 Foreground="#31579d"
                 TextAlignment="Left"
-                TextWrapping="Wrap" ><Run Language="es-mx" Text="Laboratorista"/></TextBlock>
+                TextWrapping="Wrap">
+                <Run Language="es-mx" Text="Laboratorista" />
+            </TextBlock>
         </StackPanel>
 
         <DockPanel DockPanel.Dock="Bottom">
@@ -25,60 +26,60 @@
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top">
                         <StackPanel Margin="20,50,0,20">
                             <TextBlock
-                                    Padding="20,0,0,0"
-                                    Text="Primer Nombre"
-                                    Style="{StaticResource FieldsHeaders}"/>
+                                Padding="20,0,0,0"
+                                Text="Primer Nombre"
+                                Style="{StaticResource FieldsHeaders}" />
                             <TextBox
-                                    Margin="0,5,0,5"
-                                    x:Name="TxtFirstName"
-                                    Width="300"
-                                    Style="{StaticResource CustomCardTextBox}"/>
+                                Margin="0,5,0,5"
+                                x:Name="TxtFirstName"
+                                Width="300"
+                                Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
                         <StackPanel Margin="20,50,0,20">
                             <TextBlock
                                 Padding="20,0,0,0"
                                 Text="Carrera/Academia"
-                                Style="{StaticResource FieldsHeaders}"/>
+                                Style="{StaticResource FieldsHeaders}" />
                             <TextBox
                                 Margin="0,5,0,5"
                                 x:Name="TxtCarrera"
                                 Width="300"
-                                Style="{StaticResource CustomCardTextBox}"/>
+                                Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
                         <StackPanel Margin="20,50,0,20">
                             <TextBlock
                                 Padding="20,0,0,0"
                                 Text="Área"
-                                Style="{StaticResource FieldsHeaders}"/>
+                                Style="{StaticResource FieldsHeaders}" />
                             <TextBox
                                 Margin="0,5,0,5"
                                 x:Name="TxtArea"
                                 Width="300"
-                                Style="{StaticResource CustomCardTextBox}"/>
+                                Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top">
                         <StackPanel Margin="50,50,0,20">
                             <TextBlock
-                                    Padding="20,0,0,0"
-                                    Text="Apellido"
-                                    Style="{StaticResource FieldsHeaders}"/>
+                                Padding="20,0,0,0"
+                                Text="Apellido"
+                                Style="{StaticResource FieldsHeaders}" />
                             <TextBox
-                                    Margin="0,5,0,5"
-                                    x:Name="TxtLastName"
-                                    Width="300"
-                                    Style="{StaticResource CustomCardTextBox}"/>
+                                Margin="0,5,0,5"
+                                x:Name="TxtLastName"
+                                Width="300"
+                                Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
                         <StackPanel Margin="50,50,0,20">
                             <TextBlock
                                 Padding="20,0,0,0"
                                 Text="Tipo de empleado"
-                                Style="{StaticResource FieldsHeaders}"/>
+                                Style="{StaticResource FieldsHeaders}" />
                             <TextBox
                                 Margin="0,5,0,5"
                                 x:Name="TxtPuesto"
                                 Width="300"
-                                Style="{StaticResource CustomCardTextBox}"/>
+                                Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top">
@@ -86,13 +87,13 @@
                             <TextBlock
                                 Padding="20,0,0,0"
                                 Text="No. control/Emp"
-                                Style="{StaticResource FieldsHeaders}"/>
+                                Style="{StaticResource FieldsHeaders}" />
                             <TextBox
                                 Margin="0,5,0,5"
                                 x:Name="TxtNoControl"
                                 Width="200"
                                 HorizontalAlignment="Left"
-                                Style="{StaticResource CustomCardTextBox}"/>
+                                Style="{StaticResource CustomCardTextBox}" />
                         </StackPanel>
                     </StackPanel>
                 </DockPanel>
@@ -100,12 +101,12 @@
                     <Button
                         Margin="20"
                         Style="{StaticResource CardButton}">
-                        <TextBlock Text="Cancelar" FontSize="20" Margin="20,6,20,6"/>
+                        <TextBlock Text="Cancelar" FontSize="20" Margin="20,6,20,6" />
                     </Button>
                     <Button
                         Margin="20"
                         Style="{StaticResource CardButton}">
-                        <TextBlock Text="Aceptar" FontSize="20" Margin="20,6,20,6"/>
+                        <TextBlock Text="Aceptar" FontSize="20" Margin="20,6,20,6" />
                     </Button>
                 </DockPanel>
             </DockPanel>

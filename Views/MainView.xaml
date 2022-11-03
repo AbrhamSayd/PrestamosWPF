@@ -8,6 +8,7 @@
     xmlns:local="clr-namespace:PrestamosWPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
+    xmlns:viewModelsFields="clr-namespace:PrestamosWPF.ViewModels.Fields"
     Width="1152"
     Height="648"
     AllowsTransparency="True"
@@ -35,6 +36,9 @@
         <DataTemplate DataType="{x:Type viewModel:LaboratoristasViewModel}">
             <local:LaboratoristasView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModelsFields:HerramientasFieldsViewModel}">
+            <local:HerramientasFieldsView />
+        </DataTemplate>
 
     </Window.Resources>
 
@@ -53,7 +57,7 @@
 
                             <Image Margin="15" Source="/Images/logo-tecnm-2018_white.png" />
 
-                                <!--  BOTON PRESTAMOS  -->
+                            <!--  BOTON PRESTAMOS  -->
                             <Button
                                 Height="30"
                                 MaxHeight="30"

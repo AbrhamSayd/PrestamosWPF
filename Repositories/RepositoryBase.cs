@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 
-namespace PrestamosWPF.Repositories
+namespace PrestamosWPF.Repositories;
+
+public abstract class RepositoryBase
 {
-    public abstract class RepositoryBase
+    private readonly string _connectionString;
+
+    public RepositoryBase()
     {
-        private readonly string _connectionString;
+        string server, database, uid, password;
+        server = "localhost"; //ip
+        database = "itsppprestamosdb";
+        uid = "root";
+        password = "root";
+        _connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" +
+                            password + ";";
+    }
 
-        public RepositoryBase()
-        {
-            string server, database, uid, password;
-            server = "localhost";//ip
-            database = "itsppprestamosdb";
-            uid = "root";
-            password = ".";
-            _connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-        }
-
-        public MySqlConnection GetConnection()
-        {
-            return new MySqlConnection(_connectionString);
-        }
+    public MySqlConnection GetConnection()
+    {
+        return new MySqlConnection(_connectionString);
     }
 }

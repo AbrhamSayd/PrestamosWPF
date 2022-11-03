@@ -1,224 +1,110 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Threading;
 using System.Windows.Input;
-using Microsoft.VisualBasic.ApplicationServices;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
-using PrestamosWPF.Views;
+using PrestamosWPF.ViewModels.Fields;
 
-namespace PrestamosWPF.ViewModels
+namespace PrestamosWPF.ViewModels;
+
+public class MainViewModel : ViewModelBase
 {
-    public class MainViewModel : ViewModelBase
+    private UserAccountModel _currentAccountView;
+    private ViewModelBase _currentChidlView;
+    private UserModel _userModel;
+    private readonly IUserRepository userRepository;
+
+
+    public MainViewModel()
     {
-        private UserAccountModel _currentAccountView;
-        private UserModel _userModel;
-        private IUserRepository userRepository;
-        private ViewModelBase _currentChidlView;
-        private string? _id;
-        private string? _firstName;
-        private string? _lastName;
-        private string? _username;
-        private string? _password;
-        private string? _carrera;
-        private string? _tipoEmpleado;
-        private string? _area;
-        private string? _idSelector;
+        userRepository = new UserRepository();
+        CurrentUserAccountView = new UserAccountModel();
 
-        public string? IdSelector
+
+        //Command for childrends
+        ShowPrestamosCommand = new ViewModelCommand(ExecuteShowPrestamosCommand);
+        ShowHerramientasCommand = new ViewModelCommand(ExecuteShowHerramientasCommand);
+        ShowLaboratoriosCommand = new ViewModelCommand(ExecuteShowLaboratoriosCommand);
+        ShowLaboratoristasCommand = new ViewModelCommand(ExecuteShowLaboratistasCommand);
+        ShowHerramientasAddCommand = new ViewModelCommand(ExecuteShowHerramientasAddCommand);
+        LoadCurrentUserdata();
+    }
+
+
+    public UserAccountModel CurrentUserAccountView
+    {
+        get => _currentAccountView;
+        set
         {
-            get => _idSelector;
-            set
-            {
-                _idSelector = value;
-                OnPropertyChanged(nameof(IdSelector));
-            }
+            _currentAccountView = value;
+            OnPropertyChanged(nameof(CurrentUserAccountView));
         }
+    }
 
-        public string Id
+    public UserModel User
+    {
+        get => _userModel;
+        set
         {
-            get => _id;
-            set
-            {
-                
-                _id = value;
-                OnPropertyChanged(nameof(Id));
-            }
+            _userModel = value;
+            OnPropertyChanged(nameof(User));
         }
+    }
 
-        public string FirstName
+    public ViewModelBase CurrentChidlView
+    {
+        get => _currentChidlView;
+        set
         {
-            get => _firstName;
-            set
-            {
-                
-                _firstName = value;
-                OnPropertyChanged(nameof(FirstName));
-            }
+            _currentChidlView = value;
+            OnPropertyChanged(nameof(CurrentChidlView));
         }
+    }
 
-        public string LastName
+
+    public ICommand ShowPrestamosCommand { get; }
+    public ICommand ShowHerramientasCommand { get; }
+    public ICommand ShowLaboratoriosCommand { get; }
+    public ICommand ShowLaboratoristasCommand { get; }
+    public ICommand ShowHerramientasAddCommand { get; }
+
+    private void ExecuteShowHerramientasAddCommand(object obj)
+    {
+        CurrentChidlView = new HerramientasFieldsViewModel();
+    }
+
+
+    private void ExecuteShowLaboratistasCommand(object obj)
+    {
+        CurrentChidlView = new LaboratoristasViewModel();
+    }
+
+    private void ExecuteShowLaboratoriosCommand(object obj)
+    {
+        CurrentChidlView = new LaboratoriosViewModel();
+    }
+
+    private void ExecuteShowHerramientasCommand(object obj)
+    {
+        CurrentChidlView = new HerramientasViewModel();
+    }
+
+    private void ExecuteShowPrestamosCommand(object obj)
+    {
+        CurrentChidlView = new PrestamosViewModel();
+    }
+
+    private void LoadCurrentUserdata()
+    {
+        var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+        if (user != null)
         {
-            get => _lastName;
-            set
-            {
-                
-                _lastName = value;
-                OnPropertyChanged(nameof(LastName));
-            }
+            CurrentUserAccountView.Username = user.Username;
+            CurrentUserAccountView.DisplayName = $"Bienvenido {user.FirstName} {user.LastName} ;)";
+            CurrentUserAccountView.ProfilePicture = null;
         }
-
-        public string Username
+        else
         {
-            get => _username;
-            set
-            {
-                if (value == _username) return;
-                _username = value;
-                OnPropertyChanged(nameof(Username));
-            }
-        }
-
-        public string Password
-        {
-            get => _password;
-            set
-            {
-                if (value == _password) return;
-                _password = value;
-                OnPropertyChanged(nameof(Password));
-            }
-        }
-
-        public string Carrera
-        {
-            get => _carrera;
-            set
-            {
-                if (value == _carrera) return;
-                _carrera = value;
-                OnPropertyChanged(nameof(Carrera));
-            }
-        }
-
-        public string TipoEmpleado
-        {
-            get => _tipoEmpleado;
-            set
-            {
-                if (value == _tipoEmpleado) return;
-                _tipoEmpleado = value;
-                OnPropertyChanged(nameof(TipoEmpleado));
-            }
-        }
-
-        public string Area
-        {
-            get => _area;
-            set
-            {
-                if (value == _area) return;
-                _area = value;
-                OnPropertyChanged(nameof(Area));
-            }
-        }
-
-        public UserAccountModel CurrentUserAccountView
-        {
-            get => _currentAccountView;
-            set
-            {
-                _currentAccountView = value;
-                OnPropertyChanged(nameof(CurrentUserAccountView));
-            }
-        }
-
-        public UserModel User
-        {
-            get => _userModel;
-            set
-            {
-                _userModel = value;
-                OnPropertyChanged(nameof(User));
-            } 
-        }
-
-        public ViewModelBase CurrentChidlView
-        {
-            get => _currentChidlView;
-            set
-            {
-                _currentChidlView = value;
-                OnPropertyChanged(nameof(CurrentChidlView));
-            }
-           
-        }
-
-
-        public ICommand AddCommand { get; }
-        public ICommand updateCommand { get; }
-        public ICommand GetUsersByUsernameCommand { get; }
-        public ICommand AddChildsCommand { get; }
-        public ICommand ShowPrestamosCommand { get; }
-        public ICommand ShowHerramientasCommand { get; }
-        public ICommand ShowLaboratoriosCommand { get; }
-        public ICommand ShowLaboratoristasCommand { get; }
-
-
-
-        public MainViewModel()
-        {
-            userRepository = new UserRepository();
-            CurrentUserAccountView = new UserAccountModel();
-            
-
-            //Command for childrends
-            ShowPrestamosCommand = new ViewModelCommand(ExecuteShowPrestamosCommand);
-            ShowHerramientasCommand = new ViewModelCommand(ExecuteShowHerramientasCommand);
-            ShowLaboratoriosCommand = new ViewModelCommand(ExecuteShowLaboratoriosCommand);
-            ShowLaboratoristasCommand = new ViewModelCommand(ExecuteShowLaboratistasCommand);
-            LoadCurrentUserdata();
-        }
-
-        
-
-        private void ExecuteShowLaboratistasCommand(object obj)
-        {
-            CurrentChidlView = new LaboratoristasViewModel();
-        }
-
-        private void ExecuteShowLaboratoriosCommand(object obj)
-        {
-            CurrentChidlView = new LaboratoriosViewModel();
-        }
-
-        private void ExecuteShowHerramientasCommand(object obj)
-        {
-            CurrentChidlView = new HerramientasViewModel();
-        }
-
-        private void ExecuteShowPrestamosCommand(object obj)
-        {
-            CurrentChidlView = new PrestamosViewModel();
-        }
-
-        private void LoadCurrentUserdata()
-        {
-            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
-            if (user != null)
-            {
-                CurrentUserAccountView.Username = user.Username;
-                CurrentUserAccountView.DisplayName = $"Bienvenido {user.FirstName} {user.LastName} ;)";
-                CurrentUserAccountView.ProfilePicture = null;
-            }
-            else
-            {
-                CurrentUserAccountView.DisplayName = "Usuario invalido, not logged";
-            }
+            CurrentUserAccountView.DisplayName = "Usuario invalido, not logged";
         }
     }
 }

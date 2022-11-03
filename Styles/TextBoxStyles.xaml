@@ -16,10 +16,10 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="Background" Value="#d9d9d9"/>
-        <Setter Property="Foreground" Value="#3f3f3f"/>
-        <Setter Property="Padding" Value="15,2,15,2"/>
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Background" Value="#d9d9d9" />
+        <Setter Property="Foreground" Value="#3f3f3f" />
+        <Setter Property="Padding" Value="15,2,15,2" />
     </Style>
 
     <!--Custom TextBox-->
@@ -31,11 +31,11 @@
                 <Setter Property="CornerRadius" Value="20" />
             </Style>
         </Style.Resources>
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="Background" Value="#d9d9d9"/>
-        <Setter Property="Foreground" Value="#3f3f3f"/>
-        <Setter Property="Padding" Value="15,2,15,2"/>
-        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Background" Value="#d9d9d9" />
+        <Setter Property="Foreground" Value="#3f3f3f" />
+        <Setter Property="Padding" Value="15,2,15,2" />
+        <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
     <!--Modern TextBox-->
@@ -45,17 +45,21 @@
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border CornerRadius="10" Background="#353340" Width="200" Height="30">
                         <Grid>
-                            <Rectangle StrokeThickness="1"/>
-                            <TextBox Margin="1" BorderThickness="0" Background="Transparent" VerticalContentAlignment="Center" Padding="5" Foreground="#CFCFCF" x:Name="SearchBox"/>
-                            <TextBlock IsHitTestVisible="False" Text="{TemplateBinding ToolTip}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" FontSize="11" Foreground="DarkGray">
+                            <Rectangle StrokeThickness="1" />
+                            <TextBox Margin="1" BorderThickness="0" Background="Transparent"
+                                     VerticalContentAlignment="Center" Padding="5" Foreground="#CFCFCF"
+                                     x:Name="SearchBox" />
+                            <TextBlock IsHitTestVisible="False" Text="{TemplateBinding ToolTip}"
+                                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"
+                                       FontSize="11" Foreground="DarkGray">
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
+                                                <Setter Property="Visibility" Value="Visible" />
                                             </DataTrigger>
                                         </Style.Triggers>
-                                        <Setter Property="Visibility" Value="Hidden"/>
+                                        <Setter Property="Visibility" Value="Hidden" />
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>

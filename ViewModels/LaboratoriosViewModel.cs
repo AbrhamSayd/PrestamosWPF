@@ -1,79 +1,95 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Media3D;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
-using PrestamosWPF.Utilities;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace PrestamosWPF.ViewModels
+namespace PrestamosWPF.ViewModels;
+
+public class LaboratoriosViewModel : ViewModelBase
 {
-    public class LaboratoriosViewModel : ViewModelBase
+    private readonly ILabsRepository _labsRepository;
+    private ObservableCollection<LabsModel> _labsModel;
+    private LabsModel _labsModelRow;
+    private bool _isChecked;
+
+
+    //constructor
+
+    public LaboratoriosViewModel()
     {
-        
+        _labsRepository = new LabsRepository();
+
+        RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand, CanExecuteRemoveCommand
+            );
+        GetByIdCommand = new ViewModelCommand(ExecuteGetByIdCommand);
+        ExecuteGetAllCommand(null);
+    }
+
     
-        private readonly ILabsRepository _labsRepository;
-        private ObservableCollection<LabsModel> _labsModel;
 
 
-
-        //fields
-        public ObservableCollection<LabsModel> LabsModel
+    //fields
+    public ObservableCollection<LabsModel> LabsModel
+    {
+        get => _labsModel;
+        set
         {
-            get => _labsModel;
-            set
-            {
-                _labsModel = value;
-                OnPropertyChanged(nameof(LabsModel));
-            }
+            _labsModel = value;
+            OnPropertyChanged(nameof(LabsModel));
         }
-        //commands
-        public ICommand AddCommand { get; }
-        public ICommand RemoveCommand { get; }
-        public ICommand EditCommand { get; }
-        public ICommand GetByIdCommand { get; }
-        public ICommand GetByAllCommand { get; }
-        //constructor
-        public LaboratoriosViewModel()
-        {
-            _labsRepository = new LabsRepository();
-            AddCommand = new ViewModelCommand(ExecuteAddCommand);
-            RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand);
-            EditCommand = new ViewModelCommand(ExecuteEditCommand);
-            GetByIdCommand = new ViewModelCommand(ExecuteGetByIdCommand);
-            GetByAllCommand = new ViewModelCommand(ExecuteGetByAllCommand);
-            
-        }
+    }
 
-        //commands constructor
-        private void ExecuteGetByAllCommand(object obj)
+    public bool isChecked
+    {
+        get => _isChecked;
+        set
         {
-            //LabsTable = labsRepository.GetByAll();
-            LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
+            _isChecked = value;
+            OnPropertyChanged(nameof(_isChecked));
         }
-
-        
-
-        private void ExecuteEditCommand(object obj)
+    }
+    public LabsModel LabsModelRow
+    {
+        get => _labsModelRow;
+        set
         {
-            throw new System.NotImplementedException();
+            _labsModelRow = value;
+            OnPropertyChanged(nameof(LabsModelRow));
         }
+    }
+    //commands
+    public ICommand RemoveCommand { get; }
+    public ICommand GetByIdCommand { get; }
 
-        private void ExecuteRemoveCommand(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
+    //Out of use
+    public ICommand GetAllCommand { get; }
+    public ICommand EditCommand { get; }
+    public ICommand AddCommand { get; }
 
-        private void ExecuteAddCommand(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
+    //commands constructor
+    private void ExecuteGetAllCommand(object obj)
+    {
+        //LabsTable = labsRepository.GetByAll();
+        LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
+    }
+    
+    private void ExecuteRemoveCommand(object obj)
+    {
+        _labsRepository.Remove(int.Parse(_labChecked.id_user));
+    }
+    private bool CanExecuteRemoveCommand(object obj)
+    {
+        return true;
 
-        private void ExecuteGetByIdCommand(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
+    }
+
+    private void ExecuteGetByIdCommand(object obj)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
-namespace PrestamosWPF.Views
+namespace PrestamosWPF.Views;
+
+/// <summary>
+///     Lógica de interacción para LaboratoristasView.xaml
+/// </summary>
+public partial class LaboratoristasView : UserControl
 {
-    /// <summary>
-    /// Lógica de interacción para LaboratoristasView.xaml
-    /// </summary>
-    public partial class LaboratoristasView : UserControl
+    public LaboratoristasView()
     {
-        public LaboratoristasView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

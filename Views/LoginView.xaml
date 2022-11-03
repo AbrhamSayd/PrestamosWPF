@@ -5,7 +5,6 @@
     xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-    xmlns:local="clr-namespace:PrestamosWPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
     Width="500"
@@ -58,7 +57,8 @@
                         Icon="User" />
                 </Border>
                 <customControls:BindableUserBox Margin="0,5,0,10" />
-                <customControls:BindablePasswordBox Margin="0,0,0,0" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <customControls:BindablePasswordBox Margin="0,0,0,0"
+                                                    Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Border Margin="0,0,0,5">
                     <Border.Effect>
                         <DropShadowEffect
@@ -103,7 +103,7 @@
                         </Button.Template>
                     </Button>
                 </Border>
-               
+
                 <TextBlock
                     x:Name="TxtErrorMessage"
                     Width="310"

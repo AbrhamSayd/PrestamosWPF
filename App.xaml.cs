@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using PrestamosWPF.Views;
 
-namespace PrestamosWPF
+namespace PrestamosWPF;
+
+/// <summary>
+///     Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    protected void ApplicationStart(object sender, StartupEventArgs e)
     {
-        protected void ApplicationStart(object sender, StartupEventArgs e)
+        var loginView = new LoginView();
+        loginView.Show();
+        loginView.IsVisibleChanged += (s, ev) =>
         {
-            var loginView = new LoginView();
-            loginView.Show();
-            loginView.IsVisibleChanged += (s, ev) =>
+            if (loginView.IsVisible == false && loginView.IsLoaded)
             {
-                if (loginView.IsVisible == false && loginView.IsLoaded)
-                {
-                    var mainView = new MainView();
-                    mainView.Show();
-                    loginView.Close();
-                }
-            };
-        }
+                var mainView = new MainView();
+                mainView.Show();
+                loginView.Close();
+            }
+        };
     }
 }

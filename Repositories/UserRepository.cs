@@ -1,10 +1,10 @@
-﻿using MySql.Data.MySqlClient; //Permite de la base da dtos con c#
-using PrestamosWPF.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Net;
-using Microsoft.VisualBasic.ApplicationServices;
+using MySql.Data.MySqlClient;
+using PrestamosWPF.Models;
+//Permite de la base da dtos con c#
 
 namespace PrestamosWPF.Repositories;
 
@@ -13,7 +13,7 @@ public class UserRepository : RepositoryBase, IUserRepository
     public void Add(UserModel userModel)
     {
         //insert into users(id_user,first_name,last_name,username,password,carrera,tipo_de_empleado,area) values (02, 'Abrham', 'Martinez', 'admin', 'admin','isc', 'admin', 'redes')
-        bool isExist = false;
+        var isExist = false;
         using var connection = GetConnection();
         using (var command = new MySqlCommand())
         {
@@ -47,12 +47,13 @@ public class UserRepository : RepositoryBase, IUserRepository
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = credential.Password;
             validUser = command.ExecuteScalar() != null;
         }
+
         return validUser;
     }
 
     public void Edit(UserModel userModel)
     {
-        bool isExist = false;
+        var isExist = false;
         using var connection = GetConnection();
         using (var command = new MySqlCommand())
         {
@@ -87,7 +88,7 @@ public class UserRepository : RepositoryBase, IUserRepository
             {
                 while (reader.Read())
                 {
-                    var userModel = new UserModel()
+                    var userModel = new UserModel
                     {
                         Id = reader[0].ToString(),
                         FirstName = reader[1].ToString(),
@@ -96,7 +97,7 @@ public class UserRepository : RepositoryBase, IUserRepository
                         Password = string.Empty,
                         Carrera = reader[4].ToString(),
                         TipoEmpleado = reader[5].ToString(),
-                        Area = reader[6].ToString(),
+                        Area = reader[6].ToString()
                     };
                     userList.Add(userModel);
                 }
@@ -104,21 +105,6 @@ public class UserRepository : RepositoryBase, IUserRepository
         }
 
         return userList;
-    }
-    public DataTable GetByAllDataTable()
-    {
-        DataTable dt = new DataTable();
-        using var connection = GetConnection();
-        using (var command = new MySqlCommand())
-        {
-            connection.Open();
-            command.Connection = connection;
-            command.CommandText = "SELECT * from users order by first_name asc";
-            var reader = command.ExecuteReader();
-            dt.Load(reader);
-        }
-
-        return dt;
     }
 
     public UserModel GetById(int id)
@@ -138,8 +124,7 @@ public class UserRepository : RepositoryBase, IUserRepository
         using (var reader = command.ExecuteReader())
         {
             if (reader.Read())
-            {
-                user = new UserModel()
+                user = new UserModel
                 {
                     Id = reader[0].ToString(),
                     FirstName = reader[1].ToString(),
@@ -148,9 +133,8 @@ public class UserRepository : RepositoryBase, IUserRepository
                     Password = string.Empty,
                     Carrera = reader[4].ToString(),
                     TipoEmpleado = reader[5].ToString(),
-                    Area = reader[6].ToString(),
+                    Area = reader[6].ToString()
                 };
-            }
         }
 
         return user;
@@ -159,5 +143,21 @@ public class UserRepository : RepositoryBase, IUserRepository
     public void Remove(int id)
     {
         throw new NotImplementedException();
+    }
+
+    public DataTable GetByAllDataTable()
+    {
+        var dt = new DataTable();
+        using var connection = GetConnection();
+        using (var command = new MySqlCommand())
+        {
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT * from users order by first_name asc";
+            var reader = command.ExecuteReader();
+            dt.Load(reader);
+        }
+
+        return dt;
     }
 }

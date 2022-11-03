@@ -1,227 +1,213 @@
-﻿using PrestamosWPF.Models;
-using PrestamosWPF.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
+using PrestamosWPF.Models;
+using PrestamosWPF.Repositories;
 
-namespace PrestamosWPF.ViewModels
+namespace PrestamosWPF.ViewModels;
+
+public class LaboratoristasViewModel : ViewModelBase
+
 {
-    public class LaboratoristasViewModel : ViewModelBase
+    private string? _area;
+    private string? _carrera;
+    private ObservableCollection<UserModel> _CollectionUserModel;
+    private string? _firstName;
+    private string? _id;
+    private string? _idSelector;
+    private string? _lastName;
+    private string? _password;
+    private string? _tipoEmpleado; //fields
+    private UserModel _userModel;
+    private string? _username;
+    private readonly IUserRepository userRepository;
 
-    { //fields
-        private UserModel _userModel;
-        private IUserRepository userRepository;
-        private DataTable _dtUsers;
-        private string? _id;
-        private string? _firstName;
-        private string? _lastName;
-        private string? _username;
-        private string? _password;
-        private string? _carrera;
-        private string? _tipoEmpleado;
-        private string? _area;
-        private string? _idSelector;
+    //constructor
+    public LaboratoristasViewModel()
+    {
+        userRepository = new UserRepository();
+        updateCommand = new ViewModelCommand(ExecuteUpdateCommand, CanUpdateCommand);
+        AddCommand = new ViewModelCommand(ExecuteAddCommand);
+        ExecuteGetAllCommand(null);
+    }
 
 
-        //props
-        public string? IdSelector
+    //props
+    public string? IdSelector
+    {
+        get => _idSelector;
+        set
         {
-            get => _idSelector;
-            set
-            {
-                _idSelector = value;
-                OnPropertyChanged(nameof(IdSelector));
-
-            }
+            _idSelector = value;
+            OnPropertyChanged(nameof(IdSelector));
         }
+    }
 
-        public string Id
+    public string Id
+    {
+        get => _id;
+        set
         {
-            get => _id;
-            set
-            {
-
-                _id = value;
-                OnPropertyChanged(nameof(Id));
-            }
+            _id = value;
+            OnPropertyChanged(nameof(Id));
         }
+    }
 
-        public string FirstName
+    public string FirstName
+    {
+        get => _firstName;
+        set
         {
-            get => _firstName;
-            set
-            {
-
-                _firstName = value;
-                OnPropertyChanged(nameof(FirstName));
-            }
+            _firstName = value;
+            OnPropertyChanged(nameof(FirstName));
         }
+    }
 
-        public string LastName
+    public string LastName
+    {
+        get => _lastName;
+        set
         {
-            get => _lastName;
-            set
-            {
-
-                _lastName = value;
-                OnPropertyChanged(nameof(LastName));
-            }
+            _lastName = value;
+            OnPropertyChanged(nameof(LastName));
         }
+    }
 
-        public string Username
+    public string Username
+    {
+        get => _username;
+        set
         {
-            get => _username;
-            set
-            {
-                if (value == _username) return;
-                _username = value;
-                OnPropertyChanged(nameof(Username));
-            }
+            if (value == _username) return;
+            _username = value;
+            OnPropertyChanged(nameof(Username));
         }
+    }
 
-        public string Password
+    public string Password
+    {
+        get => _password;
+        set
         {
-            get => _password;
-            set
-            {
-                if (value == _password) return;
-                _password = value;
-                OnPropertyChanged(nameof(Password));
-            }
+            if (value == _password) return;
+            _password = value;
+            OnPropertyChanged(nameof(Password));
         }
+    }
 
-        public string Carrera
+    public string Carrera
+    {
+        get => _carrera;
+        set
         {
-            get => _carrera;
-            set
-            {
-                if (value == _carrera) return;
-                _carrera = value;
-                OnPropertyChanged(nameof(Carrera));
-            }
+            if (value == _carrera) return;
+            _carrera = value;
+            OnPropertyChanged(nameof(Carrera));
         }
+    }
 
-        public string TipoEmpleado
+    public string TipoEmpleado
+    {
+        get => _tipoEmpleado;
+        set
         {
-            get => _tipoEmpleado;
-            set
-            {
-                if (value == _tipoEmpleado) return;
-                _tipoEmpleado = value;
-                OnPropertyChanged(nameof(TipoEmpleado));
-            }
+            if (value == _tipoEmpleado) return;
+            _tipoEmpleado = value;
+            OnPropertyChanged(nameof(TipoEmpleado));
         }
+    }
 
-        public string Area
+    public string Area
+    {
+        get => _area;
+        set
         {
-            get => _area;
-            set
-            {
-                if (value == _area) return;
-                _area = value;
-                OnPropertyChanged(nameof(Area));
-            }
+            if (value == _area) return;
+            _area = value;
+            OnPropertyChanged(nameof(Area));
         }
+    }
 
-
-
-        public UserModel User
+    public ObservableCollection<UserModel> CollectionUserModel
+    {
+        get => _CollectionUserModel;
+        set
         {
-            get => _userModel;
-            set
-            {
-                _userModel = value;
-                OnPropertyChanged(nameof(User));
-            }
+            _CollectionUserModel = value;
+            OnPropertyChanged(nameof(CollectionUserModel));
         }
+    }
 
-        public DataTable dtUsers
+
+    public UserModel User
+    {
+        get => _userModel;
+        set
         {
-            get => _dtUsers;
-
-            set
-            {
-                _dtUsers = value;
-                OnPropertyChanged(nameof(dtUsers));
-            }
+            _userModel = value;
+            OnPropertyChanged(nameof(User));
         }
+    }
 
-        //commands
-        public ICommand AddCommand { get; }
-        public ICommand updateCommand { get; }
-        public ICommand GetUsersByUsernameCommand { get; }
-        public ICommand GetUsersCommand { get; }
 
-        //constructor
-        public LaboratoristasViewModel()
+    //commands
+    public ICommand AddCommand { get; }
+    public ICommand updateCommand { get; }
+    public ICommand GetAllCommand { get; }
+
+
+    private void ExecuteGetAllCommand(object obj)
+    {
+        CollectionUserModel = new ObservableCollection<UserModel>(userRepository.GetByAll());
+    }
+
+    private void ExecuteGetUsersByUsername(object obj)
+    {
+        User = userRepository.GetByUsername(_idSelector);
+
+        Id = User.Id;
+        FirstName = User.FirstName;
+        LastName = User.LastName;
+        Username = User.Username;
+        Password = User.Password;
+        Carrera = User.Carrera;
+        TipoEmpleado = User.TipoEmpleado;
+        Area = User.Area;
+    }
+
+    private void ExecuteUpdateCommand(object obj)
+    {
+        _userModel = new UserModel
         {
-            userRepository = new UserRepository();
-            updateCommand = new ViewModelCommand(ExecuteUpdateCommand, CanUpdateCommand);
-            AddCommand = new ViewModelCommand(ExecuteAddCommand);
-            GetUsersByUsernameCommand = new ViewModelCommand(ExecuteGetUsersByUsername);
-            GetUsersCommand = new ViewModelCommand(ExecuteGetUsersCommand);
-        }
+            Id = Id,
+            FirstName = FirstName,
+            LastName = LastName,
+            Username = Username,
+            Password = Password,
+            Carrera = Carrera,
+            TipoEmpleado = TipoEmpleado,
+            Area = Area
+        };
+        userRepository.Edit(_userModel);
+    }
 
-        private void ExecuteGetUsersCommand(object obj)
+    private bool CanUpdateCommand(object obj)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void ExecuteAddCommand(object obj)
+    {
+        var a = new UserModel
         {
-            _dtUsers = userRepository.GetByAllDataTable();
-        }
-
-        private void ExecuteGetUsersByUsername(object obj)
-        {
-
-            User = userRepository.GetByUsername(_idSelector);
-
-            Id = User.Id;
-            FirstName = User.FirstName;
-            LastName = User.LastName;
-            Username = User.Username;
-            Password = User.Password;
-            Carrera = User.Carrera;
-            TipoEmpleado = User.TipoEmpleado;
-            Area = User.Area;
-        }
-
-        private void ExecuteUpdateCommand(object obj)
-        {
-            _userModel = new UserModel()
-            {
-                Id = Id,
-                FirstName = FirstName,
-                LastName = LastName,
-                Username = Username,
-                Password = Password,
-                Carrera = Carrera,
-                TipoEmpleado = TipoEmpleado,
-                Area = Area
-            };
-            userRepository.Edit(_userModel);
-        }
-
-        private bool CanUpdateCommand(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ExecuteAddCommand(object obj)
-        {
-
-            var a = new UserModel
-            {
-                FirstName = FirstName,
-                LastName = LastName,
-                Username = Username,
-                Password = Password,
-                Carrera = Carrera,
-                TipoEmpleado = TipoEmpleado,
-                Area = Area
-            };
-            userRepository.Add(a);
-
-        }
+            FirstName = FirstName,
+            LastName = LastName,
+            Username = Username,
+            Password = Password,
+            Carrera = Carrera,
+            TipoEmpleado = TipoEmpleado,
+            Area = Area
+        };
+        userRepository.Add(a);
     }
 }

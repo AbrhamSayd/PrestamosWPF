@@ -5,9 +5,7 @@
     xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-    xmlns:local="clr-namespace:PrestamosWPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
     xmlns:viewModels="clr-namespace:PrestamosWPF.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -15,17 +13,18 @@
     <UserControl.DataContext>
         <viewModels:LaboratoristasViewModel />
     </UserControl.DataContext>
+
     <DockPanel>
         <StackPanel
             Margin="20,10,0,20"
             HorizontalAlignment="left"
             DockPanel.Dock="top">
             <TextBlock
-                Text="Laboratoristas"
                 FontFamily="Roboto Mono"
                 FontSize="30"
                 FontWeight="SemiBold"
                 Foreground="#31579d"
+                Text="Laboratoristas"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
         </StackPanel>
@@ -41,52 +40,122 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel
-                Grid.Column="0"
-                VerticalAlignment="Top"
-                Orientation="Horizontal">
-                    <fa:IconImage
-                    Width="20"
-                    Height="20"
-                    Foreground="#1e355e"
-                    Icon="Search" />
-                    <TextBox
-                    Width="300"
-                    Height="24"
-                    Margin="5,5,0,0"
-                    VerticalContentAlignment="Center"
-                    Background="Transparent"
-                    BorderBrush="#1e355e"
-                    BorderThickness="0,0,0,1"
-                    CaretBrush="#1e355e"
-                    FontFamily="Montserrat"
-                    FontSize="13"
-                    FontWeight="Medium"
-                    Foreground="#1e355e"
-                    Text="Search..." />
-                </StackPanel>
-                <Button
-                    Margin="0,5,0,0"
-                    Grid.Column="1"
+                    Grid.Column="0"
                     VerticalAlignment="Top"
-                    Style="{StaticResource CardButton}"
-                    Command="{Binding GetUsersCommand}"
-                    Content="Buscar"
-                >
-                    
-                </Button>
+                    Orientation="Horizontal">
+                    <fa:IconImage
+                        Width="20"
+                        Height="20"
+                        Foreground="#1e355e"
+                        Icon="Search" />
+                    <TextBox
+                        Width="300"
+                        Height="24"
+                        Margin="5,5,0,0"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        BorderBrush="#1e355e"
+                        BorderThickness="0,0,0,1"
+                        CaretBrush="#1e355e"
+                        FontFamily="Montserrat"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        Foreground="#1e355e"
+                        Text="Search..." />
+                </StackPanel>
                 <StackPanel Grid.Column="2">
                     <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
-                    <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10"/>
+                    <customControls:btnCardViewTemplate Margin="10" HorizontalAlignment="Right" />
                 </StackPanel>
             </Grid>
             <Border
-            Grid.Row="1"
-            Padding="10"
-            Background="White"
-            CornerRadius="20">
+                Grid.Row="1"
+                Padding="5,0,5,5"
+                Background="White"
+                CornerRadius="20">
                 <DataGrid
-                AutoGenerateColumns="True"
-                ItemsSource="{Binding dtUsers, Mode=TwoWay, NotifyOnSourceUpdated=True}" />
+                    CellStyle="{DynamicResource DataGridCellStyle1}"
+                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                    ItemsSource="{Binding CollectionUserModel}"
+                    RowStyle="{DynamicResource DataGridRowStyle1}"
+                    Style="{DynamicResource DataGridStyle1}">
+
+                    <DataGrid.Columns>
+
+                        <!--  CheckBox Column  -->
+                        <DataGridCheckBoxColumn
+                            Width="auto"
+                            CanUserReorder="False"
+                            CanUserResize="False">
+                            <DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox />
+                                </DataTemplate>
+                            </DataGridCheckBoxColumn.HeaderTemplate>
+                        </DataGridCheckBoxColumn>
+
+                        <!--  ID Column  -->
+                        <DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding Id}"
+                            Header="ID"
+                            IsReadOnly="True" />
+
+                        <!--  Nombre Column  -->
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding FirstName}"
+                            Header="Nombre"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding LastName}"
+                            Header="Apellidos"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding Username}"
+                            Header="Username"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding Carrera}"
+                            Header="Carrera"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding TipoEmpleado}"
+                            Header="Tipo de usuario"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="Auto"
+                            Binding="{Binding Area}"
+                            Header="Area"
+                            IsReadOnly="True" />
+
+                        <!--  Operations Column  -->
+                        <DataGridTemplateColumn
+                            Width="auto"
+                            CanUserResize="False"
+                            Header="Operaciones"
+                            IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource GridEditButton}">
+                                            <fa:IconImage Icon="Edit" />
+                                        </Button>
+                                        <Button Style="{StaticResource GridDeleteButton}">
+                                            <fa:IconImage Icon="Trash" />
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
             </Border>
         </Grid>
     </DockPanel>

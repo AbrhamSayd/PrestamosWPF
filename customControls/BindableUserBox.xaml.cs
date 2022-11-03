@@ -1,33 +1,31 @@
-﻿using System;
-using System.Security;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace PrestamosWPF.customControls
+namespace PrestamosWPF.customControls;
+
+/// <summary>
+///     Lógica de interacción para BindableUserBox.xaml
+/// </summary>
+public partial class BindableUserBox : UserControl
 {
-    /// <summary>
-    /// Lógica de interacción para BindableUserBox.xaml
-    /// </summary>
-    public partial class BindableUserBox : UserControl
+    public static readonly DependencyProperty UsernameProperty =
+        DependencyProperty.Register("Username", typeof(string), typeof(BindableUserBox));
+
+    public BindableUserBox()
     {
-        public static readonly DependencyProperty UsernameProperty =
-            DependencyProperty.Register("Username", typeof(String), typeof(BindableUserBox));
+        InitializeComponent();
 
-        public String Username
-        {
-            get { return (string)GetValue(UsernameProperty); }
-            set { SetValue(UsernameProperty, value); }
-        }
-        public BindableUserBox()
-        {
-            InitializeComponent();
-            
-            TxtUser.TextChanged += OnUsernameChanged;
-        }
+        TxtUser.TextChanged += OnUsernameChanged;
+    }
 
-        public void OnUsernameChanged(object sender, RoutedEventArgs e)
-        {
-            Username = TxtUser.Text;
-        }
+    public string Username
+    {
+        get => (string)GetValue(UsernameProperty);
+        set => SetValue(UsernameProperty, value);
+    }
+
+    public void OnUsernameChanged(object sender, RoutedEventArgs e)
+    {
+        Username = TxtUser.Text;
     }
 }

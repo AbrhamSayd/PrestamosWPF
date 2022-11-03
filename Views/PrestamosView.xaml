@@ -5,9 +5,7 @@
     xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-    xmlns:local="clr-namespace:PrestamosWPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="clr-namespace:PrestamosWPF.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -67,11 +65,10 @@
                     VerticalAlignment="Top"
                     Content="Buscar"
                     Cursor="Hand"
-                    Style="{StaticResource CardButton}">
-                </Button>
+                    Style="{StaticResource CardButton}" />
                 <StackPanel Grid.Column="2">
                     <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
-                    <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10"/>
+                    <customControls:btnCardViewTemplate HorizontalAlignment="Right" Margin="10" />
                 </StackPanel>
             </Grid>
             <Border
@@ -79,12 +76,12 @@
                 Background="White"
                 Padding="5,0,5,5"
                 CornerRadius="20">
-                <DataGrid 
+                <DataGrid
                     ItemsSource="{Binding }"
-                    Style="{DynamicResource DataGridStyle1}" 
+                    Style="{DynamicResource DataGridStyle1}"
                     CellStyle="{DynamicResource DataGridCellStyle1}"
-                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
-                    RowStyle="{DynamicResource DataGridRowStyle1}" >
+                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                    RowStyle="{DynamicResource DataGridRowStyle1}">
 
                     <DataGrid.Columns>
 
@@ -92,21 +89,23 @@
                         <DataGridCheckBoxColumn CanUserResize="False" CanUserReorder="False" Width="auto">
                             <DataGridCheckBoxColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <CheckBox/>
+                                    <CheckBox />
                                 </DataTemplate>
                             </DataGridCheckBoxColumn.HeaderTemplate>
                         </DataGridCheckBoxColumn>
 
                         <!--ID Column-->
-                        <DataGridTextColumn Header="ID" IsReadOnly="True" Width="Auto"/>
-                        
+                        <DataGridTextColumn Header="ID" IsReadOnly="True" Width="Auto" />
+
                         <!--Nombre Column-->
                         <DataGridTemplateColumn Header="Nombre" IsReadOnly="True" CanUserResize="False" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0,0,10,0" Background="Red">
-                                            <TextBlock Text="..." VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,1"/>
+                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0,0,10,0"
+                                                Background="Red">
+                                            <TextBlock Text="..." VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,1" />
                                         </Border>
                                     </StackPanel>
                                 </DataTemplate>
@@ -114,30 +113,31 @@
                         </DataGridTemplateColumn>
 
                         <!--Carrera Column-->
-                        <DataGridTextColumn Header="Carrera" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Carrera" IsReadOnly="True" Width="Auto" />
 
                         <!--Área Column-->
-                        <DataGridTextColumn Header="Área" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Área" IsReadOnly="True" Width="*" />
 
                         <!--Herramienta Column-->
-                        <DataGridTextColumn Header="Herramienta" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Herramienta" IsReadOnly="True" Width="*" />
 
                         <!--Cantidad Column-->
-                        <DataGridTextColumn Header="Cantidad" IsReadOnly="True" Width="Auto"/>
+                        <DataGridTextColumn Header="Cantidad" IsReadOnly="True" Width="Auto" />
 
                         <!--Fecha del Prestamo Column-->
-                        <DataGridTextColumn Header="Fecha del Prestamo" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Fecha del Prestamo" IsReadOnly="True" Width="*" />
 
                         <!--Operations Column-->
-                        <DataGridTemplateColumn Header="Operaciones" IsReadOnly="True" CanUserResize="False" Width="auto">
+                        <DataGridTemplateColumn Header="Operaciones" IsReadOnly="True" CanUserResize="False"
+                                                Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Button Style="{StaticResource GridEditButton}">
-                                            <fa:IconImage Icon="Edit"/>
+                                            <fa:IconImage Icon="Edit" />
                                         </Button>
                                         <Button Style="{StaticResource GridDeleteButton}">
-                                            <fa:IconImage Icon="Trash"/>
+                                            <fa:IconImage Icon="Trash" />
                                         </Button>
                                     </StackPanel>
                                 </DataTemplate>

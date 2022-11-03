@@ -5,7 +5,6 @@
     xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-    xmlns:local="clr-namespace:PrestamosWPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:PrestamosWPF.ViewModels"
     d:DesignHeight="450"
@@ -28,6 +27,7 @@
                 Text="Laboratorios"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
+            <TextBlock Text="{Binding LabsModelRow}" />
         </StackPanel>
         <Grid>
             <Grid.RowDefinitions>
@@ -64,13 +64,6 @@
                         Foreground="#1e355e"
                         Text="Search..." />
                 </StackPanel>
-                <Button
-                    Grid.Column="1"
-                    Margin="0,5,0,0"
-                    VerticalAlignment="Top"
-                    Command="{Binding GetByAllCommand}"
-                    Content="Buscar"
-                    Style="{StaticResource CardButton}" />
                 <StackPanel Grid.Column="2">
                     <!--<Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource BtnAgregarStyle}" Margin="10"/>-->
                     <customControls:btnCardViewTemplate Margin="10" HorizontalAlignment="Right" />
@@ -86,89 +79,47 @@
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                     ItemsSource="{Binding LabsModel}"
                     RowStyle="{DynamicResource DataGridRowStyle1}"
+                    SelectedItem="{Binding LabsModelRow}"
                     Style="{DynamicResource DataGridStyle1}">
 
                     <DataGrid.Columns>
 
                         <!--  CheckBox Column  -->
                         <DataGridCheckBoxColumn
-                            Width="auto"
+                            Width="45"
+                            
                             CanUserReorder="False"
                             CanUserResize="False">
                             <DataGridCheckBoxColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <CheckBox />
+                                    <CheckBox IsChecked="{Binding DataContext.isChecked, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
                                 </DataTemplate>
                             </DataGridCheckBoxColumn.HeaderTemplate>
+
                         </DataGridCheckBoxColumn>
 
                         <!--  ID Column  -->
                         <DataGridTextColumn
-                            Width="Auto"
+                            Width="*"
+                            Binding="{Binding id_lab}"
                             Header="ID"
                             IsReadOnly="True" />
 
                         <!--  Nombre Column  -->
-                        <DataGridTemplateColumn
-                            Width="*"
-                            S
-                            CanUserResize="False"
-                            Header="Nombre"
-                            IsReadOnly="True">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border
-                                            Width="25"
-                                            Height="25"
-                                            Margin="0,0,10,0"
-                                            Background="Red"
-                                            CornerRadius="50">
-                                            <TextBlock
-                                                Margin="0,0,0,1"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Foreground="White"
-                                                Text="..." />
-                                        </Border>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <!--  Carrera Column  --><!--
-                        <DataGridTextColumn
-                            Width="Auto"
-                            Header="Carrera"
-                            IsReadOnly="True" />
-
-                        --><!--  Área Column  --><!--
                         <DataGridTextColumn
                             Width="*"
-                            Header="Área"
+                            Binding="{Binding id_user}"
+                            Header="Nombre de usuario"
                             IsReadOnly="True" />
-
-                        --><!--  Herramienta Column  --><!--
                         <DataGridTextColumn
                             Width="*"
-                            Header="Herramienta"
+                            Binding="{Binding ubicacion}"
+                            Header="Ubicacion"
                             IsReadOnly="True" />
-
-                        --><!--  Cantidad Column  --><!--
-                        <DataGridTextColumn
-                            Width="Auto"
-                            Header="Cantidad"
-                            IsReadOnly="True" />
-
-                        --><!--  Fecha del Prestamo Column  --><!--
-                        <DataGridTextColumn
-                            Width="*"
-                            Header="Fecha del Prestamo"
-                            IsReadOnly="True" />-->
 
                         <!--  Operations Column  -->
                         <DataGridTemplateColumn
-                            Width="auto"
+                            Width="*"
                             CanUserResize="False"
                             Header="Operaciones"
                             IsReadOnly="True">
@@ -178,15 +129,16 @@
                                         <Button Style="{StaticResource GridEditButton}">
                                             <fa:IconImage Icon="Edit" />
                                         </Button>
-                                        <Button Style="{StaticResource GridDeleteButton}">
+                                        <Button Command="{Binding RemoveCommand}" Style="{StaticResource GridDeleteButton}">
                                             <fa:IconImage Icon="Trash" />
+                                            <Button.DataContext>
+                                                <viewModels:LaboratoriosViewModel />
+                                            </Button.DataContext>
                                         </Button>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
-
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>

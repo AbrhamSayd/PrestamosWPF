@@ -1,129 +1,115 @@
-﻿using PrestamosWPF.Models;
-using PrestamosWPF.Repositories;
-using System;
+﻿using System;
 using System.Net;
 using System.Security;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Input;
-using IUserRepository = PrestamosWPF.Repositories.IUserRepository;
+using PrestamosWPF.Repositories;
 
+namespace PrestamosWPF.ViewModels;
 
-namespace PrestamosWPF.ViewModels
+public class LoginViewModel : ViewModelBase
 {
-    public class LoginViewModel : ViewModelBase
+    private string _errorMessage;
+    private bool _isViewVisible = true;
+
+    private SecureString _password;
+
+    //Fields
+    private string _username;
+
+    private readonly IUserRepository userRepository; // interface de usuario
+
+    //Constructor
+    public LoginViewModel()
     {
-        //Fields
-        private string _username;
-        private SecureString _password;
-        private string _errorMessage;
-        private bool _isViewVisible = true;
+        userRepository = new UserRepository();
+        LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
+        RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
+    }
 
-        private IUserRepository userRepository; // interface de usuario
+    //Properties
+    public string Username
+    {
+        get => _username;
 
-        //Properties
-        public string Username
+        set
         {
-            get
-            {
-                return _username;
-            }
-
-            set
-            {
-                _username = value;
-                OnPropertyChanged(nameof(Username)); //Mandamos a informar que la propiedad cambio
-            }
+            _username = value;
+            OnPropertyChanged(nameof(Username)); //Mandamos a informar que la propiedad cambio
         }
+    }
 
-        public SecureString Password
+    public SecureString Password
+    {
+        get => _password;
+
+        set
         {
-            get
-            {
-                return _password;
-            }
-
-            set
-            {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
-            }
+            _password = value;
+            OnPropertyChanged(nameof(Password));
         }
+    }
 
-        public string ErrorMessage
+    public string ErrorMessage
+    {
+        get => _errorMessage;
+
+        set
         {
-            get
-            {
-                return _errorMessage;
-            }
-
-            set
-            {
-                _errorMessage = value;
-                OnPropertyChanged(nameof(ErrorMessage));
-            }
+            _errorMessage = value;
+            OnPropertyChanged(nameof(ErrorMessage));
         }
+    }
 
-        public bool IsViewVisible
+    public bool IsViewVisible
+    {
+        get => _isViewVisible;
+
+        set
         {
-            get
-            {
-                return _isViewVisible;
-            }
+            _isViewVisible = value;
 
-            set
-            {
-                _isViewVisible = value;
-                
-                OnPropertyChanged(nameof(IsViewVisible));
-            }
+            OnPropertyChanged(nameof(IsViewVisible));
         }
+    }
 
-        //-> Commands
-        public ICommand LoginCommand { get; }
-        public ICommand RecoverPasswordCommand { get; }
-        public ICommand ShowPasswordCommand { get; }
-        public ICommand RememberPasswordCommand { get; }
+    //-> Commands
+    public ICommand LoginCommand { get; }
+    public ICommand RecoverPasswordCommand { get; }
+    public ICommand ShowPasswordCommand { get; }
+    public ICommand RememberPasswordCommand { get; }
 
-        //Constructor
-        public LoginViewModel()
+    private bool CanExecuteLoginCommand(object obj)
+    {
+        //verificamos si los datos son correctos para avisar que si podemos ejecutar
+        bool validData;
+        if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
+            Password == null || Password.Length < 3)
+            validData = false;
+        else
+            validData = true;
+        return validData;
+    }
+
+    private void ExecuteLoginCommand(object obj)
+    {
+        var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
+        if (isValidUser)
         {
-            userRepository = new UserRepository();
-            LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
+            Thread.CurrentPrincipal = new GenericPrincipal(
+                new GenericIdentity(Username), null);
+            IsViewVisible = false;
+            ErrorMessage = "Connexion Correcta";
         }
-
-        private bool CanExecuteLoginCommand(object obj)
+        else
         {
-            //verificamos si los datos son correctos para avisar que si podemos ejecutar
-            bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
-                Password == null || Password.Length < 3)
-                validData = false;
-            else
-                validData = true;
-            return validData;
+            ErrorMessage = "* Contraseña o nombre de usuario invalido";
         }
+    }
 
-        private void ExecuteLoginCommand(object obj)
-        {
-            var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
-            if (isValidUser)
-            {
-                Thread.CurrentPrincipal = new GenericPrincipal(
-                    new GenericIdentity(Username), null);
-                IsViewVisible = false;
-                ErrorMessage = "Connexion Correcta";
-            }
-            else
-            {
-                ErrorMessage = "* Contraseña o nombre de usuario invalido";
-            }
-        }
-
-        private void ExecuteRecoverPassCommand(string username, string email)
-        {
-            throw new NotImplementedException();
-        }
+    private void ExecuteRecoverPassCommand(string username, string email)
+    {
+        throw new NotImplementedException();
     }
 }

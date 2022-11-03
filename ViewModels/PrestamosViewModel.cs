@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿namespace PrestamosWPF.ViewModels;
 
-namespace PrestamosWPF.ViewModels
+public class PrestamosViewModel : ViewModelBase
 {
-    public class PrestamosViewModel : ViewModelBase
-    {
-
-    }
 }
