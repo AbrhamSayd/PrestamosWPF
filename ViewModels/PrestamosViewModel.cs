@@ -13,6 +13,7 @@ public class PrestamosViewModel : ViewModelBase
 
     public PrestamosViewModel()
     {
+        RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand);
         _colectionLendingModels = new ObservableCollection<LendingModel>();
         _lendingRepository = new LendingRepository();
         ExecuteGetAllCommand(null);
@@ -42,8 +43,8 @@ public class PrestamosViewModel : ViewModelBase
 
     private void ExecuteRemoveCommand(object obj)
     {
-        _lendingRepository.Remove(int.Parse(LendingModelRow.id_lending));
-        _colectionLendingModels = new ObservableCollection<LendingModel>(_lendingRepository.GetByAll());
+        _lendingRepository.Remove(int.Parse(_lendingModelRow.id_lending));
+        ExecuteGetAllCommand(null);
     }
     private void ExecuteGetAllCommand(object obj)
     {
