@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace PrestamosWPF.Views;
+namespace PrestamosWPF.Views.Fields;
 
 /// <summary>
 ///     Lógica de interacción para LaboratoriosFieldsView.xaml

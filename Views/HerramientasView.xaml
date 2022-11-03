@@ -67,14 +67,21 @@
                         Foreground="#1e355e"
                         Text="Search..." />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Grid.Column="2">
+                <StackPanel
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
 
-                    <!--BOTON Editar-->
-                    <Button Style="{StaticResource GridEditButton}"
-                            Height="30" Width="30" Margin="0,0,15,0">
+                    <!--  BOTON Editar  -->
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,15,0"
+                        Style="{StaticResource GridEditButton}">
                         <fa:IconImage Icon="Edit" />
                     </Button>
 
+<<<<<<< HEAD
                     <!--BOTON Eliminar-->
                     <Button Command="{Binding RemoveCommand}" 
                         Style="{StaticResource GridDeleteButton}"
@@ -85,6 +92,27 @@
                     <!--BOTON AGREGAR-->
                     <Button Command="{Binding FieldsViewChild}" Style="{StaticResource BtnAgregarStyle}" HorizontalAlignment="Right" Margin="10">
                         <fa:IconImage Style="{StaticResource AddIconStyle}"/>
+=======
+                    <!--  BOTON Eliminar  -->
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,15,0"
+                        Style="{StaticResource GridDeleteButton}">
+                        <fa:IconImage Icon="Trash" />
+                    </Button>
+
+                    <!--  BOTON AGREGAR  -->
+                    <Button
+                        Margin="10"
+                        HorizontalAlignment="Right"
+                        Command="{Binding ShowAddHerramientasCommand}"
+                        Style="{StaticResource BtnAgregarStyle}">
+                        <Button.DataContext>
+                            <viewModels:MainViewModel/>
+                        </Button.DataContext>
+                        <fa:IconImage Style="{StaticResource AddIconStyle}" />
+>>>>>>> Act
                     </Button>
 
                 </StackPanel>

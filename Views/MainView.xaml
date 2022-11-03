@@ -5,6 +5,7 @@
     xmlns:customControls="clr-namespace:PrestamosWPF.customControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+    xmlns:fields="clr-namespace:PrestamosWPF.Views.Fields"
     xmlns:local="clr-namespace:PrestamosWPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:PrestamosWPF.ViewModels"
@@ -27,18 +28,28 @@
         <DataTemplate DataType="{x:Type viewModel:PrestamosViewModel}">
             <local:PrestamosView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModelsFields:PrestamosFieldsViewModel}">
+            <fields:PrestamosFieldView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:HerramientasViewModel}">
             <local:HerramientasView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModelsFields:HerramientasFieldsViewModel}">
+            <fields:LaboratoristasFieldsView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:LaboratoriosViewModel}">
             <local:LaboratoriosView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModelsFields:LaboratoriosFieldsViewModel}">
+            <fields:LaboratoriosFieldsView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:LaboratoristasViewModel}">
             <local:LaboratoristasView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModelsFields:HerramientasFieldsViewModel}">
-            <local:HerramientasFieldsView />
+        <DataTemplate DataType="{x:Type viewModelsFields:LaboratoristasFieldsViewModel}">
+            <fields:LaboratoristasFieldsView />
         </DataTemplate>
+
 
     </Window.Resources>
 

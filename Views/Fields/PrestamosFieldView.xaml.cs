@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace PrestamosWPF.Views;
+namespace PrestamosWPF.Views.Fields;
 
 /// <summary>
 ///     Lógica de interacción para PrestamosFieldView.xaml

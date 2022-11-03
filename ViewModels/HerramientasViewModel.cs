@@ -4,6 +4,7 @@ using PrestamosWPF.Repositories;
 using System.Windows.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Windows.Media.Media3D;
+using static PrestamosWPF.ViewModels.MainViewModel;
 
 namespace PrestamosWPF.ViewModels;
 

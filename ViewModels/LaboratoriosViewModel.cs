@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media.Media3D;
 using PrestamosWPF.Models;
 using PrestamosWPF.Repositories;
+using PrestamosWPF.ViewModels.Fields;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PrestamosWPF.ViewModels;
@@ -26,9 +27,10 @@ public class LaboratoriosViewModel : ViewModelBase
         RemoveCommand = new ViewModelCommand(ExecuteRemoveCommand, CanExecuteRemoveCommand);
         GetByIdCommand = new ViewModelCommand(ExecuteGetByIdCommand);
         ExecuteGetAllCommand(null);
+
     }
 
-    
+
 
 
     //fields
@@ -51,18 +53,22 @@ public class LaboratoriosViewModel : ViewModelBase
             OnPropertyChanged(nameof(SelectIndex));
         }
     }
+
     public LabsModel LabsModelRow
     {
         get => _labsModelRow;
         set
         {
-            _labsModelRow = value; 
+            _labsModelRow = value;
             OnPropertyChanged(nameof(LabsModelRow));
         }
     }
+
     //commands
     public ICommand RemoveCommand { get; }
     public ICommand GetByIdCommand { get; }
+
+    public ICommand ShowHerramientasAddCommand { get; }
 
     //Out of use
     public ICommand GetAllCommand { get; }
@@ -75,12 +81,14 @@ public class LaboratoriosViewModel : ViewModelBase
         //LabsTable = labsRepository.GetByAll();
         LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
     }
+
     //REVISAR
     private void ExecuteRemoveCommand(object obj)
     {
         _labsRepository.Remove(int.Parse(_labsModelRow.id_lab));
         LabsModel = new ObservableCollection<LabsModel>(_labsRepository.GetByAll());
     }
+
     private bool CanExecuteRemoveCommand(object obj)
     {
         return true;
@@ -91,4 +99,5 @@ public class LaboratoriosViewModel : ViewModelBase
     {
         throw new NotImplementedException();
     }
+
 }
