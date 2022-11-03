@@ -76,11 +76,10 @@
             </Grid>
             <Border
                 Grid.Row="1"
-                Padding="10"
                 Background="White"
+                Padding="5,0,5,5"
                 CornerRadius="20">
                 <DataGrid 
-                    
                     Style="{DynamicResource DataGridStyle1}" 
                     CellStyle="{DynamicResource DataGridCellStyle1}"
                     ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
