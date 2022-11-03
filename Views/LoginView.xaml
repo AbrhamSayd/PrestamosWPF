@@ -103,8 +103,7 @@
                         </Button.Template>
                     </Button>
                 </Border>
-
-
+               
                 <TextBlock
                     x:Name="TxtErrorMessage"
                     Width="310"
@@ -117,8 +116,6 @@
                     Foreground="White"
                     Text="{Binding ErrorMessage}"
                     TextAlignment="Center" />
-
-
 
                 <StackPanel
                     Margin="0,15,0,0"
