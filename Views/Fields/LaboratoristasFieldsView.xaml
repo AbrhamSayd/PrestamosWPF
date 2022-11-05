@@ -98,15 +98,20 @@
                     </StackPanel>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Button
-                        Margin="20"
-                        Style="{StaticResource CardButton}">
-                        <TextBlock Text="Cancelar" FontSize="20" Margin="20,6,20,6" />
+                    <Button Margin="20" Style="{StaticResource CardButton}">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="20"
+                            Text="Cancelar" />
                     </Button>
                     <Button
                         Margin="20"
+                        Command="{Binding AddCommand}"
                         Style="{StaticResource CardButton}">
-                        <TextBlock Text="Aceptar" FontSize="20" Margin="20,6,20,6" />
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="20"
+                            Text="Aceptar" />
                     </Button>
                 </DockPanel>
             </DockPanel>
