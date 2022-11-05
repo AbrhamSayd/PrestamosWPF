@@ -116,7 +116,7 @@
 
                         <!--  ID Column  -->
                         <DataGridTextColumn
-                            Width="*"
+                            Width="auto"
                             Binding="{Binding id_tool}"
                             Header="ID"
                             IsReadOnly="True" />
@@ -133,7 +133,7 @@
                             Header="Descripcion"
                             IsReadOnly="True" />
                         <DataGridTextColumn
-                            Width="*"
+                            Width="auto"
                             Binding="{Binding cantidad}"
                             Header="Cantidad"
                             IsReadOnly="True" />

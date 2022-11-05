@@ -27,8 +27,9 @@ public class MainViewModel : ViewModelBase
         ShowHerramientasCommand = new ViewModelCommand(ExecuteShowHerramientasCommand);
         ShowLaboratoriosCommand = new ViewModelCommand(ExecuteShowLaboratoriosCommand);
         ShowLaboratoristasCommand = new ViewModelCommand(ExecuteShowLaboratistasCommand);
-        
 
+        CurrentChidlView = new PrestamosViewModel();
+        actualModel = "Prestamos";
         LoadCurrentUserdata();
     }
 

@@ -23,7 +23,7 @@
                 Foreground="#31579d"
                 TextAlignment="Left"
                 TextWrapping="Wrap">
-                <Run Language="es-mx" Text="Herramienta" />
+                <Run Language="es-mx"/>
             </TextBlock>
         </StackPanel>
 

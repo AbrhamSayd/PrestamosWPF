@@ -321,8 +321,6 @@
                             HorizontalAlignment="Left"
                             Orientation="Horizontal">
 
-                           
-
                         </StackPanel>
                         <StackPanel
                             Grid.Row="0"
@@ -334,6 +332,18 @@
                             <customControls:btnClose Margin="5" />
                         </StackPanel>
 
+                        <TextBlock
+                            Margin="30,0,0,0"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="Roboto Mono"
+                            FontSize="30"
+                            FontWeight="SemiBold"
+                            Foreground="#31579d"
+                            Text="{Binding actualModel}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
 
                         <!--  BOTON AGREGAR  -->
                         <Button

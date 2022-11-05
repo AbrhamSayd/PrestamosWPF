@@ -115,7 +115,7 @@
 
                         <!--  ID Column  -->
                         <DataGridTextColumn
-                            Width="*"
+                            Width="auto"
                             Binding="{Binding id_lab}"
                             Header="ID"
                             IsReadOnly="True" />

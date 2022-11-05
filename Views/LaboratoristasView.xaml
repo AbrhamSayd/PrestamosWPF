@@ -139,12 +139,12 @@
                             Header="Carrera"
                             IsReadOnly="True" />
                         <DataGridTextColumn
-                            Width="Auto"
+                            Width="*"
                             Binding="{Binding TipoEmpleado}"
                             Header="Tipo de usuario"
                             IsReadOnly="True" />
                         <DataGridTextColumn
-                            Width="Auto"
+                            Width="*"
                             Binding="{Binding Area}"
                             Header="Area"
                             IsReadOnly="True" />

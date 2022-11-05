@@ -102,7 +102,7 @@
 
                         <!--  CheckBox Column  -->
                         <DataGridCheckBoxColumn
-                            Width="*"
+                            Width="auto"
                             CanUserReorder="False"
                             CanUserResize="False">
                             <DataGridCheckBoxColumn.HeaderTemplate>
@@ -114,7 +114,7 @@
 
                         <!--  ID Column  -->
                         <DataGridTextColumn
-                            Width="*"
+                            Width="auto"
                             Binding="{Binding id_lending}"
                             Header="ID"
                             IsReadOnly="True" />
